@@ -5,7 +5,7 @@ function NextPage() {
     <div>
       <h1>Next Page</h1>
       <Link href="/">
-        <a>Go back to home page</a>
+        <a>Go back to home page...</a>
       </Link>
     </div>
   );
