@@ -4,20 +4,20 @@ border bright_green gradient -> "#00E43D"
 border dark_green gradient -> "#006600"
 */}
 
-import { DM_Sans } from 'next/font/google'
+import { DM_Sans } from 'next/font/google';
 const dmsans = DM_Sans({
     subsets: ['latin'],
     display: 'swap',
-})
+});
 
 const PastEvents = () => {
     return (
-        <div className={`block outline-2 outline-white p-4 rounded-lg w-[472px] ${dmsans.className}`}>
+        <div className={`block outline-2 outline-white p-4 rounded-lg max-w-[100%] ${dmsans.className}`}>
             <div className="relative">
                 <img
                     alt=""
-                    src="https://images.unsplash.com/photo-1605721911519-3dfeb3be25e7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWgelHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
-                    className="h-[472px] w-[472px] object-cover rounded-lg border-gradient filter drop-shadow-glow"
+                    src="https://s3-alpha-sig.figma.com/img/ea69/5937/2d0ba426506ee31eb9f73d09f81e8c1e?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FC4aflQ4xaOm8GdnX2JdjhDPY24ywS5cIxZCI4Z7f9Qyz~iWgry9AFIrNF5WUmoT06mZJ16Nk6W866C9oHzApXHzlERE~35qkrvxrp5xzBjr1ESff78WqxcTblOINdu2~2sGtN2XbdplmMVDX79lfzaNGStFhkcN2UnklaYQKK-5zhqIRopGuKEltLlcuRXi4WxT7JLFSXMdoYChOk2ErE6SIzfTBMLzKjLaYOl3nyQyN-1zMeEcSuMTIkyO20rUaqSS1SGmbIPi9Nw0uaRtT~prdDQK4qKljJnqRBoliYic9e~8o8NTqY1DbNc7fnkbMAC3s8~NPlQi5R-utpfrtQ__"
+                    className="h-full w-full object-cover rounded-lg border-gradient filter drop-shadow-glow"
                 />
             </div>
 
@@ -38,8 +38,8 @@ const PastEvents = () => {
                     filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.5));
                 }
             `}</style>
-        </div >
+        </div>
     );
-}
+};
 
 export default PastEvents;
