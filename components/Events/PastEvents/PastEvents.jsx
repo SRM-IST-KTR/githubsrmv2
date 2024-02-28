@@ -4,9 +4,15 @@ border bright_green gradient -> "#00E43D"
 border dark_green gradient -> "#006600"
 */}
 
+import { DM_Sans } from 'next/font/google'
+const dmsans = DM_Sans({
+    subsets: ['latin'],
+    display: 'swap',
+})
+
 const PastEvents = () => {
     return (
-        <div className="block outline-2 outline-white p-4 rounded-lg w-[472px]">
+        <div className={`block outline-2 outline-white p-4 rounded-lg w-[472px] ${dmsans.className}`}>
             <div className="relative">
                 <img
                     alt=""
@@ -32,7 +38,7 @@ const PastEvents = () => {
                     filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.5));
                 }
             `}</style>
-        </div>
+        </div >
     );
 }
 
