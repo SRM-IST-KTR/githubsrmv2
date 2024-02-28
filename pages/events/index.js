@@ -1,10 +1,10 @@
 import React from "react";
+import PastEvents from "@/components/Events/PastEvents/PastEvents";
 
 const Events = () => {
   return (
     <div>
-      <h1>Event Page</h1>
-      <p>Welcome to the Event page!</p>
+      <PastEvents />
     </div>
   );
 };
