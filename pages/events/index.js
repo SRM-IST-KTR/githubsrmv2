@@ -8,7 +8,7 @@ const Events = () => {
   return (
     <>
       <Hero
-        title={"hi"}
+        title={"hi"} // IF TITLE IS EMPTY, IT WILL RENDER COMPONENT DIV ELSE HERO COMPONENT
         date={"date"}
         location={"location"}
         timer={"timer"}
