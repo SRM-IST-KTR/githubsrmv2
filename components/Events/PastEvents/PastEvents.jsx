@@ -5,12 +5,21 @@ border dark_green gradient -> "#006600"
 */}
 
 import { DM_Sans } from 'next/font/google';
+
 const dmsans = DM_Sans({
     subsets: ['latin'],
     display: 'swap',
 });
 
-const PastEvents = () => {
+const PastEvents = ({
+    title,
+    certificateLink,
+}) => {
+
+    const GetCertificate = () => {
+        window.open(certificateLink, '_blank');
+    };
+
     return (
         <div className={`block outline-2 outline-white p-4 rounded-lg max-w-[100%] ${dmsans.className}`}>
             <div className="relative">
@@ -22,8 +31,13 @@ const PastEvents = () => {
             </div>
 
             <div className="flex items-center mt-4">
-                <h3 className="text-lg font-bold text-white sm:text-xl py-2 px-4 pl-0">Event Name</h3>
-                <button className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold h-9 w-40 rounded">Get Certificate</button>
+                <h3 className="text-lg font-bold text-white sm:text-xl py-2 px-4 pl-0">{title}</h3>
+                <button
+                    onClick={GetCertificate}
+                    className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold rounded h-9 w-40"
+                >
+                    Get Certificate
+                </button>
             </div>
 
             <style jsx>{`
