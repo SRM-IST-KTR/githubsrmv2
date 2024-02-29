@@ -34,19 +34,19 @@ const Hero = ({
                     </div>
 
                     {/* INFO */}
-                    <div class="w-full font-bold text-xl space-y-10">
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
+                    <div className="w-full font-bold text-xl space-y-10">
+                        <div className="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
                             {date.toUpperCase()}
                         </div>
 
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
+                        <div className="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
                             {location.toUpperCase()}
                         </div>
 
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
+                        <div className="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
                             {timer.toUpperCase()}
                         </div>
-                        <button class="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold h-9 w-full rounded-lg">Get Certificate</button>
+                        <button className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold h-9 w-full rounded-lg">Get Certificate</button>
                     </div>
 
                 </div>
