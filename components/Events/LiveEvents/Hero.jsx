@@ -67,20 +67,24 @@ const Hero = ({
         )
     }
     else return (
-        <div className={`mx-4 sm:mx-8 md:mx-16 lg:mx-32 p-8 sm:p-12 md:p-16 bg-event_gray ${dmsans.className} flex flex-col items-center justify-center rounded-md mb-8 sm:mb-12 lg:mb-16`}>
-            <div>
-                <Image
-                    src={Event_error}
-                    alt=""
-                    width={253}
-                    height={253}
-                    className="rounded-lg"
-                />
-            </div>
-            <div className="text-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-                New Fun Events Coming soon....
+        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center`}>
+            <div className="bg-event_gray p-4 sm:p-12 md:p-16 rounded-lg sm:mb-12 lg:mb-16 w-5/6 flex flex-col items-center">
+                <div>
+                    <Image
+                        src={Event_error}
+                        alt=""
+                        width={253}
+                        height={253}
+                        className="rounded-lg"
+                    />
+                </div>
+                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 text-2xl">
+                    New Fun Events Coming soon....
+                </div>
             </div>
         </div>
+
+
     )
 }
 
