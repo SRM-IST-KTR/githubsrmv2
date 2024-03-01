@@ -2,7 +2,7 @@ import React from "react";
 
 const Navbar = () => {
   return (
-    <nav>
+    <nav className="fixed bg-transparent z-50">
       <ul>
         <li>
           <a href="#">Home</a>
