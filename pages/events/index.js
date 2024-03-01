@@ -19,12 +19,12 @@ const Events = () => {
         <div className="bg-black/40 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
           <div className="rtl:sm:text-right mt-10 relative z-10">
             <Hero
-              title={""}
+              title={"hi"} // IF TITLE IS EMPTY, IT WILL RENDER NO EVENT DIV ELSE HERO COMPONENT
               poster={current_event}
               date={"date"}
               location={"location"}
               timer={"timer"}
-              certificateLink={"www.google.com"}
+              certificateLink={"https://youtu.be/dQw4w9WgXcQ?si=wmEcnnmzAuBRZrP9"}
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
@@ -50,7 +50,7 @@ const Events = () => {
             <PastEvents
               poster={"https://s3-alpha-sig.figma.com/img/ea69/5937/2d0ba426506ee31eb9f73d09f81e8c1e?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FC4aflQ4xaOm8GdnX2JdjhDPY24ywS5cIxZCI4Z7f9Qyz~iWgry9AFIrNF5WUmoT06mZJ16Nk6W866C9oHzApXHzlERE~35qkrvxrp5xzBjr1ESff78WqxcTblOINdu2~2sGtN2XbdplmMVDX79lfzaNGStFhkcN2UnklaYQKK-5zhqIRopGuKEltLlcuRXi4WxT7JLFSXMdoYChOk2ErE6SIzfTBMLzKjLaYOl3nyQyN-1zMeEcSuMTIkyO20rUaqSS1SGmbIPi9Nw0uaRtT~prdDQK4qKljJnqRBoliYic9e~8o8NTqY1DbNc7fnkbMAC3s8~NPlQi5R-utpfrtQ__"}
               title={"hello"}
-              certificateLink={"www.google.com"}
+              certificateLink={"https://youtu.be/dQw4w9WgXcQ?si=wmEcnnmzAuBRZrP9"}
             />
           </div>
         ))}
