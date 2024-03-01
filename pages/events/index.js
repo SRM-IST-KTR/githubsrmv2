@@ -16,10 +16,10 @@ const Events = () => {
           position: "relative",
         }}
       >
-        <div className="bg-black/40 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center h-full relative">
+        <div className="bg-black/40 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
           <div className="rtl:sm:text-right mt-10 relative z-10">
             <Hero
-              title={"hi"}
+              title={""}
               poster={current_event}
               date={"date"}
               location={"location"}
