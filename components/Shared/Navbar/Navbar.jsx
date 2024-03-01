@@ -5,13 +5,13 @@ const Navbar = () => {
     <nav className="fixed bg-transparent z-50">
       <ul>
         <li>
-          <a href="#">Home</a>
+          <a href="/">Home</a>
         </li>
         <li>
           <a href="#">About</a>
         </li>
         <li>
-          <a href="#">Services</a>
+          <a href="/events">Events</a>
         </li>
         <li>
           <a href="#">Contact</a>
