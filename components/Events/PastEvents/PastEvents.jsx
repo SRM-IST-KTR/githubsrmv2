@@ -49,13 +49,13 @@ const PastEvents = ({
             <style jsx>{`
                 .border-gradient {
                     border: 5px solid transparent;
-                    background: linear-gradient(to bottom, #00E43D, #006600, #00E43D);
-                    border-image: linear-gradient(to bottom, #00E43D, #006600, #00E43D);
+                    background: linear-gradient(to bottom, #00E43D, #000000, #00E43D);
+                    border-image: linear-gradient(to bottom, #00E43D, #000000, #00E43D);
                     border-image-slice: 1;
                 }
 
                 .drop-shadow-glow {
-                    filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.5));
+                    filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.4));
                 }
             `}</style>
         </div>
