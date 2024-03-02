@@ -14,10 +14,11 @@ const Events = () => {
           backgroundImage: `url(${heroimg_events.src})`,
           backgroundSize: "cover",
           position: "relative",
+          backgroundAttachment: "fixed", //fix the background image while scrolling to look good
         }}
       >
         <div className="bg-black/40 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
-          <div className="rtl:sm:text-right mt-10 relative z-10">
+          <div className="mt-10 relative z-10">
             <Hero
               title={"hi"} // IF TITLE IS EMPTY, IT WILL RENDER NO EVENT DIV ELSE HERO COMPONENT
               poster={current_event}
