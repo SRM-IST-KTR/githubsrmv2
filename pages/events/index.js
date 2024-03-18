@@ -16,12 +16,12 @@ const Events = () => {
     // Fetch data from your API
     const fetchData = async () => {
       try {
-        const response = await fetch("../api/v1/events"); // Assuming your API endpoint is '/api/events'
+        const response = await fetch("../api/v1/events");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setEventData(data.data); // Assuming the API response has a 'data' property containing the events
+        setEventData(data.data);
       } catch (error) {
         console.error(error);
       }
