@@ -1,4 +1,5 @@
-import React from 'react'
+"use client";
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import Event_error from "@/public/Event_error.svg";
 
@@ -16,7 +17,7 @@ const Hero = ({
     poster,
     date,
     location,
-    timer,
+    registrationCloseTime,
     certificateLink
 }) => {
     const GetCertificate = () => {
@@ -26,6 +27,45 @@ const Hero = ({
         }
         window.location.href = certificateLink;
     };
+
+    const calculateTimeLeft = () => {
+        const difference = new Date(registrationCloseTime) - new Date();
+        let timeLeft = {};
+
+        if (difference > 0) {
+            timeLeft = {
+                Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                Minutes: Math.floor((difference / 1000 / 60) % 60),
+                // Seconds: Math.floor((difference / 1000) % 60),
+            };
+        }
+
+        return timeLeft;
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    });
+
+    const timerComponents = [];
+    Object.keys(timeLeft).forEach((interval) => {
+    if (!timeLeft[interval]) {
+        return;
+    }
+
+    timerComponents.push(
+        <span key={interval} className="mx-2">
+            {timeLeft[interval]} {interval}{" "}
+        </span>
+    );
+});
 
     if (isActive) {
         return (
@@ -53,7 +93,7 @@ const Hero = ({
                             </div>
 
                             <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
-                                {timer.toUpperCase()}
+                                {timerComponents.length ? timerComponents : <span>Registration closed</span>}
                             </div>
                             <button
                                 onClick={GetCertificate}
