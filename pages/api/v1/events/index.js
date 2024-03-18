@@ -1,4 +1,4 @@
-import Event from "@/utils/models/event.model";
+import Event from "@/utils/models/event.models";
 import DBInstance from "@/utils/db";
 DBInstance();
 
