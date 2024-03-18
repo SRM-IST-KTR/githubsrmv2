@@ -63,7 +63,7 @@ const PastEvents = ({ poster, title, certificateLink }) => {
                 }
 
                 .drop-shadow-glow:hover {
-                filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.4));
+                filter: drop-shadow(0 0 26px rgba(13, 255, 78, 0.9));
                 }
             `}</style>
         </div>
