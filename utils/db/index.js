@@ -16,5 +16,4 @@ const DBInstance = async () => {
         throw err;
     }
 };
-
 export default DBInstance;
