@@ -21,7 +21,7 @@ const PastEvents = ({ poster, title, certificateLink }) => {
         ) {
             certificateLink = `https://${certificateLink}`;
         }
-        window.location.href = certificateLink;
+        window.open(newCertificateLink, '_blank', 'noopener,noreferrer');
     };
 
     return (
