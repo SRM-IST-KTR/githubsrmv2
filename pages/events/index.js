@@ -55,7 +55,7 @@ const Events = () => {
                       date={event.event_date}
                       location={event.venue}
                       registrationCloseTime={event.event_date} // Assuming this is the registration close time
-                      certificateLink={event.registration_url}
+                      registrationLink={event.registration_url}
                     />
                   </div>
                 )
