@@ -1,4 +1,3 @@
-"use client";
 import React, { useState, useEffect } from 'react';
 import Image from "next/image";
 import Event_error from "@/public/Event_error.svg";
@@ -18,26 +17,28 @@ const Hero = ({
     date,
     location,
     registrationCloseTime,
-    certificateLink
+    registrationLink
 }) => {
-    const GetCertificate = () => {
-        console.log("UPCOMING EVENT BUTTON CLICKED", certificateLink);
-        if (!certificateLink.startsWith('http://') && !certificateLink.startsWith('https://')) {
-            certificateLink = `https://${certificateLink}`;
+    const Registration_Link = () => {
+        console.log("UPCOMING EVENT BUTTON CLICKED", registrationLink);
+        let newregistrationLink = registrationLink;
+        if (!newregistrationLink.startsWith('http://') && !newregistrationLink.startsWith('https://')) {
+            newregistrationLink = `https://${newregistrationLink}`;
         }
-        window.location.href = certificateLink;
+        window.open(newregistrationLink, '_blank');
     };
 
+    // Calculate time left on the server-side
     const calculateTimeLeft = () => {
         const difference = new Date(registrationCloseTime) - new Date();
         let timeLeft = {};
 
         if (difference > 0) {
             timeLeft = {
-                Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
-                Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
-                Minutes: Math.floor((difference / 1000 / 60) % 60),
-                // Seconds: Math.floor((difference / 1000) % 60),
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                // seconds: Math.floor((difference / 1000) % 60)
             };
         }
 
@@ -55,17 +56,18 @@ const Hero = ({
     });
 
     const timerComponents = [];
-    Object.keys(timeLeft).forEach((interval) => {
-    if (!timeLeft[interval]) {
-        return;
-    }
 
-    timerComponents.push(
-        <span key={interval} className="mx-2">
-            {timeLeft[interval]} {interval}{" "}
-        </span>
-    );
-});
+    Object.keys(timeLeft).forEach((interval) => {
+        if (!timeLeft[interval]) {
+            return;
+        }
+
+        timerComponents.push(
+            <span key={interval} className="mx-2">
+                {timeLeft[interval]} {interval}{" "}
+            </span>
+        );
+    });
 
     if (isActive) {
         return (
@@ -96,7 +98,7 @@ const Hero = ({
                                 {timerComponents.length ? timerComponents : <span>Registration closed</span>}
                             </div>
                             <button
-                                onClick={GetCertificate}
+                                onClick={Registration_Link}
                                 className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold w-full rounded-lg p-4 text-3xl"
                             >
                                 Register Now
