@@ -41,7 +41,7 @@ const Teams = () => {
                     <Image src="/linkedin.jpg" width='20' height='20'className="w-6 h-6" />
                   </a>
                   <a href={admin.github}>
-                    <Image src="/github.png" width='20' height='20' className="w-6 h-6" />
+                    <Image src="/instagram.jpg" width='20' height='20' className="w-6 h-6" />
                   </a>
                 </div>
               </div>
@@ -62,7 +62,7 @@ const Teams = () => {
                     <Image src="/linkedin.jpg" width='20' height='20'className="w-6 h-6" />
                   </a>
                   <a href={lead.github}>
-                    <Image src="/github.png" width='20' height='20' className="w-6 h-6" />
+                    <Image src="/instagram.jpg" width='20' height='20' className="w-6 h-6" />
                   </a>
                 </div>
               </div>
@@ -83,7 +83,7 @@ const Teams = () => {
                     <Image src="/linkedin.jpg" width='20' height='20'className="w-6 h-6" />
                   </a>
                   <a href={member.github}>
-                    <Image src="/github.png" width='20' height='20' className="w-6 h-6" />
+                    <Image src="/instagram.jpg" width='20' height='20' className="w-6 h-6" />
                   </a>
                 </div>
               </div>
