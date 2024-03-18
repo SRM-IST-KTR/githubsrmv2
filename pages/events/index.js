@@ -54,7 +54,7 @@ const Events = () => {
                       poster={event.poster_url}
                       date={event.event_date}
                       location={event.venue}
-                      timer={event.event_date}
+                      registrationCloseTime={event.event_date} // Assuming this is the registration close time
                       certificateLink={event.registration_url}
                     />
                   </div>
