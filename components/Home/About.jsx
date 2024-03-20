@@ -8,7 +8,7 @@ function AboutUs() {
         <p className="about-us-description">
           GitHub Community SRM is the official student-led community affiliated
           with GitHub, spearheading the open-source revolution at SRMIST. With
-          the vision of revolutionising the technical world, we constantly
+          the vision of revolutionizing the technical world, we constantly
           strive to impart the best knowledge on emerging technologies. We have
           reached 1k+ followers on Instagram, and nearly 500 followers on
           LinkedIn within 6 months.
