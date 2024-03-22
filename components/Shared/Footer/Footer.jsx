@@ -14,7 +14,7 @@ const Footer = () => {
       
 
       <div className="sm:space-y-2">
-        <h className="flex sm:justify-start mb-3">Follow us on </h>
+        <h className="flex sm:justify-start mb-3">Follow us on</h>
 
         <div className="flex space-x-3">
           <a href="https://www.linkedin.com/company/githubsrm/mycompany/"><FaLinkedin className="h-7 w-7 md:h-10 md:w-10" /></a>
