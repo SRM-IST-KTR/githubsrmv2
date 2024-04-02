@@ -26,7 +26,7 @@ const Footer = () => {
       </div>
 
     </footer>
-    <p className="flex justify-center mb-10">Created by GCSRM Team 🐐</p>
+    <p className="flex justify-center mb-10">Created By GCSRM Team 🐐</p>
     </>
   );
 };
