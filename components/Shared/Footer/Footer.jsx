@@ -1,7 +1,7 @@
 import React from "react";
 import { FaGithub } from "react-icons/fa";
 import {FaInstagram } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { RiTwitterXFill } from "react-icons/ri";
 import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
@@ -19,7 +19,7 @@ const Footer = () => {
         <div className="flex space-x-3">
           <a href="https://www.linkedin.com/company/githubsrm/mycompany/"><FaLinkedin className="h-7 w-7 md:h-10 md:w-10" /></a>
           <a href="https://www.instagram.com/githubsrm/?hl=en"><FaInstagram className="h-7 w-7 md:h-10 md:w-10" /></a>
-          <a href="https://twitter.com/GithubSrm"><FaXTwitter className="h-7 w-7 md:h-10 md:w-10" /></a>
+          <a href="https://twitter.com/GithubSrm"><RiTwitterXFill className="h-7 w-7 md:h-10 md:w-10" /></a>
           <a href="https://github.com/SRM-IST-KTR"><FaGithub className="h-7 w-7 md:h-10 md:w-10" /></a>
         </div>
         
