@@ -1,4 +1,4 @@
-import AboutUs from "@/components/Home/About";
+import AboutUs from "@/pages/about";
 
 export default function Home() {
   return (

@@ -1,16 +1,13 @@
-/*
-  Based on TailwindCSS recommendations,
-  consider using classes instead of the `@apply` directive
-  @see https://tailwindcss.com/docs/reusing-styles#avoiding-premature-abstraction
-*/
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
+
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;
@@ -18,8 +15,9 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
+
 body {
-  @apply text-[rgb(var(--foreground-rgb))];
+  color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
       transparent,
@@ -27,36 +25,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
-  }
-}
-.about-us-container {
-  @apply flex justify-center p-5;
-}
-.about-us {
-  @apply shadow-[0px_0px_10px_4px_rgba(13,255,78,0.5)] flex flex-col text-white max-w-[1200px] transition-shadow duration-[0.3s] ease-[ease] p-[50px] rounded-[10px] border-4 border-solid border-[rgba(13,255,78,0.2)] hover:shadow-[0px_0px_30px_10px_rgba(13,255,78,0.8)];
-  background: rgba(12, 16, 20, 0.7);
-}
-@media (max-width: 991px) {
-  .about-us {
-    @apply p-5;
-  }
-  .about-us-title {
-    @apply text-center text-3xl;
-  }
-}
-.about-us-title {
-  @apply mb-5;
-  font: 700 40px Inter, sans-serif;
-}
-.about-us-description {
-  @apply leading-[1.6] text-justify;
-  font: 400 20px Inter, sans-serif;
-}
-@media (max-width: 991px) {
-  .about-us-description {
-    @apply text-base;
   }
 }
