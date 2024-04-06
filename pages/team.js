@@ -43,25 +43,25 @@ const Teams = () => {
             <div className="flex gap-4">
               <button
                 onClick={() => handleDomainChange("Tech")}
-                className={`btn ${domain === "Tech" ? "btn-active" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-8 rounded-2xl mx-8 my-6 mt-10 mb-10 ${domain === "Tech" ? "btn-active" : ""}`}
               >
                 Tech
               </button>
               <button
                 onClick={() => handleDomainChange("Corporate")}
-                className={`btn ${domain === "Corporate" ? "btn-active" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-8 rounded-2xl mx-8 my-6 mt-10 mb-10 ${domain === "Corporate" ? "btn-active" : ""}`}
               >
                 Corporate
               </button>
               <button
                 onClick={() => handleDomainChange("Creatives")}
-                className={`btn ${domain === "Creatives" ? "btn-active" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-8 rounded-2xl mx-8 my-6 mt-10 mb-10 ${domain === "Creatives" ? "btn-active" : ""}`}
               >
                 Creatives
               </button>
               <button
                 onClick={() => handleDomainChange("Content")}
-                className={`btn ${domain === "Content" ? "btn-active" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-8 rounded-2xl mx-8 my-6 mt-10 mb-10 ${domain === "Content" ? "btn-active" : ""}`}
               >
                 Content
               </button>
@@ -233,28 +233,28 @@ const adminData = [
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Admin 2",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Admin 3",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Admin 4",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
 ];
 
@@ -349,28 +349,28 @@ const leadData = [
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Lead 2",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Lead 3",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Lead 4",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
 ];
 
@@ -465,28 +465,28 @@ const membersData = [
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Member 2",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Member 3",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
   {
     name: "Member 4",
     photo: "/user.jpg",
     linkedin: "https://www.linkedin.com/",
     github: "https://github.com/",
-    domain: "Events",
+    domain: "Content",
   },
 ];
 
