@@ -12,11 +12,12 @@ export default function Gallery() {
         centeredSlides={true}
         loop={true}
         autoplay={{
-          delay: 25000,
+          delay: 2500,
           disableOnInteraction: false,
         }}
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
+        modules={[Autoplay]} 
       >
         <SwiperSlide>
           <img src={"gallery_image_1.webp"} alt="" />
