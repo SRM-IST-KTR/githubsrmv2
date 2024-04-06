@@ -34,12 +34,10 @@ yarn-error.log*
 .env.development.local
 .env.test.local
 .env.production.local
-
+!env.local
 # vercel
 .vercel
 
-# typescript
-*.tsbuildinfo
 
 #dev container
 .devcontainer
@@ -49,3 +47,4 @@ yarn-error.log*
 .flaskenv*
 !.env.project
 !.env.vault
+!.env.example
