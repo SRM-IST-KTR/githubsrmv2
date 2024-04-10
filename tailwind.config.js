@@ -16,7 +16,25 @@ module.exports = {
         bright_green: "#0DFF4E",
         event_gray: "#202020",
         white: "#FFFFFF",
+        black : "#000000"
+
       },
+      screens: {
+        'sm': '640px',
+        // => @media (min-width: 640px) { ... }
+  
+        'md': '768px',
+        // => @media (min-width: 768px) { ... }
+  
+        'lg': '1024px',
+        // => @media (min-width: 1024px) { ... }
+  
+        'xl': '1280px',
+        // => @media (min-width: 1280px) { ... }
+  
+        '2xl': '1536px',
+        // => @media (min-width: 1536px) { ... }
+      },
     },
   },
   plugins: [],
