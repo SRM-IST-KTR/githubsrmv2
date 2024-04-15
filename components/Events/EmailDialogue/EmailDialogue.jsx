@@ -100,10 +100,10 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                 >
                     <div className="rounded-md shadow-sm">
                         <div>
-                            <label htmlFor="email" className="sr-only text-gray-800">Email address</label>
+                            <label htmlFor="email" className=" text-gray-800">Email address</label>
                             <input
                                 placeholder="Enter SRMIST email"
-                                className="appearance-none relative block w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green focus:z-10 sm:text-sm text-black"
+                                className="appearance-none relative block w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green focus:z-10 sm:text-sm text-black mb-8 mt-2"
                                 required
                                 type="email"
                                 name="email"
@@ -111,8 +111,9 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                                 onChange={handleEmailChange}
                             />
                         </div>
+                        <label className=" text-gray-800 mt-8">Roles</label>
                         <div className="mt-4 focus:border-bright_green">
-                            <Select
+                            {/* <Select
                                 label="Select Role"
                                 value={role}
                                 onChange={(val) => setRole(val)}
@@ -120,7 +121,16 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                                 <Option value="participants">Participant</Option>
                                 <Option value="organizers">Organizer</Option>
                                 <Option value="volunteers">Volunteer</Option>
-                            </Select>
+                            </Select> */}
+                            <select
+                                className="w-full p-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green text-black font-semibold"
+                                value={role}
+                                onChange={(e) => setRole(e.target.value)}
+                            >
+                                <option value="participants">Participant</option>
+                                <option value="organizers">Organizer</option>
+                                <option value="volunteers">Volunteer</option>
+                            </select>
                         </div>
                     </div>
 
