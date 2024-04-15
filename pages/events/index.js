@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import current_event from "@/public/current_event.png";
 import PastEvents from "@/components/Events/PastEvents/PastEvents";
+import PastEventsSkeleton from "@/components/Events/PastEventsSkeleton/PastEventsSkeleton";
 import EmailDialogBox from "@/components/Events/EmailDialogue/EmailDialogue";
 import Hero from "@/components/Events/LiveEvents/Hero";
 import Image from "next/image";
@@ -12,6 +13,7 @@ const Events = () => {
   // const { upcoming_events, past_events } = events; // DESTRUCTURING EVENTS OBJECT FROM "constants.js"
   const [eventData, setEventData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [fetched, setFetched] = useState(false); // New loading state
 
   const handleButtonClick = () => {
     console.log("Get Certificate button clicked")
@@ -31,6 +33,7 @@ const Events = () => {
         }
         const data = await response.json();
         setEventData(data.data);
+        setFetched(true);
         console.log(data);
       } catch (error) {
         console.error(error);
@@ -89,8 +92,17 @@ const Events = () => {
       /> */}
 
       {/* PAST EVENTS */}
-      <div className="flex flex-wrap justify-center gap-4">
-        {eventData &&
+      <div className="flex flex-wrap justify-center gap-4 items-center">
+        {!fetched ? (
+          Array.from({ length: 4 }, (_, index) => (
+            <div
+              key={index}
+              className="w-96 sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/3 pr-4 lg:pl-10"
+            >
+              <PastEventsSkeleton />
+            </div>
+          ))
+        ) : (
           eventData.map((event, index) => (
             !event.is_active && (
               <div
@@ -106,8 +118,11 @@ const Events = () => {
                 />
               </div>
             )
-          ))}
+          ))
+        )}
       </div>
+
+
 
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md z-50">
