@@ -121,7 +121,7 @@ const Hero = ({
                         className="rounded-lg"
                     />
                 </div>
-                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 md:text-2xl xl:text-2xl text-xl">
+                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 md:text-2xl xl:text-2xl text-xl text-white">
                     New Fun Events Coming soon....
                 </div>
             </div>
