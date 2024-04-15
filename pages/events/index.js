@@ -2,16 +2,25 @@
 import React, { useState, useEffect } from "react";
 import current_event from "@/public/current_event.png";
 import PastEvents from "@/components/Events/PastEvents/PastEvents";
+import EmailDialogBox from "@/components/Events/EmailDialogue/EmailDialogue";
 import Hero from "@/components/Events/LiveEvents/Hero";
 import Image from "next/image";
 import heroimg_events from "@/public/heroimg_events.png";
-// import events from "../../components/Events/constants";
 
 const Events = () => {
 
   // const { upcoming_events, past_events } = events; // DESTRUCTURING EVENTS OBJECT FROM "constants.js"
   const [eventData, setEventData] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const handleButtonClick = () => {
+    console.log("Get Certificate button clicked")
+    // console.log(events.certificate)
+    setIsModalOpen(true); // Open the modal
+  };
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
   useEffect(() => {
     // Fetch data from your API
     const fetchData = async () => {
@@ -22,6 +31,7 @@ const Events = () => {
         }
         const data = await response.json();
         setEventData(data.data);
+        console.log(data);
       } catch (error) {
         console.error(error);
       }
@@ -90,12 +100,22 @@ const Events = () => {
                 <PastEvents
                   poster={event.poster_url}
                   title={event.event_name}
-                  certificateLink={event.registration_url}
+                  certificateLink={event.certificate}
+                  onButtonClick={handleButtonClick}
+                  openModal={(certificateLink) => setIsModalOpen({ open: true, certificate: certificateLink })}
                 />
               </div>
             )
           ))}
       </div>
+
+      {isModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md z-50">
+          <EmailDialogBox
+            CertiOBJ={isModalOpen.certificate} // Pass the certificate object
+            handelCloseModel={closeModal} />
+        </div>
+      )}
     </>
   );
 };
