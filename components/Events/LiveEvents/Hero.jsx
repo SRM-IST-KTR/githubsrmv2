@@ -87,7 +87,7 @@ const Hero = ({
                     <div className="my-auto">
                         <div className="md:w-[447px] font-bold text-xl space-y-4 sm:space-y-8 text-white">
                             <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
-                                {date.toUpperCase()}
+                                {(date.split("T")[0]).toUpperCase()}
                             </div>
 
                             <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
