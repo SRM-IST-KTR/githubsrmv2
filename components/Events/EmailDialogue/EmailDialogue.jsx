@@ -98,12 +98,12 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                     className="mt-8 space-y-6"
                     onSubmit={handleGetCertificate}
                 >
-                    <div className="rounded-md shadow-sm">
+                    <div className="rounded-md">
                         <div>
                             <label htmlFor="email" className=" text-gray-800">Email address</label>
                             <input
                                 placeholder="Enter SRMIST email"
-                                className="appearance-none relative block w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green focus:z-10 sm:text-sm text-black mb-8 mt-2"
+                                className="appearance-none relative block w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green focus:z-10 text-black mb-8 mt-2 font-semibold"
                                 required
                                 type="email"
                                 name="email"
@@ -123,7 +123,7 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                                 <Option value="volunteers">Volunteer</Option>
                             </Select> */}
                             <select
-                                className="w-full p-3 border border-gray-100 bg-gray-100 rounded-md focus:outline-none focus:ring-bright_green focus:border-bright_green text-black font-semibold"
+                                className="relative w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:ring-bright_green focus:border-bright_green text-black font-semibold"
                                 value={role}
                                 onChange={(e) => setRole(e.target.value)}
                             >
@@ -136,7 +136,7 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
 
                     <div>
                         <button
-                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-md text-gray-900 bg-bright_green hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
+                            className="group relative w-full flex justify-center py-3 px-4 border border-transparent font-bold rounded-md text-gray-900 bg-bright_green hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2"
                             type="submit"
                         >
                             Get Certificate
