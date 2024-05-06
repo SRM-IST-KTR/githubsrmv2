@@ -110,7 +110,7 @@ const Hero = ({
         )
     }
     else return (
-        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center`}>
+        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center overflow-hidden`}>
             <div className="bg-event_gray p-4 sm:p-12 md:p-16 rounded-lg sm:mb-12 lg:mb-16 w-5/6 flex flex-col items-center">
                 <div>
                     <Image
