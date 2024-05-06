@@ -46,7 +46,7 @@ const Events = () => {
   return (
     <>
       <section
-        className="relative mt-0 w-screen top-0"
+        className="relative mt-0 top-0 overflow-x-hidden"
         style={{
           backgroundImage: `url(${heroimg_events.src})`,
           backgroundSize: "cover",
