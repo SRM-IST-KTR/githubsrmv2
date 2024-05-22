@@ -17,10 +17,10 @@ const Footer = () => {
         <h className="flex sm:justify-start mb-3">Follow Us On</h>
 
         <div className="flex space-x-3">
-          <a href="https://www.linkedin.com/company/githubsrm/mycompany/"><FaLinkedin className="h-7 w-7 md:h-10 md:w-10" /></a>
-          <a href="https://www.instagram.com/githubsrm/?hl=en"><FaInstagram className="h-7 w-7 md:h-10 md:w-10" /></a>
-          <a href="https://twitter.com/GithubSrm"><RiTwitterXFill className="h-7 w-7 md:h-10 md:w-10" /></a>
-          <a href="https://github.com/SRM-IST-KTR"><FaGithub className="h-7 w-7 md:h-10 md:w-10" /></a>
+          <a href="https://www.linkedin.com/company/githubsrm/mycompany/" target=" "><FaLinkedin className="h-7 w-7 md:h-10 md:w-10" /></a>
+          <a href="https://www.instagram.com/githubsrm/?hl=en" target=" "><FaInstagram className="h-7 w-7 md:h-10 md:w-10" /></a>
+          <a href="https://twitter.com/GithubSrm" target=" "><RiTwitterXFill className="h-7 w-7 md:h-10 md:w-10" /></a>
+          <a href="https://github.com/SRM-IST-KTR" target=" "><FaGithub className="h-7 w-7 md:h-10 md:w-10" /></a>
         </div>
         
       </div>
