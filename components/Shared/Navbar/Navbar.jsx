@@ -1,57 +1,64 @@
-import React, { useEffect, useState } from "react";
-import { FaTimes, FaBars } from "react-icons/fa";
-import { CiMenuBurger } from "react-icons/ci";
+import React, { useState , useEffect } from 'react' ;
+import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
 
-const Navbar = () => {
-  const [currentPath, setCurrentPath] = useState("");
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const Navbar =() => {
+  const [nav, setNav] = useState(false);
+  const [currentPath, setCurrentPath ] = useState('');
 
   useEffect(() => {
-    setCurrentPath(window.location.pathname);
+    setCurrentPath(window.location.pathname) ;
   }, []);
 
-  const isCurrentPath = (url) => {
-    return currentPath === url;
+  const handleNav = () => {
+    setNav(!nav);
   };
 
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen);
+  const handleNavigation = (path) => {
+    window.location.href = path;
+    setCurrentPath(path);
   };
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false);
-  };
+  const navItems = [
+    {id: 1, text: 'Home', path: '/'  },
+    {id: 2, text: 'Our Team', path: '/team' },
+    {id: 3, text: 'Our Story', path: '/about' },
+    {id: 4, text: 'Events', path: '/events' },
+    {id: 5, text: 'Contact Us', path: '/contact' },
+  ];
 
-  return (
-    <nav className="p-5 shadow md:flex md:items-center md:justify-between mr-16 mt-4" id="menu">
-      <div className={`flex justify-${mobileMenuOpen ? 'start' : 'between'} items-center`}>
-          <img src="logo.png" className="h-53 w-151 pl-6 md:pl-24" alt="Logo" />
-          <div className="md:hidden">
-            {mobileMenuOpen ? (
-              <FaTimes className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
-            ) : (
-              <FaBars className="text-2xl cursor-pointer" onClick={toggleMobileMenu} />
-            )}
-          </div>
-      </div>
-      <ul className={`md:flex md:items-center z-[-1] md:z-auto md:static w-full md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 ${mobileMenuOpen ? 'block' : 'hidden'}`}>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="/" className={`text-l hover:text-bright_green duration-500 ${isCurrentPath('/') ? 'text-bright_green' : ''}`} onClick={closeMobileMenu}>Home</a>
-        </li>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="/team" className={`text-l hover:text-bright_green duration-500 ${isCurrentPath('/team') ? 'text-bright_green' : ''}`} onClick={closeMobileMenu}>Our Team</a>
-        </li>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="/about" className={`text-l hover:text-bright_green duration-500 ${isCurrentPath('/about') ? 'text-bright_green' : ''}`} onClick={closeMobileMenu}>Our Story</a>
-        </li>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="events" className={`text-l hover:text-bright_green duration-500 ${isCurrentPath('/events') ? 'text-bright_green' : ''}`} onClick={closeMobileMenu}>Events</a>
-        </li>
-        <li className="mx-4 my-6 md:my-0">
-          <a href="contact" className={`text-l hover:text-bright_green duration-500 ${isCurrentPath('/contact') ? 'text-bright_green' : ''}`} onClick={closeMobileMenu}>Contact Us</a>
-        </li>
+  return(
+    <div className='bg-black flex justify-between items-center h-32 max-w-[1240px] mx-auto px-4 text-white'>
+      <img src = "logo.png"/>
+      <ul className='hidden md:flex'>
+        {navItems.map(item => (
+          <li
+            key ={item.id}
+            className={`p-4 hover:text-bright_green m-2 cursor-pointer duration-300 hover:text-black ${currentPath ===item.path ? 'text-green-500' : ''}`}
+            onClick={() => handleNavigation(item.path)}
+          >
+            {item.text}
+          </li>
+        ))}
       </ul>
-    </nav>
+      <div onClick = {handleNav} className ='block md:hidden z-10'>
+        {nav ? <AiOutlineClose size={20} /> : <AiOutlineMenu size={20} />}
+      </div>
+      <ul
+        className= {`fixed md:hidden top-0 left-0 w-full h-full bg-black transition-transform duration-500 ${
+          nav ? 'transform translate-y-20':'transform -translate-y-full'
+        }`}
+      >
+        {navItems.map(item => (
+          <li
+            key={item.id}
+            className={`p-4 rounded-xl duration-300 hover:text-bright_green cursor-pointer border-gray-600 ${currentPath === item.path ? 'text-green-500' : ''}`}
+            onClick={() => handleNavigation(item.path)}
+          >
+            {item.text}
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
