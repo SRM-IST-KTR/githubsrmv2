@@ -87,7 +87,7 @@ const Hero = ({
                     <div className="my-auto">
                         <div className="md:w-[447px] font-bold text-xl space-y-4 sm:space-y-8 text-white">
                             <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
-                                {date.toUpperCase()}
+                                {(date.split("T")[0]).toUpperCase()}
                             </div>
 
                             <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
@@ -110,7 +110,7 @@ const Hero = ({
         )
     }
     else return (
-        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center`}>
+        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center overflow-hidden`}>
             <div className="bg-event_gray p-4 sm:p-12 md:p-16 rounded-lg sm:mb-12 lg:mb-16 w-5/6 flex flex-col items-center">
                 <div>
                     <Image
@@ -121,7 +121,7 @@ const Hero = ({
                         className="rounded-lg"
                     />
                 </div>
-                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 md:text-2xl xl:text-2xl text-xl">
+                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 md:text-2xl xl:text-2xl text-xl text-white">
                     New Fun Events Coming soon....
                 </div>
             </div>
