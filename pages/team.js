@@ -34,11 +34,11 @@ const Teams = () => {
         <div className="p-8 md:p-12 lg:px-16 lg:py-24">
           <div className="flex justify-start items-center relative">
             <div className="text-left">
-              <h1 className="text-6xl font-bold ml-20">
+              <h1 className="text-4xl md:text-6xl font-bold ml-4 md:ml-20">
                 Our <span className="text-bright_green">Team</span>
               </h1>
               <br />
-              <p className="text-xl font-semibold ml-20 text-balance">
+              <p className="text-lg md:text-xl font-semibold ml-4 md:ml-20 text-balance">
                 The GitHub Community SRM introduces you to the dynamic and collaborative ecosystem of our diverse teams. Discover passionate individuals driving innovation in areas ranging from open-source contributions to cutting-edge tech projects. Meet our dedicated team members, explore their expertise, and learn about the exciting projects they're working on. Whether you're interested in coding, design, or community engagement, find your niche and connect with like-minded enthusiasts on our Teams page. Join us in shaping the future of technology at GitHub SRM!
               </p>
               <br />
@@ -47,28 +47,28 @@ const Teams = () => {
           </div>
 
           <div className="flex justify-center items-center relative">
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => handleDomainChange("Tech")}
-                className={`bg-bright_green text-blk font-semibold h-10 px-6 rounded-full mx-8 my-6 mt-10 mb-10 shadow-lg transition-transform transform hover:scale-105 ${domain === "Tech" ? "border-2 border-white" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-10 px-4 md:px-6 rounded-full mx-2 md:mx-8 my-2 md:my-6 shadow-lg transition-transform transform hover:scale-105 ${domain === "Tech" ? "border-2 border-white" : ""}`}
               >
                 Tech
               </button>
               <button
                 onClick={() => handleDomainChange("Corporate")}
-                className={`bg-bright_green text-blk font-semibold h-10 px-6 rounded-full mx-8 my-6 mt-10 mb-10 shadow-lg transition-transform transform hover:scale-105 ${domain === "Corporate" ? "border-2 border-white" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-10 px-4 md:px-6 rounded-full mx-2 md:mx-8 my-2 md:my-6 shadow-lg transition-transform transform hover:scale-105 ${domain === "Corporate" ? "border-2 border-white" : ""}`}
               >
                 Corporate
               </button>
               <button
                 onClick={() => handleDomainChange("Creatives")}
-                className={`bg-bright_green text-blk font-semibold h-10 px-6 rounded-full mx-8 my-6 mt-10 mb-10 shadow-lg transition-transform transform hover:scale-105 ${domain === "Creatives" ? "border-2 border-white" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-10 px-4 md:px-6 rounded-full mx-2 md:mx-8 my-2 md:my-6 shadow-lg transition-transform transform hover:scale-105 ${domain === "Creatives" ? "border-2 border-white" : ""}`}
               >
                 Creatives
               </button>
               <button
                 onClick={() => handleDomainChange("Content")}
-                className={`bg-bright_green text-blk font-semibold h-10 px-6 rounded-full mx-8 my-6 mt-10 mb-10 shadow-lg transition-transform transform hover:scale-105 ${domain === "Content" ? "border-2 border-white" : ""}`}
+                className={`bg-bright_green text-blk font-semibold h-10 px-4 md:px-6 rounded-full mx-2 md:mx-8 my-2 md:my-6 shadow-lg transition-transform transform hover:scale-105 ${domain === "Content" ? "border-2 border-white" : ""}`}
               >
                 Content
               </button>
@@ -88,9 +88,9 @@ const Teams = () => {
             >
               <div>
                 <div className="p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
-                  <h1 className="text-5xl font-bold">Admins</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Admins</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
                   {filteredAdmins.map((admin, index) => (
                     <div key={index} className="flex flex-col items-center">
                       <div className="w-24 h-24 rounded-full overflow-hidden border-bright_green border-4">
@@ -110,9 +110,9 @@ const Teams = () => {
                 </div>
 
                 <div className="p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
-                  <h1 className="text-5xl font-bold">Members</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Members</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
                   {filteredMembers.map((member, index) => (
                     <div key={index} className="flex flex-col items-center">
                       <div className="w-24 h-24 rounded-full overflow-hidden border-bright_green border-4">
@@ -132,9 +132,9 @@ const Teams = () => {
                 </div>
 
                 <div className="p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
-                  <h1 className="text-5xl font-bold">Leads</h1>
+                  <h1 className="text-4xl md:text-5xl font-bold">Leads</h1>
                 </div>
-                <div className="grid grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 mx-4 md:mx-16">
                   {filteredLeads.map((lead, index) => (
                     <div key={index} className="flex flex-col items-center">
                       <div className="w-24 h-24 rounded-full overflow-hidden border-bright_green border-4">
