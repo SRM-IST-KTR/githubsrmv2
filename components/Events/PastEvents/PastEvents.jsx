@@ -1,3 +1,4 @@
+"use client";
 {
     /* 
     bright_green: "#0DFF4E"  -> added in tailwind.config.js
@@ -5,7 +6,6 @@
     border dark_green gradient -> "#006600"
     */
 }
-
 import { DM_Sans } from "next/font/google";
 
 const dmsans = DM_Sans({
@@ -13,15 +13,15 @@ const dmsans = DM_Sans({
     display: "swap",
 });
 
-const PastEvents = ({ poster, title, certificateLink }) => {
-    const GetCertificate = () => {
-        if (
-            !certificateLink.startsWith("http://") &&
-            !certificateLink.startsWith("https://")
-        ) {
-            certificateLink = `https://${certificateLink}`;
-        }
-        window.open(newCertificateLink, '_blank', 'noopener,noreferrer');
+const PastEvents = ({
+    poster,
+    title,
+    certificateLink,
+    onButtonClick,
+    openModal }) => {
+
+    const handleButtonClick = () => {
+        openModal(certificateLink); // Pass the certificateLink 
     };
 
     return (
@@ -42,7 +42,9 @@ const PastEvents = ({ poster, title, certificateLink }) => {
                 </h3>
 
                 <button
-                    onClick={GetCertificate}
+                    onClick={() => {
+                        handleButtonClick();
+                    }}
                     className="ml-auto filter bg-bright_green text-black font-bold rounded h-9 w-40" //TO ADD GLOW EFFECT "drop-shadow-glow"
                 >
                     Get Certificate
@@ -66,7 +68,7 @@ const PastEvents = ({ poster, title, certificateLink }) => {
                 filter: drop-shadow(0 0 26px rgba(13, 255, 78, 0.9));
                 }
             `}</style>
-        </div>
+        </div >
     );
 };
 
