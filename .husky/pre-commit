@@ -1,5 +1,3 @@
-#!/usr/bin/env sh
-. "$(dirname -- "$0")/_/husky.sh"
 
 echo "Running Yarn build checks before committing changes \n \n" &&
 yarn build
