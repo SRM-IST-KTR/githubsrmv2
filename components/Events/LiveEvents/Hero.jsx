@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import Image from "next/image";
-import current_event from "@/public/current_event.png";
-import Event_error from "@/public/Event_error.png";
+import Event_error from "@/public/Event_error.svg";
 
 // #202020 -> bg of info
 import { DM_Sans } from 'next/font/google';
@@ -11,63 +10,123 @@ const dmsans = DM_Sans({
 });
 
 const Hero = ({
-    poster,
+    key,
+    isActive,
     title,
+    poster,
     date,
     location,
-    timer
+    registrationCloseTime,
+    registrationLink
 }) => {
-    if (title) {
+    const Registration_Link = () => {
+        console.log("UPCOMING EVENT BUTTON CLICKED", registrationLink);
+        let newregistrationLink = registrationLink;
+        if (!newregistrationLink.startsWith('http://') && !newregistrationLink.startsWith('https://')) {
+            newregistrationLink = `https://${newregistrationLink}`;
+        }
+        window.open(newregistrationLink, '_blank');
+    };
+
+    // Calculate time left on the server-side
+    const calculateTimeLeft = () => {
+        const difference = new Date(registrationCloseTime) - new Date();
+        let timeLeft = {};
+
+        if (difference > 0) {
+            timeLeft = {
+                days: Math.floor(difference / (1000 * 60 * 60 * 24)),
+                hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
+                minutes: Math.floor((difference / 1000 / 60) % 60),
+                // seconds: Math.floor((difference / 1000) % 60)
+            };
+        }
+
+        return timeLeft;
+    };
+
+    const [timeLeft, setTimeLeft] = useState(calculateTimeLeft());
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setTimeLeft(calculateTimeLeft());
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    });
+
+    const timerComponents = [];
+
+    Object.keys(timeLeft).forEach((interval) => {
+        if (!timeLeft[interval]) {
+            return;
+        }
+
+        timerComponents.push(
+            <span key={interval} className="mx-2">
+                {timeLeft[interval]} {interval}{" "}
+            </span>
+        );
+    });
+
+    if (isActive) {
         return (
-            <div className={`w-screen p-4 mb-16 ${dmsans.className}`}>
-                <div className="flex flex-col md:flex-row p-4 xl:mx-52 gap-4">
-                    <div className="font-serif">
-                        <div className="xl:pl-10 relative group">
-                            <div className="rounded-lg">
-                                <img
-                                    src="https://s3-alpha-sig.figma.com/img/ea69/5937/2d0ba426506ee31eb9f73d09f81e8c1e?Expires=1710115200&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=FC4aflQ4xaOm8GdnX2JdjhDPY24ywS5cIxZCI4Z7f9Qyz~iWgry9AFIrNF5WUmoT06mZJ16Nk6W866C9oHzApXHzlERE~35qkrvxrp5xzBjr1ESff78WqxcTblOINdu2~2sGtN2XbdplmMVDX79lfzaNGStFhkcN2UnklaYQKK-5zhqIRopGuKEltLlcuRXi4WxT7JLFSXMdoYChOk2ErE6SIzfTBMLzKjLaYOl3nyQyN-1zMeEcSuMTIkyO20rUaqSS1SGmbIPi9Nw0uaRtT~prdDQK4qKljJnqRBoliYic9e~8o8NTqY1DbNc7fnkbMAC3s8~NPlQi5R-utpfrtQ__"
-                                    alt=""
-                                    className="rounded-lg"
-                                />
-                            </div>
+            < div className={`w-screen p-4 mx-auto ${dmsans.className}`}>
+                <div className="flex flex-col md:flex-row xl:mx-48 gap-16 justify-center">
+                    <div className="relative group">
+                        <div className="rounded-lg">
+                            <img //USE img TAG IF LINK IS PROVIDED
+                                src={poster}
+                                alt="Upcoming Event"
+                                className="rounded-lg lg:w-[682px] lg:h-[526px]"
+                            />
                         </div>
                     </div>
 
                     {/* INFO */}
-                    <div class="w-full font-bold text-xl space-y-10">
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
-                            {date.toUpperCase()}
-                        </div>
+                    <div className="my-auto">
+                        <div className="md:w-[447px] font-bold text-xl space-y-4 sm:space-y-8 text-white">
+                            <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
+                                {(date.split("T")[0]).toUpperCase()}
+                            </div>
 
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
-                            {location.toUpperCase()}
-                        </div>
+                            <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
+                                {location.toUpperCase()}
+                            </div>
 
-                        <div class="h-32 w-full bg-event_gray rounded-lg flex justify-center items-center">
-                            {timer.toUpperCase()}
+                            <div className="h-28 lg:w-[447px] w-full bg-event_gray rounded-lg flex justify-center items-center">
+                                {timerComponents.length ? timerComponents : <span>Registration closed</span>}
+                            </div>
+                            <button
+                                onClick={Registration_Link}
+                                className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold w-full rounded-lg p-4 text-3xl"
+                            >
+                                Register Now
+                            </button>
                         </div>
-                        <button class="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold h-9 w-full rounded-lg">Get Certificate</button>
                     </div>
-
                 </div>
-            </div>
+            </div >
         )
     }
     else return (
-        <div className={`mx-4 sm:mx-8 md:mx-16 lg:mx-32 p-8 sm:p-12 md:p-16 bg-event_gray ${dmsans.className} flex flex-col items-center justify-center rounded-md mb-8 sm:mb-12 lg:mb-16`}>
-            <div>
-                <Image
-                    src={Event_error}
-                    alt=""
-                    width={253}
-                    height={253}
-                    className="rounded-lg"
-                />
-            </div>
-            <div className="text-center mt-4 sm:mt-6 md:mt-8 lg:mt-10">
-                New Fun Events Coming soon....
+        <div className={`w-screen ${dmsans.className} flex flex-col justify-center items-center overflow-hidden`}>
+            <div className="bg-event_gray p-4 sm:p-12 md:p-16 rounded-lg sm:mb-12 lg:mb-16 w-5/6 flex flex-col items-center">
+                <div>
+                    <Image
+                        src={Event_error}
+                        alt=""
+                        width={253}
+                        height={253}
+                        className="rounded-lg"
+                    />
+                </div>
+                <div className="text-center sm:mt-6 md:mt-8 lg:mt-10 md:text-2xl xl:text-2xl text-xl text-white">
+                    New Fun Events Coming soon....
+                </div>
             </div>
         </div>
+
 
     )
 }
