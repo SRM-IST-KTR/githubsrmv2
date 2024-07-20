@@ -1,13 +1,16 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const { NEXT_PUBLIC_MONGO_URI, NEXT_PUBLIC_DB_NAME } = process.env;
+dotenv.config();
+
+const { MONGO_URI, DB_NAME } = process.env;
 
 const DBInstance = async () => {
     try {
-        await mongoose.connect(NEXT_PUBLIC_MONGO_URI, {
+        await mongoose.connect(MONGO_URI, {
             useNewUrlParser: true,
             useUnifiedTopology: true,
-            dbName: NEXT_PUBLIC_DB_NAME
+            dbName: DB_NAME
         });
 
         // console.log(`✅ Connected to MongoDB: ${NEXT_PUBLIC_DB_NAME}`);
