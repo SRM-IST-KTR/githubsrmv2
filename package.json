@@ -1,25 +1,26 @@
 {
-  "name": "gcsrmv1",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-
-    "next": "^14.1.0",
-    "@material-tailwind/react": "^2.1.9",
-    "mongoose": "^8.2.1",
-    "react": "^18",
-    "react-dom": "^18",
-    "react-icons": "^5.0.1"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.0.1",
-    "postcss": "^8",
-    "tailwindcss": "^3.3.0"
-  }
+    "name": "gcsrmv1",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint"
+    },
+    "dependencies": {
+        "@material-tailwind/react": "^2.1.9",
+        "dotenv": "^16.4.5",
+        "mongoose": "^8.2.1",
+        "next": "^14.1.0",
+        "react": "^18",
+        "react-dom": "^18",
+        "react-transition-group": "^4.4.5",
+        "react-icons": "^5.0.1"
+    },
+    "devDependencies": {
+        "autoprefixer": "^10.0.1",
+        "postcss": "^8",
+        "tailwindcss": "^3.3.0"
+    }
 }
