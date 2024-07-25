@@ -7,12 +7,14 @@ import EmailDialogBox from "@/components/Events/EmailDialogue/EmailDialogue";
 import Hero from "@/components/Events/LiveEvents/Hero";
 import Image from "next/image";
 import heroimg_events from "@/public/heroimg_events.png";
+import { set } from "mongoose";
 
 const Events = () => {
 
   // const { upcoming_events, past_events } = events; // DESTRUCTURING EVENTS OBJECT FROM "constants.js"
   const [eventData, setEventData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isLiveModalOpen, setIsLiveModalOpen] = useState(false);
   const [fetched, setFetched] = useState(false); // New loading state
 
   const handleButtonClick = () => {
@@ -44,7 +46,7 @@ const Events = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-bg_black">
       <section
         className="relative mt-0 top-0 overflow-x-hidden"
         style={{
@@ -78,7 +80,7 @@ const Events = () => {
             )}
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg_black"></div>
         </div>
       </section>
 
@@ -131,7 +133,7 @@ const Events = () => {
             handelCloseModel={closeModal} />
         </div>
       )}
-    </>
+    </div>
   );
 };
 
