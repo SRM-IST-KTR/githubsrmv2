@@ -17,7 +17,8 @@ const Hero = ({
     date,
     location,
     registrationCloseTime,
-    registrationLink
+    registrationLink,
+    openRegisterDialogue,
 }) => {
     const Registration_Link = () => {
         console.log("UPCOMING EVENT BUTTON CLICKED", registrationLink);
@@ -27,6 +28,11 @@ const Hero = ({
         }
         window.open(newregistrationLink, '_blank');
     };
+
+    const handleRegisterButtonClick = () => {
+        console.log("Get Certificate button clicked")
+        openRegisterDialogue();
+    }
 
     // Calculate time left on the server-side
     const calculateTimeLeft = () => {
@@ -98,7 +104,8 @@ const Hero = ({
                                 {timerComponents.length ? timerComponents : <span>Registration closed</span>}
                             </div>
                             <button
-                                onClick={Registration_Link}
+                                // onClick={Registration_Link}
+                                onClick={handleRegisterButtonClick}
                                 className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-bold w-full rounded-lg p-4 text-3xl"
                             >
                                 Register Now
