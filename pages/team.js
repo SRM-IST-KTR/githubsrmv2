@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Hero from "@/components/Team/Hero";
-import ProfileCard from "@/components/Team/ProfileCard";
+import ProfileCard from "@/components/Team/profileCard";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const Teams = () => {
