@@ -103,7 +103,7 @@ const Events = () => {
       /> */}
 
       {/* PAST EVENTS */}
-      <p className=" pt-10 pb-5 text-center font-extrabold text-4xl underline underline-offset-4">
+      <p className=" pt-10 pb-5 text-center font-extrabold text-4xl underline underline-offset-4 text-white">
         <span className="text-bright_green">Past</span> Events</p>
       <div className="flex flex-wrap justify-center gap-4 items-center">
         {!fetched ? (
