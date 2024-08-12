@@ -1,6 +1,11 @@
 const mongoose = require('mongoose');
 
 const eventSchema = new mongoose.Schema({
+    slug: {
+        type: String,
+        required: true,
+        unique: true
+    },
     event_name: {
         type: String,
         required: true
@@ -10,8 +15,12 @@ const eventSchema = new mongoose.Schema({
         required: true
     },
     speakers_details: [{
-        name: String,
-        designation: String,
+        name: {
+            type: String,
+        },
+        designation: {
+            type: String,
+        },
         details: String
     }],
     event_date: {
@@ -20,9 +29,12 @@ const eventSchema = new mongoose.Schema({
     },
     is_active: {
         type: Boolean,
-        default: false
+        default: true
     },
-    venue: String,
+    venue: {
+        type: String,
+        required: true
+    },
     sponsors_details: [{
         name: String,
         place: String,
@@ -33,38 +45,76 @@ const eventSchema = new mongoose.Schema({
         required: true
     },
     prerequisites: [String],
+    certificateLink: {
+        type: String,
+        required: true
+    },
     cost: {
         type: Number,
         default: 0
     },
-    poster_url: String,
-    registration_url: String,
-    database: String,
+    poster_url: {
+        type: String,
+        required: true
+    },
+    registration_url: {
+        type: String,
+        required: true
+    },
+    gallery: [String],
+    database: {
+        type: String,
+        required: true
+    },
     collection: {
-        participants: String,
-        organizers: String,
-        volunteers: String
+        participants: {
+            type: String,
+            required: true
+        },
+        organizers: {
+            type: String,
+            required: true
+        },
+        volunteers: {
+            type: String,
+            required: true
+        }
     },
     certificate: {
-        organizers: String,
-        participants: String,
-        volunteers: String
+        organizers: {
+            type: String,
+            required: true
+        },
+        participants: {
+            type: String,
+            required: true
+        },
+        volunteers: {
+            type: String,
+            required: true
+        }
     },
     jimp_config: {
-        yOffset: String,
-        color: String,
-        font_size: String
+        yOffset: {
+            type: String,
+        },
+        color: {
+            type: String,
+        },
+        font_size: {
+            type: String,
+        }
     },
     teamEvent: {
         type: Boolean,
-        default: true
+        default: false
     },
     teamSize: {
         type: Number,
-        required: true
+        default: 1
     }
 });
 
-const Event = mongoose.model('events', eventSchema);
+const Event = mongoose.model.Event || mongoose.model('events', eventSchema);
 
 export default Event;

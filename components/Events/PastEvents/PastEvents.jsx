@@ -56,16 +56,13 @@ const PastEvents = ({
                 border: 5px solid transparent;
                 background: linear-gradient(to bottom, #00e43d, #000000, #00e43d);
                 border-image: linear-gradient(to bottom, #00e43d, #000000, #00e43d);
+                filter: drop-shadow(0 0 26px rgba(13, 255, 78, 0.1));
                 border-image-slice: 1;
                 }
 
-                .drop-shadow-glow {
-                // filter: drop-shadow(0 0 30px rgba(13, 255, 78, 0.4));
-                transition: filter 0.3s ease-in-out;
-                }
-
                 .drop-shadow-glow:hover {
-                filter: drop-shadow(0 0 26px rgba(13, 255, 78, 0.9));
+                filter: drop-shadow(0 0 26px rgba(13, 255, 78, 0.6));
+                transition: filter 0.3s ease-in-out;
                 }
             `}</style>
         </div >

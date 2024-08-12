@@ -15,7 +15,8 @@ module.exports = {
             },
             colors: {
                 bright_green: "#0DFF4E",
-                event_gray: "#202020"
+                event_gray: "#202020",
+                bg_black: "#0B0F12"
             },
             keyframes: {
                 fadeIn: {

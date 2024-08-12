@@ -4,15 +4,18 @@ import current_event from "@/public/current_event.png";
 import PastEvents from "@/components/Events/PastEvents/PastEvents";
 import PastEventsSkeleton from "@/components/Events/PastEventsSkeleton/PastEventsSkeleton";
 import EmailDialogBox from "@/components/Events/EmailDialogue/EmailDialogue";
+import RegisterDialogue from "@/components/Events/Register_dialogue/Registerdialogue";
 import Hero from "@/components/Events/LiveEvents/Hero";
 import Image from "next/image";
 import heroimg_events from "@/public/heroimg_events.png";
+import { set } from "mongoose";
 
 const Events = () => {
 
   // const { upcoming_events, past_events } = events; // DESTRUCTURING EVENTS OBJECT FROM "constants.js"
   const [eventData, setEventData] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isRegisterModalOpen, setIsRegisterModalOpen] = useState(false);
   const [fetched, setFetched] = useState(false); // New loading state
 
   const handleButtonClick = () => {
@@ -20,8 +23,15 @@ const Events = () => {
     // console.log(events.certificate)
     setIsModalOpen(true); // Open the modal
   };
+  const handleRegisterButtonClick = () => {
+    console.log("Live Event button clicked")
+    setIsRegisterModalOpen(true); // Open the modal
+  }
   const closeModal = () => {
     setIsModalOpen(false);
+  };
+  const closeRegisterModal = () => {
+    setIsRegisterModalOpen(false);
   };
   useEffect(() => {
     // Fetch data from your API
@@ -44,7 +54,7 @@ const Events = () => {
   }, []);
 
   return (
-    <>
+    <div className="bg-bg_black">
       <section
         className="relative mt-0 top-0 overflow-x-hidden"
         style={{
@@ -69,6 +79,7 @@ const Events = () => {
                       location={event.venue}
                       registrationCloseTime={event.event_date} // Assuming this is the registration close time
                       registrationLink={event.registration_url}
+                      openRegisterDialogue={handleRegisterButtonClick}
                     />
                   </div>
                 )
@@ -78,7 +89,7 @@ const Events = () => {
             )}
           </div>
 
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-bg_black"></div>
         </div>
       </section>
 
@@ -131,7 +142,14 @@ const Events = () => {
             handelCloseModel={closeModal} />
         </div>
       )}
-    </>
+
+      {isRegisterModalOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center backdrop-blur-md z-50">
+          <RegisterDialogue
+            onRegistrationClose={closeRegisterModal} />
+        </div>
+      )}
+    </div>
   );
 };
 
