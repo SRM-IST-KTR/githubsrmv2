@@ -25,7 +25,7 @@ const profileCard = ({ photo, name, caption, linkedin, github }) => {
                 <img
                     alt="Profile Pic"
                     src={photo}
-                    className="absolute inset-0 h-full w-full object-cover opacity-75 transition-opacity group-hover:opacity-50 rounded-3xl"
+                    className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-50 rounded-3xl"
                 />
 
                 <div className="relative p-4 sm:p-6 lg:p-4">
