@@ -6,7 +6,7 @@ import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="flex flex-col px-20 sm:px-36 bg-bg_black py-20">
+    <footer className="flex flex-col px-20 sm:px-36 bg-bg_black pt-32 pb-10">
       <div className="flex-grow grid justify-items-center sm:flex sm:justify-between sm:space-y-0 space-y-10">
         <div>
           <img className="w-30 h-12 sm:w-56 sm:h-16" src="Logo.png" alt="Logo" />
@@ -32,7 +32,7 @@ const Footer = () => {
         </div>
       </div>
 
-      <p className="text-center mt-10 mb-0 text-white">Created By GCSRM Team 🐐</p>
+      <p className="text-center mt-2 mb-0 text-white">Created By GCSRM Team 🐐</p>
     </footer>
   );
 };
