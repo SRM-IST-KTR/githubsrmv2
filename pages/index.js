@@ -4,7 +4,7 @@ import Domains from "@/components/Home/Domains";
 
 const Index = () => {
     return (
-        <>
+        <div className="bg-bg_black">
             <section className="bg-transparent">
                 <div className="0px mx-auto p-24 font-family:Inter">
                     <h1 className="text-4xl font-bold">GitHub</h1>
@@ -27,7 +27,7 @@ const Index = () => {
             <section>
                 <Domains />
             </section>
-        </>
+        </div>
     );
 };
 
