@@ -9,11 +9,24 @@
     "lint": "next lint"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@nextui-org/accordion": "^2.0.38",
     "@nextui-org/react": "^2.4.6",
+=======
+    "@nextui-org/navbar": "^2.0.32",
+    "@nextui-org/react": "^2.4.1",
+    "@nextui-org/system": "^2.2.1",
+    "ionicons": "^7.3.1",
+    "@material-tailwind/react": "^2.1.9",
+    "dotenv": "^16.4.5",
+    "mongoose": "^8.2.1",
+>>>>>>> aeff7b0f2dd28e991d1f52b7f06cce4b8dd03cf4
     "next": "^14.1.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.2.1",
+    "react-router-dom": "^6.22.3",
+    "react-transition-group": "^4.4.5"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

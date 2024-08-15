@@ -9,7 +9,7 @@ const Faq = () => {
     <div className="bg-event_gray text-white my-8 p-4  rounded-lg mx-20">
     <p className="text-5xl text-center my-5 pb-10 font-bold">Frequently Asked Questions</p>
   
-    <Accordion
+    <Accordion 
       variant="splitted"
       className="bg-gray-900 rounded-lg"
     >
@@ -59,7 +59,7 @@ const Faq = () => {
         title={<div className="text-center py-4 px-6 rounded-md">More FAQs</div>}
         className="text-white  pl-[40px] mx-[160px] rounded-3xl text-lg font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
       >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
+        <div className="p-4  text-center text-gray-300">{defaultContent}</div>
       </AccordionItem>
     </Accordion>
   </div>

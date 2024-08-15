@@ -76,7 +76,7 @@ function ContactForm() {
                                sm:mx-20 sm:text-md sm:mt-6 sm:mb-3'
             />
             <input type="email" 
-                   placeholder='Email Id' 
+                   placeholder='Email-Id' 
                    value={formData.email}
                    onChange={handleChange}
                    className=' border-b-2 border-gray text-white bg-event_gray
