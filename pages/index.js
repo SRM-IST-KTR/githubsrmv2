@@ -1,6 +1,7 @@
 import React from "react";
 import AboutUs from "@/components/Home/About";
 import Domains from "@/components/Home/Domains";
+import Gallery from "@/components/Home/Gallery";
 
 const Index = () => {
     return (
@@ -26,6 +27,9 @@ const Index = () => {
 
             <section>
                 <Domains />
+            </section>
+            <section className="overflow-hidden h-[400px]">
+                <Gallery />
             </section>
         </div>
     );
