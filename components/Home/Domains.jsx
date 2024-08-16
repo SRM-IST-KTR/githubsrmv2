@@ -1,7 +1,9 @@
 function Domains() {
     return (
         <div className="p-20">
-            <h1 className="text-4xl text-center font-bold">Our Domains</h1>
+            <h1 className="text-4xl text-center text-white font-bold lg:text-5xl">
+                Our Domains
+            </h1>
 
             <section className="domain-box container flex">
                 <div class="grid grid-cols-2 gap-6 text-center p-20">

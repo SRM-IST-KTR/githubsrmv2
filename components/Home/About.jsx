@@ -2,7 +2,9 @@ function AboutUs() {
     return (
         <div className="AboutUsContainer">
             <section className="about-us">
-                <h2 className="about-us-title text-4xl font-bold">About Us</h2>
+                <h2 className="about-us-title  text-bright_green font-bold lg:text-5xl text-3xl">
+                    About Us
+                </h2>
                 <p className="about-us-description">
                     <br />
                     GitHub Community SRM is the official student-led community
