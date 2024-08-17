@@ -9,16 +9,34 @@ function ContactForm() {
         email: "",
         message: ""
     });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [emailError, setEmailError] = useState("");
 
     const handleChange = (e) => {
+        const { name, value } = e.target;
         setFormData({
             ...formData,
-            [e.target.name]: e.target.value
+            [name]: value
         });
+
+        if (name === "email") {
+            validateEmail(value);
+        }
+    };
+
+    const validateEmail = (email) => {
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email)) {
+            setEmailError("Please enter a valid email address.");
+        } else {
+            setEmailError("");
+        }
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        setIsSubmitting(true);
+
         axios
             .post("/api/v1/contact", formData)
             .then((response) => {
@@ -34,6 +52,7 @@ function ContactForm() {
                     theme: "colored"
                 });
                 setFormData({ name: "", email: "", message: "" });
+                setIsSubmitting(false);
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -50,13 +69,17 @@ function ContactForm() {
                         theme: "colored"
                     }
                 );
+                setIsSubmitting(false);
             });
     };
+
+    const isFormValid =
+        formData.name && formData.email && formData.message && !emailError;
 
     return (
         <>
             <div>
-                <div className="main1  py-6 lg:py-20 sm:py-10">
+                <div className="main1 py-6 lg:py-20 sm:py-10">
                     <div
                         className="Qform my-10 bg-bg_black text-white flex flex-col shadow-lg hover:shadow-bright_green 
                          border-[1px] border-bright_green mx-10 rounded-xl 
@@ -71,6 +94,7 @@ function ContactForm() {
                             Send Us Your Queries
                         </p>
                         <input
+                            required
                             type="text"
                             name="name"
                             placeholder="Name"
@@ -79,6 +103,7 @@ function ContactForm() {
                             className="border-b-2 border-gray text-white bg-bg_black outline-none w-[50%] max-md:w-[70%] my-8 mx-10"
                         />
                         <input
+                            required
                             type="email"
                             name="email"
                             placeholder="Email"
@@ -86,7 +111,11 @@ function ContactForm() {
                             onChange={handleChange}
                             className="border-b-2 border-gray text-white bg-bg_black outline-none w-[50%] my-8 mx-10 max-md:w-[70%]"
                         />
+                        {emailError && (
+                            <p className="text-red-500 mx-10">{emailError}</p>
+                        )}
                         <input
+                            required
                             type="text"
                             name="message"
                             placeholder="Enter Your Query"
@@ -96,10 +125,14 @@ function ContactForm() {
                         />
                         <button
                             onClick={handleSubmit}
-                            className="text-black bg-bright_green
-                               font-semibold rounded-full py-2 px-4 w-[15%] max-md:w-[70%] my-8 mx-10"
+                            disabled={!isFormValid || isSubmitting}
+                            className={`text-black bg-bright_green font-semibold rounded-full py-2 px-4 w-[15%] max-md:w-[70%] my-8 mx-10 ${
+                                !isFormValid || isSubmitting
+                                    ? "opacity-50 cursor-not-allowed"
+                                    : ""
+                            }`}
                         >
-                            Submit
+                            {isSubmitting ? "Submitting..." : "Submit"}
                         </button>
                         <ToastContainer />
                     </div>
