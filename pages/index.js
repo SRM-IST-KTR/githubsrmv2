@@ -31,6 +31,7 @@ const Index = () => {
             </section>
             <section className="overflow-hidden h-[400px]">
                 <Gallery />
+            </section>
             <section>
                 <ContactForm />
             </section>
