@@ -1,70 +1,73 @@
-import React from "react";
-import { Accordion, AccordionItem } from "@nextui-org/react";
+import React, { useState } from "react";
+import faqData from "./faqData";
+import {
+    IoIosArrowDropdownCircle,
+    IoIosArrowDropupCircle
+} from "react-icons/io";
 
 const Faq = () => {
-  const defaultContent =
-    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.";
+    const [openAnswer, setOpenAnswer] = useState(null);
 
-  return (
-    <div className="bg-event_gray text-white my-8 p-4  rounded-lg mx-20">
-    <p className="text-5xl text-center my-5 pb-10 font-bold">Frequently Asked Questions</p>
-  
-    <Accordion 
-      variant="splitted"
-      className="bg-gray-900 rounded-lg"
-    >
-      <AccordionItem
-        key="1"
-        aria-label="Accordion 1"
-        title={<div className="text-center py-4 px-6 rounded-md">What is GitHub Community SRM</div>}
-        className="text-white text-lg pl-[40px] mx-[160px] rounded-3xl font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-      <AccordionItem
-        key="2"
-        aria-label="Accordion 2"
-        title={<div className="text-center py-4 px-6 rounded-md">How can I join the Community</div>}
-        className="text-white  pl-[40px] mx-[160px] rounded-3xl text-lg font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-      <AccordionItem
-        key="3"
-        aria-label="Accordion 3"
-        title={<div className="text-center py-4 px-6 rounded-md">How Often does GitHub SRM organize events</div>}
-        className="text-white text-lg  pl-[40px] mx-[160px] rounded-3xl font-semibold   hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-      <AccordionItem
-        key="4"
-        aria-label="Accordion 4"
-        title={<div className="text-center py-4 px-6 rounded-md">How can I stay updated to the events</div>}
-        className="text-white  pl-[40px] mx-[160px] rounded-3xl text-lg font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-      <AccordionItem
-        key="5"
-        aria-label="Accordion 5"
-        title={<div className="text-center py-4 px-6 rounded-md">What are the roles available</div>}
-        className="text-white  pl-[40px] mx-[160px] rounded-3xl text-lg font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4 text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-      <AccordionItem
-        key="6"
-        aria-label="Accordion 6"
-        title={<div className="text-center py-4 px-6 rounded-md">More FAQs</div>}
-        className="text-white  pl-[40px] mx-[160px] rounded-3xl text-lg font-semibold  border-transparent hover:border hover:border-bright_green hover:shadow-md hover:shadow-bright_green"
-      >
-        <div className="p-4  text-center text-gray-300">{defaultContent}</div>
-      </AccordionItem>
-    </Accordion>
-  </div>
-  
-  );
+    const toggleDropdown = (index) => {
+        setOpenAnswer(openAnswer === index ? null : index);
+    };
+
+    return (
+        <div className="my-20  text-white">
+            <div className="overflow-hidden">
+                <h1 className="text-4xl font-roboto font-bold text-center mb-16">
+                    Frequently Asked Questions
+                </h1>
+                <div className="flex flex-col items-center">
+                    {faqData.map((item, index) => (
+                        <div
+                            key={index}
+                            className="border-2  mx-2 transition-transform ease-in-out duration-300 transform "
+                            style={{ borderColor: "#374151", width: "90%" }}
+                        >
+                            <div
+                                className={`cursor-pointer`}
+                                onClick={() => toggleDropdown(index)}
+                            >
+                                <div
+                                    className={`flex items-center justify-between p-4 transition-bg ease-in-out duration-700 ${
+                                        openAnswer === index
+                                            ? "bg-bright_green text-black"
+                                            : ""
+                                    }`}
+                                >
+                                    <span
+                                        className={`text-lg ${
+                                            openAnswer === index
+                                                ? "fira-code font-bold"
+                                                : ""
+                                        }`}
+                                    >
+                                        {item.question}
+                                    </span>
+                                    <span className={`text-xl`}>
+                                        {openAnswer === index ? (
+                                            <IoIosArrowDropupCircle />
+                                        ) : (
+                                            <IoIosArrowDropdownCircle />
+                                        )}
+                                    </span>
+                                </div>
+                            </div>
+                            {openAnswer === index && (
+                                <div
+                                    className="p-4 fira-code text-white transition-bg ease-in-out duration-300 bg-event_gray"
+                                    // style={{ backgroundColor: "#354B30" }}
+                                >
+                                    {item.answer}
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Faq;
