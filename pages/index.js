@@ -1,6 +1,7 @@
 import React from "react";
 import AboutUs from "@/components/Home/About";
 import Domains from "@/components/Home/Domains";
+import ContactForm from "@/components/Contact/ContactForm";
 
 const Index = () => {
     return (
@@ -26,6 +27,9 @@ const Index = () => {
 
             <section>
                 <Domains />
+            </section>
+            <section>
+                <ContactForm />
             </section>
         </div>
     );
