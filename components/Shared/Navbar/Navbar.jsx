@@ -40,7 +40,7 @@ const Navbar = () => {
         {navItems.map(item => (
           <li
             key={item.id}
-            className={`p-4 font-extrabold hover:text-bright_green m-2 cursor-pointer duration-300 ${currentPath === item.path ? 'text-green-500' : ''}`}
+            className={`p-4  hover:text-[#0DFF4E] m-2 cursor-pointer duration-300 ${currentPath === item.path ? 'text-[#0DFF4E]' : ''}`}
             onClick={() => handleNavigation(item.path)}
           >
             {item.text}
@@ -57,7 +57,7 @@ const Navbar = () => {
         {navItems.map(item => (
           <li
             key={item.id}
-            className={`p-4 rounded-xl duration-300 hover:text-bright_green cursor-pointer border-gray-600 ${currentPath === item.path ? 'text-green-500' : ''}`}
+            className={`p-4 rounded-xl duration-300 hover:text-[#0DFF4E] cursor-pointer border-gray-600 ${currentPath === item.path ? 'text-[#0DFF4E]' : ''}`}
             onClick={() => handleNavigation(item.path)}
           >
             {item.text}
