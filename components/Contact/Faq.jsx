@@ -13,7 +13,7 @@ const Faq = () => {
     };
 
     return (
-        <div className="my-20 py-10 bg-event_gray text-white">
+        <div className="my-20 py-10  text-white">
             <div className="overflow-hidden">
                 <h1 className="text-4xl font-roboto font-bold text-center mb-16">
                     Frequently Asked Questions
@@ -55,9 +55,7 @@ const Faq = () => {
                                 </div>
                             </div>
                             {openAnswer === index && (
-                                <div
-                                    className="p-4 pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl"
-                                >
+                                <div className="p-4 pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl">
                                     {item.answer}
                                 </div>
                             )}
