@@ -120,6 +120,7 @@ const Teams = () => {
                       name={admin.name}
                       caption={admin.caption}
                       linkedin={admin.socials.linkedin}
+                      instagram={admin.socials.instagram}
                       github={admin.socials.github}
                     />
                   ))}
@@ -146,6 +147,7 @@ const Teams = () => {
                       name={lead.name}
                       caption={lead.caption}
                       linkedin={lead.socials.linkedin}
+                      instagram={lead.socials.instagram}
                       github={lead.socials.github}
                     />
                   ))}
@@ -172,6 +174,7 @@ const Teams = () => {
                       name={member.name}
                       caption={member.caption}
                       linkedin={member.socials.linkedin}
+                      instagram={member.socials.instagram}
                       github={member.socials.github}
                     />
                   ))}
