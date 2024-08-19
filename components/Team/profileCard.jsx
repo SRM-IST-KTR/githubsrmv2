@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-const profileCard = ({ photo, name, caption, linkedin, github }) => {
+const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
     return (
         // <div className="flex flex-col items-center">
         //     <div className="w-24 h-24 rounded-full overflow-hidden border-bright_green border-4">
@@ -33,17 +33,17 @@ const profileCard = ({ photo, name, caption, linkedin, github }) => {
                         {name}
                     </p>
 
-
                     <div className="mt-32">
-                        <div
-                            className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center"
-                        >
+                        <div className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center">
                             <p className='text-center text-white'>{caption}</p>
-                            <div className="flex justify-center mb-2">
-                                <a href={linkedin} target='_blank' className="mr-2">
+                            <div className="flex justify-between mb-2 space-x-2">
+                                <a href={linkedin} target='_blank' className="">
                                     <Image src="/linkedin.png" width="20" height="20" className="w-6 h-6" />
                                 </a>
                                 <a href={github} target='_blank'>
+                                    <Image src="/github_logo.png" width="20" height="20" className="w-6 h-6" />
+                                </a>
+                                <a href={instagram} target='_blank'>
                                     <Image src="/instagram.png" width="20" height="20" className="w-6 h-6" />
                                 </a>
                             </div>
