@@ -18,19 +18,19 @@ const Faq = () => {
                 <h1 className="text-4xl font-roboto font-bold text-center mb-16">
                     Frequently Asked Questions
                 </h1>
-                <div className="flex flex-col items-center space-y-6"> {/* Space between FAQ items */}
+                <div className="flex flex-col items-center space-y-6">
                     {faqData.map((item, index) => (
                         <div
                             key={index}
-                            className="border-2 rounded-2xl mx-auto transition-transform ease-in-out duration-300 transform hover:shadow-lg hover:border-bright_green" /* Further reduced width and centered */
-                            style={{ borderColor: "#374151", width: "60%" }} /* Shortened the width more */
+                            className="border-2 rounded-2xl mx-auto transition-transform ease-in-out duration-300 transform hover:shadow-lg hover:border-bright_green"
+                            style={{ borderColor: "#374151", width: "60%" }}
                         >
                             <div
-                                className={cursor-pointer}
+                                className="cursor-pointer"
                                 onClick={() => toggleDropdown(index)}
                             >
                                 <div
-                                    className={`flex items-center justify-between p-4 pl-6 transition-bg ease-in-out duration-700 ${
+                                    className={`flex items-center justify-between p-4 pl-6 transition ease-in-out duration-700 ${
                                         openAnswer === index
                                             ? "bg-bright_green text-black rounded-t-2xl"
                                             : ""
@@ -45,7 +45,7 @@ const Faq = () => {
                                     >
                                         {item.question}
                                     </span>
-                                    <span className={text-xl}>
+                                    <span className="text-xl">
                                         {openAnswer === index ? (
                                             <IoIosArrowDropupCircle />
                                         ) : (
@@ -56,7 +56,7 @@ const Faq = () => {
                             </div>
                             {openAnswer === index && (
                                 <div
-                                    className="p-4 pl-6 fira-code text-white transition-bg ease-in-out duration-300 bg-event_gray rounded-b-2xl"
+                                    className="p-4 pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl"
                                 >
                                     {item.answer}
                                 </div>
