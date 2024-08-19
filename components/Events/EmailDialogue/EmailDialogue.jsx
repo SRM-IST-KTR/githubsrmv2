@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
-import { Select, Option } from "@material-tailwind/react";
-import { Input } from "@material-tailwind/react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
-    const [email, setEmail] = useState('');
-    const [role, setRole] = useState('participants');
+const EmailDialogBox = ({ CertiOBJ, title, handelCloseModel }) => {
+
+    const [formData, setFormData] = useState({
+        email: "",
+        type: "", // This will be set based on the selected role
+        event: title,
+    });
+
     const [emailError, setEmailError] = useState('');
-
+    const [certificate, setCertificate] = useState(null);
+    const [isLoading, setIsLoading] = useState(false);
 
     const validateEmail = (email) => {
-        // Ensure email is a string before validation
         if (typeof email !== 'string') {
             return false;
         }
@@ -17,58 +22,49 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
     };
 
     const handleEmailChange = (event) => {
-        setEmail(event.target.value);
+        setFormData({ ...formData, email: event.target.value });
     };
 
-    const handleGetCertificate = (e) => {
+    const handleRoleChange = (event) => {
+        setFormData({ ...formData, type: event.target.value });
+    };
+
+    const handleGetCertificate = async (e) => {
         e.preventDefault();
-        if (!email) {
-            setEmailError('Please enter a valid email address.');
-            return;
-        }
+        console.log(formData);
+        try {
+            setIsLoading(true);
 
-        const url = CertiOBJ[role];
-        console.log(url);
+            const response = await axios.post(
+                "https://api.githubsrm.tech/api/certificate/get-certificate",
+                formData
+            );
 
-        fetch(url, {
-            method: 'GET',
-            headers: {
-                'Content-Type': 'application/json',
-                'Email': email
+            if (response.data && response.data.certificate) {
+                const certificateData = response.data.certificate;
+                setCertificate(certificateData);
+                toast.success(response.data.message);
+            } else {
+                toast.error(response.data.message);
             }
-        })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error('Network response was not ok');
-                }
-                // Extract the file type from the Content-Type header
-                const contentType = response.headers.get("Content-Type");
-                let extension = contentType.split('/')[1]; // Typically 'pdf', 'png', etc.
-                if (extension === 'jpeg') extension = 'jpg'; // Handle special cases
-
-                return response.blob().then(blob => ({
-                    blob,
-                    extension
-                }));
-            })
-            .then(({ blob, extension }) => {
-                // Create a URL for the blob object
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `certificate_${role}.${extension}`;
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                window.URL.revokeObjectURL(url);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                setEmailError('Failed to fetch the certificate');
-            });
-
-        setEmail('');
+        } catch (error) {
+            toast.error(`Error getting certificate: ${error.message}`);
+        } finally {
+            setIsLoading(false);
+        }
     };
+    const handleDownload = () => {
+        if (certificate) {
+            const downloadLink = document.createElement("a");
+            downloadLink.href = certificate;
+            downloadLink.download = "certificate.png";
+            downloadLink.click();
+            setCertificate(null);
+        } else {
+            toast.error("Certificate not available for download");
+        }
+    };
+
     return (
         <div className="max-w-lg w-full p-4">
             <div className="bg-white rounded-lg shadow-xl overflow-hidden p-8 relative drop-shadow-glow">
@@ -107,26 +103,19 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                                 required
                                 type="email"
                                 name="email"
+                                value={formData.email}
                                 id="email"
                                 onChange={handleEmailChange}
                             />
                         </div>
                         <label className=" text-gray-800 mt-8">Roles</label>
                         <div className="mt-4 focus:border-bright_green">
-                            {/* <Select
-                                label="Select Role"
-                                value={role}
-                                onChange={(val) => setRole(val)}
-                            >
-                                <Option value="participants">Participant</Option>
-                                <Option value="organizers">Organizer</Option>
-                                <Option value="volunteers">Volunteer</Option>
-                            </Select> */}
                             <select
                                 className="relative w-full px-3 py-3 border border-gray-100 bg-gray-100 rounded-md focus:ring-bright_green focus:border-bright_green text-black font-semibold"
-                                value={role}
-                                onChange={(e) => setRole(e.target.value)}
+                                value={formData.type}
+                                onChange={handleRoleChange}
                             >
+                                <option value="" disabled>Select Role</option>
                                 <option value="participants">Participant</option>
                                 <option value="organizers">Organizer</option>
                                 <option value="volunteers">Volunteer</option>
@@ -140,6 +129,18 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
                             type="submit"
                         >
                             Get Certificate
+                        </button>
+                        <button
+                            type="button"
+                            onClick={handleDownload}
+                            disabled={!certificate || isLoading}
+                            // className="bg-blue-600 text-white p-2 rounded-md hover:bg-blue-800 mt-2"
+                            className={`${certificate
+                                ? "group relative w-full flex justify-center py-3 px-4 border border-transparent font-bold rounded-md text-gray-900 bg-bright_green hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 "
+                                : " mt-5 group relative w-full flex justify-center py-3 px-4 border border-transparent font-bold rounded-md text-gray-900 bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-not-allowed"
+                                }`}
+                        >
+                            Download Certificate
                         </button>
                     </div>
                 </form>
@@ -166,4 +167,4 @@ const EmailDialogBox = ({ CertiOBJ, handelCloseModel }) => {
     );
 };
 
-export default EmailDialogBox
+export default EmailDialogBox;
