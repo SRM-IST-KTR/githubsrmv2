@@ -34,8 +34,8 @@ const Navbar = () => {
   ];
 
   return (
-    <div className='bg-black flex justify-between items-center h-20 py-2 mx-auto px-4 md:px-16 lg:px-16 text-white z-50'>
-      <img src="logo.png" className='h-12' />
+    <div className='bg-black flex justify-between items-center h-20 py-2 mx-auto px-4 md:px-16 lg:px-16 text-white z-50 font-dmSans'>
+      <img src="logo.png" className='h-10' />
       <ul className='hidden md:flex space-x-6'>
         {navItems.map(item => (
           <li
