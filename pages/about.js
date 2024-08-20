@@ -5,13 +5,13 @@ function AboutUs() {
   return (
     <div className="bg-bg_black text-white">
       <Hero />
-      <div className="border-gradient filter rounded-xl lg:mx-28 mx-4">
+      <div className="border-gradient filter rounded-xl lg:mx-28 mx-4 font-dmSan">
         <section className={"bg-black relative drop-shadow-glow rounded-xl"}>
           <div className="xl:p-8 p-4">
             <h2 className="text-bright_green font-bold lg:text-5xl text-3xl lg:py-10 py-8">
               The GitHub Story
             </h2>
-            <div className="lg:text-2xl text-lg text-justify">
+            <div className="lg:text-2xl text-lg text-justify font-dmSans">
               In the hidden corners of SRM, a ragtag group of coders gathered online. United by their passion for unconventional projects. They ditched the usual routines, delved in coding lingos, secret chat channels filled with cryptic clues and inside jokes. Their identities might be lost, but their creations tell a different story. Built with a blend of diverse skills and backgrounds, these quirky projects occasionally emerge from the shadows, like unexpected bursts of confetti in the GitHub world.
               <br />
               <br />
