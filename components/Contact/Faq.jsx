@@ -26,11 +26,8 @@ const Faq = () => {
                             style={{ borderColor: "#374151" }}
                         >
                             <div
-                                className={`flex items-center justify-between p-2 sm:p-3 md:p-4 pl-4 sm:pl-4 md:pl-6 transition ease-in-out duration-700 ${
-                                    openAnswer === index
-                                        ? "bg-bright_green text-black rounded-t-2xl"
-                                        : ""
-                                }`}
+                                className="cursor-pointer"
+                                onClick={() => toggleDropdown(index)}
                             >
                                 <div
                                     className={`flex items-center justify-between p-4 pl-6 transition ease-in-out duration-700 ${
@@ -58,7 +55,7 @@ const Faq = () => {
                                 </div>
                             </div>
                             {openAnswer === index && (
-                                <div className="p-2 sm:p-3 md:p-4 pl-4 sm:pl-4 md:pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl">
+                                <div className="p-4 pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl">
                                     {item.answer}
                                 </div>
                             )}
