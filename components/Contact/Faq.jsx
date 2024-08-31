@@ -24,7 +24,6 @@ const Faq = () => {
                             key={index}
                             className=" font-dmSans border-2 rounded-2xl mx-auto transition-transform ease-in-out duration-300 transform hover:shadow-lg hover:border-bright_green w-4/5 md:w-3/5"
                             style={{ borderColor: "#374151" }}
-
                         >
                             <div
                                 className={`flex items-center justify-between p-2 sm:p-3 md:p-4 pl-4 sm:pl-4 md:pl-6 transition ease-in-out duration-700 ${
@@ -34,16 +33,18 @@ const Faq = () => {
                                 }`}
                             >
                                 <div
-                                    className={`flex items-center justify-between p-4 pl-6 transition ease-in-out duration-700 ${openAnswer === index
-                                        ? "bg-bright_green text-black rounded-t-2xl"
-                                        : ""
-                                        }`}
+                                    className={`flex items-center justify-between p-4 pl-6 transition ease-in-out duration-700 ${
+                                        openAnswer === index
+                                            ? "bg-bright_green text-black rounded-t-2xl"
+                                            : ""
+                                    }`}
                                 >
                                     <span
-                                        className={`text-lg ${openAnswer === index
-                                            ? "fira-code font-bold"
-                                            : ""
-                                            }`}
+                                        className={`text-lg ${
+                                            openAnswer === index
+                                                ? "fira-code font-bold"
+                                                : ""
+                                        }`}
                                     >
                                         {item.question}
                                     </span>
@@ -55,20 +56,17 @@ const Faq = () => {
                                         )}
                                     </span>
                                 </div>
-
                             </div>
+                            {openAnswer === index && (
+                                <div className="p-2 sm:p-3 md:p-4 pl-4 sm:pl-4 md:pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl">
+                                    {item.answer}
+                                </div>
+                            )}
                         </div>
-                        {openAnswer === index && (
-                            <div className="p-2 sm:p-3 md:p-4 pl-4 sm:pl-4 md:pl-6 fira-code text-white transition ease-in-out duration-300 bg-event_gray rounded-b-2xl">
-                                {item.answer}
-                            </div>
-                        )}
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
-    </div>
-    
     );
 };
 
