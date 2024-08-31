@@ -18,7 +18,7 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
         //     </div>
         // </div>
 
-        <div className="group relative block rounded-3xl h-60 w-60">
+        <div className="group relative block rounded-3xl h-52 w-52">
             <div className="absolute inset-0 bg-black rounded-3xl filter drop-shadow-glow"></div>
 
             <div className="relative z-10 outline-2 border-gradient bg-black rounded-3xl h-full w-full">
@@ -29,11 +29,11 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
                 />
 
                 <div className="relative p-4 sm:p-6 lg:p-4">
-                    <p className="font-extrabold text-white sm:text-lg" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                    <p className="font-extrabold font-poppins text-white sm:text-lg" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
                         {name}
                     </p>
 
-                    <div className="mt-32">
+                    <div className=" mt-28 font-dmSans">
                         <div className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center">
                             <p className='text-center text-white'>{caption}</p>
                             <div className="flex justify-between mb-2 space-x-2">

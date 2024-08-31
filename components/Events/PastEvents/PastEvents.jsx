@@ -6,12 +6,6 @@
     border dark_green gradient -> "#006600"
     */
 }
-import { DM_Sans } from "next/font/google";
-
-const dmsans = DM_Sans({
-    subsets: ["latin"],
-    display: "swap",
-});
 
 const PastEvents = ({
     poster,
@@ -26,7 +20,7 @@ const PastEvents = ({
 
     return (
         <div
-            className={`block outline-2 drop-shadow-glow outline-white p-4 rounded-lg max-w-[100%] ${dmsans.className}`}
+            className="block outline-2 drop-shadow-glow outline-white p-4 rounded-lg max-w-[100%] font-dmSans"
         >
             <div className="relative">
                 <img
@@ -45,7 +39,7 @@ const PastEvents = ({
                     onClick={() => {
                         handleButtonClick();
                     }}
-                    className="ml-auto filter bg-bright_green text-black font-bold rounded h-9 w-40" //TO ADD GLOW EFFECT "drop-shadow-glow"
+                    className="ml-auto filter bg-bright_green text-black font-bold rounded h-9 w-40 font-dmSans" //TO ADD GLOW EFFECT "drop-shadow-glow"
                 >
                     Get Certificate
                 </button>

@@ -65,7 +65,7 @@ const Events = () => {
         }}
       >
         {/* {upcoming_events.length > 0 && ( */}
-        <div className="bg-black/40 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
+        <div className="bg-black/40 -top-8 lg:top-0 lg:p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
           <div className="mt-10 relative z-10">
             {eventData && eventData.filter(event => event.is_active).length > 0 ? (
               eventData.map((event, index) => (
@@ -103,7 +103,7 @@ const Events = () => {
       /> */}
 
       {/* PAST EVENTS */}
-      <p className=" pt-10 pb-5 text-center font-extrabold text-4xl underline underline-offset-4 text-white">
+      <p className=" pt-10 pb-5 text-center font-extrabold font-poppins text-4xl text-white">
         <span className="text-bright_green">Past</span> Events</p>
       <div className="flex flex-wrap justify-center gap-4 items-center">
         {!fetched ? (
