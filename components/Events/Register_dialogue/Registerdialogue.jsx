@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Confetti from "react-confetti";
 
 const RegisterDialogue = ({ slug, onRegistrationClose }) => {
     const [formData, setFormData] = useState({
@@ -73,6 +74,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
 
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
+            {success && <Confetti />}
             <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative">
                 <button
                     onClick={onRegistrationClose}
@@ -105,6 +107,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             value={formData.name}
                             onChange={handleChange}
                             required
+                            disabled={success}
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
@@ -118,6 +121,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             value={formData.email}
                             onChange={handleChange}
                             required
+                            disabled={success}
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
@@ -129,6 +133,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             value={formData.phn}
                             onChange={handleChange}
                             required
+                            disabled={success}
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
@@ -142,6 +147,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             value={formData.regNo}
                             onChange={handleChange}
                             required
+                            disabled={success}
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
@@ -155,6 +161,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             value={formData.dept}
                             onChange={handleChange}
                             required
+                            disabled={success}
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
