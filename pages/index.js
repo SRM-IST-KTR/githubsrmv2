@@ -42,7 +42,7 @@ const Index = () => {
 
 
   
-  <section class=" mt-[100px] flex flex-col lg:mt-0">
+  <section class=" flex flex-col lg:mt-0 px-4">
     <div class="AboutUsContainer">
       <AboutUs />
     </div>
