@@ -13,7 +13,8 @@ const teamSchema = new mongoose.Schema({
         github: String,
         website: String,
         linkedin: String,
-        twitter: String
+        twitter: String,
+        instagram: String,
     }
 });
 

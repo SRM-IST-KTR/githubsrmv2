@@ -8,7 +8,8 @@ const nextConfig = {
             "www.example.com",
             "portfolio-71t.pages.dev",
             "portfoliodata.djdiptayan.in",
-            "ik.imagekit.io"
+            "ik.imagekit.io",
+            "octodex.github.com"
         ]
     }
 };
