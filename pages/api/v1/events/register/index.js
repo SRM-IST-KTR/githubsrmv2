@@ -1,6 +1,8 @@
 import DBInstance from "@/utils/db";
 import Event from "@/utils/models/event.models";
 import mongoose from "mongoose";
+import { sendRegistrationEmail } from "@/utils/email/registration";
+
 DBInstance();
 
 export default async function handler(req, res) {
@@ -56,6 +58,7 @@ export default async function handler(req, res) {
             });
 
             await newParticipant.save();
+            await sendRegistrationEmail(newParticipant, event);
 
             res.status(200).json({
                 success: true,

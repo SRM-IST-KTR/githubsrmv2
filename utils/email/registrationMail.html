@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Registration Confirmation</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                background-color: #f4f4f4;
+            }
+            .container {
+                max-width: 600px;
+                margin: 20px auto;
+                background-color: #ffffff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+            h1 {
+                color: #333333;
+            }
+            p {
+                color: #555555;
+                line-height: 1.5;
+            }
+            .footer {
+                margin-top: 20px;
+                font-size: 12px;
+                color: #888888;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1>Registration Confirmation</h1>
+            <p>Dear {{name}},</p>
+            <p>
+                Thank you for registering for the event
+                <strong>{{event}}</strong>!
+            </p>
+            <p>Here are your registration details:</p>
+            <ul>
+                <li><strong>Name:</strong> {{name}}</li>
+                <li><strong>Email:</strong> {{email}}</li>
+                <li><strong>Phone:</strong> {{phn}}</li>
+                <li>
+                    <strong>Registration Number:</strong> {{registrationNumber}}
+                </li>
+                <li><strong>Department:</strong> {{department}}</li>
+            </ul>
+            <p>We look forward to seeing you at the event.</p>
+            <p>If you have any questions, please feel free to contact us.</p>
+            <div class="footer">
+                <p>Best regards,</p>
+                <p>The Event Team</p>
+                <p>Event Organization</p>
+            </div>
+        </div>
+    </body>
+</html>
