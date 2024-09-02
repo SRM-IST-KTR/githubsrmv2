@@ -22,10 +22,31 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
         });
     };
 
+    const validateForm = () => {
+        if (!/^\d{10}$/.test(formData.phn)) {
+            setError("Phone number must be 10 digits.");
+            return false;
+        }
+        if (!/^[a-zA-Z0-9._%+-]+@srmist\.edu\.in$/.test(formData.email)) {
+            setError("Email must end with @srmist.edu.in.");
+            return false;
+        }
+        if (formData.regNo.length !== 15) {
+            setError("Registration number must be 15 characters long.");
+            return false;
+        }
+        return true;
+    };
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
         setError(null);
+
+        if (!validateForm()) {
+            setLoading(false);
+            return;
+        }
 
         try {
             console.log("Registering for event:", slug);
@@ -96,13 +117,12 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
-                            pattern=".+@srmist.edu.in"
                             required
                             className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-primary-500 focus:border-primary-500 sm:text-sm"
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700">phn:</label>
+                        <label className="block text-gray-700">Phone:</label>
                         <input
                             type="tel"
                             name="phn"
@@ -126,7 +146,9 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
                         />
                     </div>
                     <div>
-                        <label className="block text-gray-700">dept:</label>
+                        <label className="block text-gray-700">
+                            Department:
+                        </label>
                         <input
                             type="text"
                             name="dept"
