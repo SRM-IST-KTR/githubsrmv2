@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const eventSchema = new mongoose.Schema({
     slug: {
@@ -14,15 +14,17 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    speakers_details: [{
-        name: {
-            type: String,
-        },
-        designation: {
-            type: String,
-        },
-        details: String
-    }],
+    speakers_details: [
+        {
+            name: {
+                type: String
+            },
+            designation: {
+                type: String
+            },
+            details: String
+        }
+    ],
     event_date: {
         type: Date,
         required: true
@@ -35,11 +37,13 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    sponsors_details: [{
-        name: String,
-        place: String,
-        details: String
-    }],
+    sponsors_details: [
+        {
+            name: String,
+            place: String,
+            details: String
+        }
+    ],
     duration: {
         type: Number,
         required: true
@@ -96,13 +100,13 @@ const eventSchema = new mongoose.Schema({
     },
     jimp_config: {
         yOffset: {
-            type: String,
+            type: String
         },
         color: {
-            type: String,
+            type: String
         },
         font_size: {
-            type: String,
+            type: String
         }
     },
     teamEvent: {
@@ -115,6 +119,6 @@ const eventSchema = new mongoose.Schema({
     }
 });
 
-const Event = mongoose.model.Event || mongoose.model('events', eventSchema);
+const Event = mongoose.models.events || mongoose.model("events", eventSchema);
 
 export default Event;

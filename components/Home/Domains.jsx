@@ -1,9 +1,8 @@
 function Domains() {
     return (
         <div className="p-20">
-            <h1 className="text-4xl text-white text-center mb-10 mr-5 font-bold">Our Domains</h1>
-
-            <section className="domain-box container flex justify-center">
+            <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">Our Domains</h1>
+            <section className="flex justify-center font-dmSans">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
                     <div className="">
                         <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
