@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 const RegisterDialogue = ({ onRegistrationClose }) => {
     const [formData, setFormData] = useState({
@@ -9,6 +10,10 @@ const RegisterDialogue = ({ onRegistrationClose }) => {
         department: '',
     });
 
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const [success, setSuccess] = useState(false);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({
@@ -17,9 +22,25 @@ const RegisterDialogue = ({ onRegistrationClose }) => {
         });
     };
 
-    const handleSubmit = (e) => {
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log('Form submitted:', formData);
+        setLoading(true);
+        setError(null);
+
+        try {
+            const response = await axios.post('/api/v1/eventRegistration', formData);
+            setLoading(false);
+
+            if (response.status === 200) {
+                setSuccess(true);
+                console.log('Registration successful:', response.data);
+            }
+        } catch (err) {
+            setLoading(false);
+            setError(err.response?.data?.message || 'An error occurred during registration.');
+            console.error('Registration error:', err);
+        }
     };
 
     return (
@@ -93,9 +114,11 @@ const RegisterDialogue = ({ onRegistrationClose }) => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full px-4 py-2 bg-bright_green text-black font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2"
+                        disabled={loading || success}
+                        className={`w-full px-4 py-2 font-bold rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2
+                            ${loading ? 'bg-gray-400' : success ? ' bg-green-800 text-white' : 'bg-bright_green text-black'}`}
                     >
-                        Register
+                        {loading ? 'Registering...' : success ? 'Registered' : 'Register'}
                     </button>
                 </form>
             </div>
