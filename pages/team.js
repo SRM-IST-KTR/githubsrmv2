@@ -166,7 +166,7 @@ const Teams = () => {
                   ))}
                 </div>
               ) : (
-                <div className="flex justify-center flex-wrap gap-8 mt-8 mx-4 md:mx-16">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-8 mt-8 mx-4 md:mx-16">
                   {filteredMembers.map((member, index) => (
                     <ProfileCard
                       key={index}
