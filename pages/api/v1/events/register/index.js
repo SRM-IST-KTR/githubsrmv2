@@ -38,6 +38,15 @@ export default async function handler(req, res) {
                 participantSchema
             );
 
+            const existingParticipant = await Participant.findOne({ email });
+
+            if (existingParticipant) {
+                return res.status(400).json({
+                    success: false,
+                    error: "Email already registered for this event."
+                });
+            }
+
             const newParticipant = new Participant({
                 name,
                 regNo,

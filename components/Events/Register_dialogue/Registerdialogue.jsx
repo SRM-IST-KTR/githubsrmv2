@@ -64,10 +64,17 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
             }
         } catch (err) {
             setLoading(false);
-            setError(
-                err.response?.data?.message ||
-                    "An error occurred during registration."
-            );
+            if (
+                err.response?.data?.error ===
+                "Email already registered for this event."
+            ) {
+                setError("Email already registered");
+            } else {
+                setError(
+                    err.response?.data?.message ||
+                        "An error occurred during registration."
+                );
+            }
             console.error("Registration error:", err);
         }
     };
