@@ -1,6 +1,6 @@
 function AboutUs() {
     return (
-        <div className="AboutUsContainer">
+        <div className="AboutUsContainer mt-80 lg:mt-20">
             <section className="about-us">
                 <h2 className="about-us-title text-4xl font-bold">About Us</h2>
                 <p className="about-us-description">
