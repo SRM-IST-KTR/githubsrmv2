@@ -6,18 +6,17 @@ import Gallery from "@/components/Home/Gallery";
 import ContactForm from "@/components/Contact/ContactForm";
 
 const Index = () => {
-  return (
-    <div className="bg-bg_black">
-      <Hero />
-      <AboutUs />
-      <Domains />
-      <div className="overflow-hidden h-[400px]">
-        <Gallery />
-      </div>
-      <ContactForm />
-    </div>
-
-  );
+    return (
+        <div className="bg-bg_black">
+            <Hero />
+            <AboutUs />
+            <Domains />
+            <div className="overflow-hidden h-[500px]">
+                <Gallery />
+            </div>
+            <ContactForm />
+        </div>
+    );
 };
 
 export default Index;

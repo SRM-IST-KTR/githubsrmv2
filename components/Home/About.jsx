@@ -1,11 +1,13 @@
-import React from 'react';
+import React from "react";
 
 function AboutUs() {
     return (
         <div className="lg:mt-2 mt-14 lg:px-48 p-8 rounded-2xl">
-            <section className="about-us lg:p-10 p-4 rounded-2xl">
-                <h2 className="lg:text-5xl text-4xl font-bold font-poppins pb-4">About Us</h2>
-                <p className="font-dmSans lg:text-2xl text-lg text-justify">
+            <section className="about-us lg:p-10 py-8 px-6 rounded-2xl">
+                <h2 className="lg:text-5xl text-3xl md:text-4xl font-bold font-poppins mb-6">
+                    About Us
+                </h2>
+                <p className="font-dmSans lg:text-2xl text-md md:text-lg text-left">
                     GitHub Community SRM is the official student-led community
                     affiliated with GitHub, spearheading the open-source
                     revolution at SRMIST. With the vision of revolutionising the
