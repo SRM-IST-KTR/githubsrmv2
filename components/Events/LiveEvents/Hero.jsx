@@ -81,8 +81,8 @@ const Hero = ({
     if (isActive) {
         return (
             <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
-                <div className="flex flex-col justify-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
-                    <div className="relative group">
+                <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
+                    <div className="relative group pt-4">
                         <div className="rounded-lg">
                             <img //USE img TAG IF LINK IS PROVIDED
                                 src={poster}
