@@ -61,7 +61,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <p className="text-center mt-8 mb-0 text-white font-poppins font-medium">
+            <p className="text-left pl-8 sm:text-center mt-1 sm:mt-8 mb-0 text-white font-poppins font-medium">
                 Created By GCSRM Team 🐐
             </p>
         </footer>

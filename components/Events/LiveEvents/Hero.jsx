@@ -81,13 +81,13 @@ const Hero = ({
     if (isActive) {
         return (
             <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
-                <div className="flex flex-col md:flex-row xl:mx-48 gap-4 lg:gap-16 justify-center">
+                <div className="flex flex-col justify-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
                     <div className="relative group">
                         <div className="rounded-lg">
                             <img //USE img TAG IF LINK IS PROVIDED
                                 src={poster}
                                 alt="Upcoming Event"
-                                className="rounded-lg w-[350px] sm:w-[526px] sm:h-[526px]"
+                                className="rounded-lg w-[400px] sm:w-[526px]"
                             />
                         </div>
                     </div>
@@ -120,7 +120,7 @@ const Hero = ({
                             <button
                                 // onClick={Registration_Link}
                                 onClick={handleRegisterButtonClick}
-                                className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-poppins font-semibold w-full rounded-lg p-4 text-xl"
+                                className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
                             >
                                 Register Now
                             </button>
