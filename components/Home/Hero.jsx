@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const Hero = () => {
     return (
@@ -30,8 +30,12 @@ const Hero = () => {
                 <p className="text-lg md:text-xl lg:text-xl text-white font-dmSans">
                     Spearheading the open-source revolution at SRMIST
                 </p>
-                <a href="https://www.instagram.com/githubsrm/" target="_blank" rel="noopener noreferrer">
-                    <button className="mt-8 text-black bg-[#0DFF4E] font-extrabold rounded-full py-2 px-4 w-48 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300">
+                <a
+                    href="https://www.instagram.com/githubsrm/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <button className="mt-6 text-md md:text-lg text-black bg-[#0DFF4E] font-bold rounded-full py-2 md:py-3 font-dmSans px-4 w-40 md:w-48 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300">
                         Join Us
                     </button>
                 </a>

@@ -1,5 +1,5 @@
-import React from 'react';
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
 
 const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
     return (
@@ -29,22 +29,40 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
                 />
 
                 <div className="relative p-4 sm:p-6 lg:p-4">
-                    <p className="font-extrabold font-poppins text-white sm:text-lg" style={{ textShadow: '2px 2px 4px rgba(0, 0, 0, 0.5)' }}>
+                    <p
+                        className="font-medium font-poppins text-white sm:text-lg"
+                        style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                    >
                         {name}
                     </p>
 
-                    <div className=" mt-28 font-dmSans">
+                    <div className=" mt-20 font-dmSans">
                         <div className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center">
-                            <p className='text-center text-white'>{caption}</p>
+                            <p className="text-center text-white">{caption}</p>
                             <div className="flex justify-between mb-2 space-x-2">
-                                <a href={linkedin} target='_blank' className="">
-                                    <Image src="/linkedin.png" width="20" height="20" className="w-6 h-6" />
+                                <a href={linkedin} target="_blank" className="">
+                                    <Image
+                                        src="/linkedin.png"
+                                        width="20"
+                                        height="20"
+                                        className="w-6 h-6"
+                                    />
                                 </a>
-                                <a href={github} target='_blank'>
-                                    <Image src="/github_logo.png" width="20" height="20" className="w-6 h-6" />
+                                <a href={github} target="_blank">
+                                    <Image
+                                        src="/github_logo.png"
+                                        width="20"
+                                        height="20"
+                                        className="w-6 h-6"
+                                    />
                                 </a>
-                                <a href={instagram} target='_blank'>
-                                    <Image src="/instagram.png" width="20" height="20" className="w-6 h-6" />
+                                <a href={instagram} target="_blank">
+                                    <Image
+                                        src="/instagram.png"
+                                        width="20"
+                                        height="20"
+                                        className="w-6 h-6"
+                                    />
                                 </a>
                             </div>
                         </div>
@@ -53,17 +71,16 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
             </div>
 
             <style jsx>{`
-        .drop-shadow-glow {
-            filter: drop-shadow(0 0 8px rgba(13, 255, 78, 0.6));
-            transition: filter 0.3s ease-in-out;
-        }
+                .drop-shadow-glow {
+                    filter: drop-shadow(0 0 8px rgba(13, 255, 78, 0.6));
+                    transition: filter 0.3s ease-in-out;
+                }
 
-        .group:hover .drop-shadow-glow {
-            filter: drop-shadow(0 0 12px rgba(13, 255, 78, 0.8));
-        }
+                .group:hover .drop-shadow-glow {
+                    filter: drop-shadow(0 0 12px rgba(13, 255, 78, 0.8));
+                }
             `}</style>
         </div>
-
     );
 };
 

@@ -82,7 +82,7 @@ const RegisterDialogue = ({ slug, onRegistrationClose }) => {
     return (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-75">
             {success && <Confetti />}
-            <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative">
+            <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md relative mx-4">
                 <button
                     onClick={onRegistrationClose}
                     className="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
