@@ -1,6 +1,7 @@
 import "@/styles/globals.css";
 import Navbar from "@/components/Shared/Navbar/Navbar";
 import Footer from "@/components/Shared/Footer/Footer";
+import Scroll from "@/components/Shared/Scroll";
 import Head from "next/head";
 
 function MyApp({ Component, pageProps }) {
@@ -15,6 +16,9 @@ function MyApp({ Component, pageProps }) {
             </Head>
             <Navbar />
             <Component {...pageProps} />
+            <div className="z-500">
+                <Scroll />
+            </div>
             <Footer />
         </>
     );
