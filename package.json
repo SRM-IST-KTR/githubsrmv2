@@ -29,7 +29,7 @@
         "react-toastify": "^10.0.5",
         "react-transition-group": "^4.4.5",
         "sharp": "^0.33.5",
-        "swiper": "^11.1.9"
+        "swiper": "^11.1.12"
     },
     "devDependencies": {
         "autoprefixer": "^10.0.1",
