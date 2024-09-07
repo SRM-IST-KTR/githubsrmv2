@@ -2,48 +2,35 @@ import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, EffectCoverflow } from "swiper/modules";
 
+// Import Swiper styles
 import "swiper/css";
-import "swiper/css/bundle";
+import "swiper/css/pagination";
+
+// import required modules
+import { Pagination, Autoplay } from "swiper/modules";
+import img1 from "../../public/Home/1.JPG";
+import img2 from "../../public/Home/2.JPG";
+import img3 from "../../public/Home/3.JPG";
+import img4 from "../../public/Home/4.JPG";
+import img5 from "../../public/Home/5.JPG";
+import img6 from "../../public/Home/6.JPG";
+import img7 from "../../public/Home/7.JPG";
+import img8 from "../../public/Home/8.JPG";
+import img9 from "../../public/Home/9.JPG";
+import img10 from "../../public/Home/10.JPG";
 
 const serviceData = [
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/1.jpg?updatedAt=1712915002248"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/2.jpg?updatedAt=1712915002342"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/3.jpg?updatedAt=1712915002175"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/4.jpeg?updatedAt=1712915002162"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/5.jpg?updatedAt=1712915002273"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/6.jpg?updatedAt=1712915002231"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/7.jpg?updatedAt=1712915002345"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/8.jpg?updatedAt=1712915002335"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/9.jpg?updatedAt=1712915002166"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/10.jpeg?updatedAt=1712915002335"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/11.jpeg?updatedAt=1712915005259"
-    },
-    {
-        path: "https://ik.imagekit.io/ctrcr/Images/Home/12.jpeg?updatedAt=1712915004920"
-    }
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
+    img9,
+    img10
 ];
 
 const ServiceSlider = () => {
@@ -83,37 +70,66 @@ const ServiceSlider = () => {
             grabCursor={true}
             centeredSlides={true}
             loop={true}
-            coverflowEffect={{
-                rotate: 20,
-                depth: -120,
-                modifier: 1,
-                slideShadows: false
+            // coverflowEffect={{
+            //     rotate: 20,
+            //     depth: -120,
+            //     modifier: 1,
+            //     slideShadows: false
+            // }}
+            pagination={{
+                dynamicBullets: true
             }}
             autoplay={{
                 delay: 2000,
                 disableOnInteraction: true
             }}
-            modules={[Autoplay, EffectCoverflow]}
-            className=""
+            modules={[Autoplay, Pagination]}
+            className="overflow-hidden"
         >
             {serviceData.map((item, index) => (
                 <SwiperSlide key={index}>
-                    <div className="rounded-lg flex p-2 flex-col gap-x-6 sm:gap-x-0 cursor-pointer ">
+                    <div className="rounded-lg flex p-2 flex-col gap-x-6 sm:gap-x-0 cursor-pointer overflow-hidden ">
                         {!imagesLoaded[index] && (
                             <div className="flex justify-center items-center">
                                 <p className="text-black">Loading Image...</p>
                             </div>
                         )}
-                        <img
-                            src={item.path}
+                        <Image
+                            src={item}
                             alt="Latest Events Images"
-                            className="object-fill w-full  rounded-lg"
+                            className=" w-[800px] h-[400px] rounded-lg"
                             onLoad={() => handleImageLoad(index)}
                         />
                     </div>
                 </SwiperSlide>
             ))}
         </Swiper>
+
+        // <Swiper
+        //     pagination={{
+        //         dynamicBullets: true
+        //     }}
+        //     modules={[Pagination]}
+        //     className="mySwiper"
+        // >
+        //     {serviceData.map((item, index) => (
+        //         <SwiperSlide key={index}>
+        //             <div className="rounded-lg flex p-2 flex-col gap-x-6 sm:gap-x-0 cursor-pointer overflow-hidden ">
+        //                 {!imagesLoaded[index] && (
+        //                     <div className="flex justify-center items-center">
+        //                         <p className="text-black">Loading Image...</p>
+        //                     </div>
+        //                 )}
+        //                 <img
+        //                     src={item.path}
+        //                     alt="Latest Events Images"
+        //                     className="object-fill w-full  rounded-lg"
+        //                     onLoad={() => handleImageLoad(index)}
+        //                 />
+        //             </div>
+        //         </SwiperSlide>
+        //     ))}
+        // </Swiper>
     );
 };
 

@@ -32,7 +32,10 @@ export default async function handler(req, res) {
                 regNo: { type: String, required: true },
                 email: { type: String, required: true },
                 phn: { type: String, required: true },
-                dept: { type: String, required: true }
+                dept: { type: String, required: true },
+                rsvp: { type: Boolean, default: false },
+                checkin: { type: Boolean, default: false },
+                snacks: { type: Boolean, default: false }
             });
 
             const Participant = db.model(

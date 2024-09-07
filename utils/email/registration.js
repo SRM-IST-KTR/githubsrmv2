@@ -27,7 +27,12 @@ export async function sendRegistrationEmail(participant, event) {
             .replaceAll("{{phn}}", participant.phn)
             .replaceAll("{{event}}", event.event_name)
             .replaceAll("{{department}}", participant.dept)
-            .replaceAll("{{registrationNumber}}", participant.regNo);
+            .replaceAll("{{registrationNumber}}", participant.regNo)
+            .replaceAll("{{event_description}}", event.event_description)
+            .replaceAll("{{date}}", event.event_date)
+            // .replaceAll("{{time}}", event.event_time)
+            .replaceAll("{{venue}}", event.venue)
+            .replaceAll("prerequisites", event.prerequisites);
 
         const params = {
             Destination: {
@@ -45,7 +50,8 @@ export async function sendRegistrationEmail(participant, event) {
                     Data: `Registration Confirmation for ${event.event_name}`
                 }
             },
-            Source: `"GitHub Community SRM | Events" <events@githubsrmist.tech>`
+            Source: `"GitHub Community SRM | Events" <events@githubsrmist.tech>`,
+            ReplyToAddresses: ["community@githubsrmist.tech"]
         };
 
         const command = new SendEmailCommand(params);
