@@ -1,6 +1,6 @@
 import React from "react";
 // import aboutUsHero from "@/public/teamPic.png";
-import aboutUsHero from "@/public/teamPic2.jpg";
+import aboutUsHero from "@/public/Group_1.png";
 const Hero = () => {
     return (
         <section
