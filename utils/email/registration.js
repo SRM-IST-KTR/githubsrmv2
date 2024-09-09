@@ -32,7 +32,8 @@ export async function sendRegistrationEmail(participant, event) {
             .replaceAll("{{date}}", event.event_date)
             // .replaceAll("{{time}}", event.event_time)
             .replaceAll("{{venue}}", event.venue)
-            .replaceAll("{{prerequisites}}", event.prerequisites);
+            .replaceAll("{{prerequisites}}", event.prerequisites)
+            .replaceAll("{{event_banner}}", event.poster_url);
 
         const params = {
             Destination: {
