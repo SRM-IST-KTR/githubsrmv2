@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Hero from "@/components/Team/Hero";
 import ProfileCard from "@/components/Team/profileCard";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import Head from "next/head";
 
 const ProfileSkeleton = () => {
     return (
@@ -64,6 +65,82 @@ const Teams = () => {
 
     return (
         <section className="bg-bg_black">
+            <Head>
+                <title>Meet the Team | GitHub Community SRM</title>
+                <meta
+                    name="description"
+                    content="Meet the talented team behind GitHub Community SRM, including Admins, Leads, and Members from Technical, Corporate, Creatives, and Content domains."
+                />
+                <meta
+                    name="keywords"
+                    content={`${admins
+                        .map((admin) => admin.name)
+                        .join(", ")}, ${leads
+                        .map((lead) => lead.name)
+                        .join(", ")}, ${members
+                        .map((member) => member.name)
+                        .join(
+                            ", "
+                        )}, GitHub Community SRM team, Technical domain, Corporate domain, Creatives domain, Content domain, GitHub, LinkedIn, Instagram`}
+                />
+
+                <meta
+                    property="og:title"
+                    content="Meet the Team | GitHub Community SRM"
+                />
+                <meta
+                    property="og:description"
+                    content="Discover the GitHub Community SRM team."
+                />
+                <meta property="og:image" content="/og-image.png" />
+                <meta
+                    property="og:url"
+                    content="https://githubsrmist.tech/team"
+                />
+                <meta property="og:type" content="website" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta
+                    name="twitter:title"
+                    content="Meet the Team | GitHub Community SRM"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Discover the team behind GitHub Community SRM."
+                />
+                <meta name="twitter:image" content="/twitter-image.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Organization",
+                        name: "GitHub Community SRM",
+                        url: "https://githubsrmist.tech",
+                        logo: "/logo.png",
+                        sameAs: [
+                            "https://www.github.com/SRM-IST-KTR",
+                            "https://www.linkedin.com/company/githubsrm",
+                            "https://www.instagram.com/githubsrm/",
+                            "https://twitter.com/GithubSrm"
+                        ],
+                        employee: members.map((member) => ({
+                            "@type": "Person",
+                            name: member.name,
+                            jobTitle: member.position,
+                            image: member.pictureUrl,
+                            url: `https://githubsrmist.tech/team/${member.name
+                                .replace(/\s+/g, "-")
+                                .toLowerCase()}`,
+                            sameAs: [
+                                member.socials.github,
+                                member.socials.linkedin,
+                                member.socials.instagram,
+                                member.socials.twitter
+                            ]
+                        }))
+                    })}
+                </script>
+            </Head>
             <Hero />
 
             <div className="p-8 md:p-12 lg:px-16 lg:py-24">
