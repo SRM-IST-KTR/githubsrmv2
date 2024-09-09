@@ -80,7 +80,7 @@ function MyApp({ Component, pageProps }) {
 
                 <link rel="canonical" href="https://githubsrmist.tech" />
 
-                <link rel="icon" href="/public/favicon.ico" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
             <Navbar />
             <Component {...pageProps} />
