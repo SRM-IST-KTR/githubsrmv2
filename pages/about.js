@@ -6,7 +6,7 @@ function AboutUs() {
     return (
         <div className="bg-bg_black text-white">
             <Head>
-                <title>About Us - GitHub Community SRM</title>
+                <title>About Us | GitHub Community SRM</title>
                 <meta
                     name="description"
                     content="Learn about GitHub Community SRM, the official student-led group at SRMIST, fostering a collaborative open-source culture."

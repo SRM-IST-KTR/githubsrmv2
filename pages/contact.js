@@ -7,7 +7,7 @@ const Contact = () => {
     return (
         <>
             <Head>
-                <title>Contact Us | GitHub Community SRM</title>
+                <title>Contact | GitHub Community SRM</title>
                 <meta
                     name="description"
                     content="Have a query? Contact the GitHub Community SRM team and we will get back to you shortly. Explore frequently asked questions to find instant answers."
