@@ -81,7 +81,7 @@ const Hero = ({
     if (isActive) {
         return (
             <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
-                <p className="pt-5 max-md:pb-1 max-md:pt-1 pb-10 text-center font-extrabold font-poppins text-4xl text-white">
+                <p className="pt-5 max-md:pb-1 max-md:text-2xl max-md:pt-1 pb-10 text-center font-extrabold font-poppins text-4xl text-white">
                     <span className="text-bright_green">Upcoming</span> Event
                 </p>
                 <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
@@ -93,7 +93,7 @@ const Hero = ({
                                 className="rounded-lg w-[400px] sm:w-[526px]"
                             />
                         </div>
-                        <h3 className="text-sm font-bold max-md:text-center text-white sm:text-xl py-4 px-4 pl-0">
+                        <h3 className="text-sm font-bold max-md:text-center text-white sm:text-xl py-4 max-md:hidden px-4 pl-0">
                             {title}
                         </h3>
                     </div>
