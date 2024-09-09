@@ -1,9 +1,59 @@
 import React from "react";
 import Hero from "@/components/OurStory/Hero";
+import Head from "next/head";
 
 function AboutUs() {
     return (
         <div className="bg-bg_black text-white">
+            <Head>
+                <title>About Us | GitHub Community SRM</title>
+                <meta
+                    name="description"
+                    content="Learn about GitHub Community SRM, the official student-led group at SRMIST, fostering a collaborative open-source culture."
+                />
+                <meta
+                    name="keywords"
+                    content="GitHub, SRMIST, Open Source, Coding, GitHub Community SRM, Development, Collaboration"
+                />
+                <meta name="author" content="GitHub Community SRM" />
+                <meta
+                    name="viewport"
+                    content="width=device-width, initial-scale=1"
+                />
+                <link rel="canonical" href="https://githubsrmist.tech/about" />
+
+                <meta name="twitter:card" content="/public/x_logo.png" />
+                <meta
+                    name="twitter:title"
+                    content="About Us - GitHub Community SRM"
+                />
+                <meta
+                    name="twitter:description"
+                    content="Discover the story behind GitHub Community SRM, a hub for collaborative open-source projects at SRMIST."
+                />
+                <meta name="twitter:image" content="/public/x_logo.png" />
+                <meta name="twitter:site" content="@GithubSrm" />
+                <meta
+                    name="twitter:url"
+                    content="https://githubsrmist.tech/about"
+                />
+
+                <meta
+                    property="og:title"
+                    content="About Us - GitHub Community SRM"
+                />
+                <meta
+                    property="og:description"
+                    content="GitHub Community SRM is a space for collaboration and open-source innovation at SRMIST. Learn more about our journey."
+                />
+                <meta
+                    property="og:url"
+                    content="https://githubsrmist.tech/about"
+                />
+                <meta property="og:image" content="/public/logo.png" />
+                <meta property="og:type" content="website" />
+                <meta property="og:site_name" content="GitHub Community SRM" />
+            </Head>
             <Hero />
             <div className="border-gradient filter rounded-xl lg:mx-28 mx-4 font-dmSan">
                 <section
