@@ -92,14 +92,14 @@ const Teams = () => {
                     property="og:description"
                     content="Discover the GitHub Community SRM team."
                 />
-                <meta property="og:image" content="/og-image.png" />
+                <meta property="og:image" content="/public/logo.png" />
                 <meta
                     property="og:url"
                     content="https://githubsrmist.tech/team"
                 />
                 <meta property="og:type" content="website" />
 
-                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:card" content="/public/x_logo.png" />
                 <meta
                     name="twitter:title"
                     content="Meet the Team | GitHub Community SRM"
@@ -108,7 +108,7 @@ const Teams = () => {
                     name="twitter:description"
                     content="Discover the team behind GitHub Community SRM."
                 />
-                <meta name="twitter:image" content="/twitter-image.png" />
+                <meta name="twitter:image" content="/public/x_logo.png" />
 
                 <script type="application/ld+json">
                     {JSON.stringify({
@@ -116,7 +116,7 @@ const Teams = () => {
                         "@type": "Organization",
                         name: "GitHub Community SRM",
                         url: "https://githubsrmist.tech",
-                        logo: "/logo.png",
+                        logo: "/public/logo.png",
                         sameAs: [
                             "https://www.github.com/SRM-IST-KTR",
                             "https://www.linkedin.com/company/githubsrm",
