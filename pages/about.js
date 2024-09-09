@@ -22,7 +22,7 @@ function AboutUs() {
                 />
                 <link rel="canonical" href="https://githubsrmist.tech/about" />
 
-                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:card" content="/public/x_logo.png" />
                 <meta
                     name="twitter:title"
                     content="About Us - GitHub Community SRM"
@@ -31,10 +31,7 @@ function AboutUs() {
                     name="twitter:description"
                     content="Discover the story behind GitHub Community SRM, a hub for collaborative open-source projects at SRMIST."
                 />
-                <meta
-                    name="twitter:image"
-                    content="https://githubsrmist.tech/twitter-about-image.png"
-                />
+                <meta name="twitter:image" content="/public/x_logo.png" />
                 <meta name="twitter:site" content="@GithubSrm" />
                 <meta
                     name="twitter:url"
@@ -53,10 +50,7 @@ function AboutUs() {
                     property="og:url"
                     content="https://githubsrmist.tech/about"
                 />
-                <meta
-                    property="og:image"
-                    content="https://githubsrmist.tech/og-about-image.png"
-                />
+                <meta property="og:image" content="/public/logo.png" />
                 <meta property="og:type" content="website" />
                 <meta property="og:site_name" content="GitHub Community SRM" />
             </Head>
