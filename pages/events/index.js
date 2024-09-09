@@ -6,6 +6,7 @@ import EmailDialogBox from "@/components/Events/EmailDialogue/EmailDialogue";
 import RegisterDialogue from "@/components/Events/Register_dialogue/Registerdialogue";
 import Hero from "@/components/Events/LiveEvents/Hero";
 import heroimg_events from "@/public/heroimg_events.png";
+import Head from "next/head";
 
 const Events = () => {
     const [eventData, setEventData] = useState(null);
@@ -49,8 +50,66 @@ const Events = () => {
         fetchData();
     }, []);
 
+    const allEvents = eventData || [];
+
     return (
         <div className="bg-bg_black">
+            <Head>
+                <title>Events | Community SRM</title>
+                <meta
+                    name="description"
+                    content="Explore upcoming and past events organized by Community SRM, including detailed information and registration options."
+                />
+                <meta
+                    name="keywords"
+                    content={`events, Community SRM, technical events, corporate events, creative events, past events, ${allEvents
+                        .map((event) => event.event_name)
+                        .join(", ")}`}
+                />
+
+                <meta property="og:title" content="Events | Community SRM" />
+                <meta
+                    property="og:description"
+                    content="Discover upcoming and past events organized by Community SRM."
+                />
+                <meta property="og:image" content="/public/logo.png" />
+                <meta
+                    property="og:url"
+                    content="https://githubsrmist.tech/events"
+                />
+                <meta property="og:type" content="website" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta name="twitter:title" content="Events | Community SRM" />
+                <meta
+                    name="twitter:description"
+                    content="Find out more about the events organized by Community SRM."
+                />
+                <meta name="twitter:image" content="/public/x_logo.png" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Event",
+                        name: "Community SRM Events",
+                        url: "https://githubsrmist.tech/events",
+                        description:
+                            "Upcoming and past events organized by Community SRM.",
+                        image: "/public/logo.png",
+                        event: allEvents.map((event) => ({
+                            "@type": "Event",
+                            name: event.event_name,
+                            startDate: event.event_date,
+                            location: {
+                                "@type": "Place",
+                                name: event.venue
+                            },
+                            url: event.registration_url,
+                            image: event.poster_url
+                        }))
+                    })}
+                </script>
+            </Head>
             <section
                 className="relative mt-0 top-0 overflow-x-hidden"
                 style={{
@@ -111,7 +170,7 @@ const Events = () => {
                               <PastEventsSkeleton />
                           </div>
                       ))
-                    : eventData.map(
+                    : allEvents.map(
                           (event, index) =>
                               !event.is_active && (
                                   <div
