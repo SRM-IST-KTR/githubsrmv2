@@ -97,7 +97,7 @@ const ServiceSlider = () => {
                         <Image
                             src={item}
                             alt="Latest Events Images"
-                            className=" w-[800px] h-[400px] rounded-lg"
+                            className=" w-[800px] h-[400px] rounded-lg max-md:object-cover"
                             onLoad={() => handleImageLoad(index)}
                         />
                     </div>
