@@ -85,7 +85,7 @@ function FormSub() {
             ]);
         } else if (domain === "Creatives") {
             setSubDomainOptions([
-                { value: 'Content', label: 'Content' },
+                // { value: 'Content', label: 'Content' },
                 { value: 'GD', label: 'GD' },
                 { value: 'VFX', label: 'VFX' }
             ]);
