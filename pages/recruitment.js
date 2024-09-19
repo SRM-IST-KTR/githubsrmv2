@@ -19,14 +19,14 @@ function recruitment() {
             domainName: "Corporate",
             description:
                 "Be the strategist behind the scenes! In the Corporate domain, you’ll manage operations, secure sponsorships, and handle PR to make things happen.",
-            subDomains: ["Operations", "Sponsorship", "Public Relations"],
+                // subDomains: ["Operations", "Sponsorship", "Public Relations"],
             icon: <MdBusiness />
         },
         {
             domainName: "Creatives",
             description:
                 "Got ideas? The Creatives domain is for designers, writers, and visual artists. Create content, craft designs, and bring visions to life.",
-            subDomains: ["Content", "Graphic Design", "VFX"],
+            subDomains: ["Graphic Design", "VFX"],
             icon: <MdBrush />
         }
     ];
