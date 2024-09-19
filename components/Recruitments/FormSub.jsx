@@ -7,7 +7,7 @@ function FormSub() {
         name: "",
         registrationNo: "",
         email: "",
-        phone: "",
+        phone: 0,
         branch: "",
         year: "",
         position: "",
@@ -55,8 +55,7 @@ function FormSub() {
                 }
                 break;
             case "phone":
-                const phonePattern = /^[0-9]{10}$/;
-                if (!phonePattern.test(value)) {
+                if (!Number.isInteger(value) || value.toString().length !== 10) {
                     fieldErrors.phone = "Phone number should be exactly 10 digits.";
                 } else {
                     delete fieldErrors.phone;
@@ -179,7 +178,7 @@ function FormSub() {
                 name: "",
                 registrationNo: "",
                 email: "",
-                phone: "",
+                phone: 0,
                 branch: "",
                 year: "",
                 position: "",
@@ -244,7 +243,7 @@ function FormSub() {
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
                         <input
                             required
-                            type="text"
+                            type="number"
                             name="phone"
                             placeholder="Phone (10 digits)"
                             value={formData.phone}
