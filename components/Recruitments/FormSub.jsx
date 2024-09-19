@@ -7,7 +7,7 @@ function FormSub() {
         name: "",
         registrationNo: "",
         email: "",
-        phone: 0,
+        phone: "",
         branch: "",
         year: "",
         position: "",
@@ -55,7 +55,8 @@ function FormSub() {
                 }
                 break;
             case "phone":
-                if (!Number.isInteger(value) || value.toString().length !== 10) {
+                // Ensure the phone number is exactly 10 digits and is a valid number
+                if (value.toString().length !== 10) {
                     fieldErrors.phone = "Phone number should be exactly 10 digits.";
                 } else {
                     delete fieldErrors.phone;
@@ -116,80 +117,96 @@ function FormSub() {
         return isValid;
     };
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setLoading(true);
+        setError(null);
+
+        // First, validate the form
+        if (!validateForm()) {
+            setLoading(false);
+            return;
+        }
+
+        // Convert phone from string to number before submission
+        const updatedFormData = {
+            ...formData,
+            phone: Number(formData.phone), // Ensure phone is converted to number
+        };
+
+        try {
+            console.log("Registering");
+            console.log("Form data:", updatedFormData);
+
+            // Send the form data to the backend API
+            const response = await axios.post("/api/v1/recruitment", updatedFormData);
+
+            // Stop the loading state
+            setLoading(false);
+
+            // Check for the 201 status code for success (resource creation)
+            if (response.status === 201) {
+                setSuccess(true);
+                console.log("Registration successful:", response.data);
+                toast.success("Registration successful!"); // You can trigger a success toast
+            }
+        } catch (err) {
+            setLoading(false);
+
+            // Handle specific errors
+            if (err.response?.data?.error === "Email already registered for this event.") {
+                setError("Email already registered");
+            } else {
+                // Generic error handling
+                setError(err.response?.data?.message || "An error occurred during registration.");
+            }
+
+            // Log the error for debugging
+            console.error("Registration error:", err);
+            toast.error("An error occurred during registration!"); // Trigger error toast
+        }
+    };
+
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     setLoading(true);
-    //     setError(null);
+    //     setSuccess(false);
 
     //     if (!validateForm()) {
     //         setLoading(false);
     //         return;
     //     }
 
-    //     try {
-    //         console.log("Registering");
-    //         console.log("Form data:", formData);
-    //         const response = await axios.post("/api/v1/recruitment", {
-    //             ...formData,
-    //    
+    //     // Convert phone to a number before submitting
+    //     const updatedFormData = {
+    //         ...formData,
+    //         phone: Number(formData.phone) // Convert phone string to number
+    //     };
+
+    //     // Simulate an API call with setTimeout
+    //     setTimeout(() => {
+    //         // Simulate success
+    //         setSuccess(true);
+    //         toast.success("Registration successful!");
+    //         console.log("Registration successful:", updatedFormData);
+
+    //         // Clear form data
+    //         setFormData({
+    //             name: "",
+    //             registrationNo: "",
+    //             email: "",
+    //             phone: "",
+    //             branch: "",
+    //             year: "",
+    //             position: "",
+    //             subDomain1: "",
+    //             subDomain2: "",
+    //             reason: ""
     //         });
-    //         setLoading(false);
 
-    //         if (response.status === 200) {
-    //             setSuccess(true);
-    //             console.log("Registration successful:", response.data);
-    //         }
-    //     } catch (err) {
     //         setLoading(false);
-    //         if (
-    //             err.response?.data?.error ===
-    //             "Email already registered for this event."
-    //         ) {
-    //             setError("Email already registered");
-    //         } else {
-    //             setError(
-    //                 err.response?.data?.message ||
-    //                 "An error occurred during registration."
-    //             );
-    //         }
-    //         console.error("Registration error:", err);
-    //     }
+    //     }, 2000); // Simulate a 2 second delay (API call delay)
     // };
-
-    const handleSubmit = async (e) => {  // Simulate an API call with setTimeout
-        e.preventDefault();
-        setLoading(true);
-        setSuccess(false);
-
-        if (!validateForm()) {
-            setLoading(false);
-            return;
-        }
-
-        // Simulate an API call with setTimeout
-        setTimeout(() => {
-            // Simulate success
-            setSuccess(true);
-            toast.success("Registration successful!");
-            console.log("Registration successful:", formData);
-
-            // Clear form data
-            setFormData({
-                name: "",
-                registrationNo: "",
-                email: "",
-                phone: 0,
-                branch: "",
-                year: "",
-                position: "",
-                subDomain1: "",
-                subDomain2: "",
-                reason: ""
-            });
-
-            setLoading(false);
-        }, 2000); // Simulate a 2 second delay (API call delay)
-    };
 
     return (
         <div id="registration-form" className="bg-bg_black">
