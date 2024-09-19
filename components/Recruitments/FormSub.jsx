@@ -18,6 +18,7 @@ function FormSub() {
     const [errors, setErrors] = useState({});
     const [loading, setLoading] = useState(false);
     const [success, setSuccess] = useState(false);
+    const [error, setError] = useState(null);
     const [subDomainOptions, setSubDomainOptions] = useState([]);
 
     const handleChange = (e) => {
@@ -119,7 +120,7 @@ function FormSub() {
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     setLoading(true);
-    //     setSuccess(false);
+    //     setError(null);
 
     //     if (!validateForm()) {
     //         setLoading(false);
@@ -127,29 +128,32 @@ function FormSub() {
     //     }
 
     //     try {
-    //         const response = await axios.post("/api/v1/registration/register", formData);
+    //         console.log("Registering");
+    //         console.log("Form data:", formData);
+    //         const response = await axios.post("/api/v1/recruitment", {
+    //             ...formData,
+    //    
+    //         });
+    //         setLoading(false);
 
     //         if (response.status === 200) {
     //             setSuccess(true);
-    //             toast.success("Registration successful!");
-    //             console.log("Registration successful:", formData);
-    //             setFormData({
-    //                 name: "",
-    //                 registrationNo: "",
-    //                 email: "",
-    //                 phone: "",
-    //                 branch: "",
-    //                 year: "",
-    //                 position: "",
-    //                 subDomain1: "",
-    //                 subDomain2: "",
-    //             });
+    //             console.log("Registration successful:", response.data);
     //         }
     //     } catch (err) {
-    //         toast.error("An error occurred during registration.");
-    //         console.error("Registration error:", err);
-    //     } finally {
     //         setLoading(false);
+    //         if (
+    //             err.response?.data?.error ===
+    //             "Email already registered for this event."
+    //         ) {
+    //             setError("Email already registered");
+    //         } else {
+    //             setError(
+    //                 err.response?.data?.message ||
+    //                 "An error occurred during registration."
+    //             );
+    //         }
+    //         console.error("Registration error:", err);
     //     }
     // };
 
@@ -334,7 +338,9 @@ function FormSub() {
                             </div>
                         </>
                     )}
-
+                    {error && (
+                        <div className="text-red-500 text-sm">{error}</div>
+                    )}
                     <div className="flex justify-center">
                         <button
                             type="submit"
