@@ -105,8 +105,8 @@ function FormSub() {
         });
 
         // Check subdomain only if position is not "Corporate"
-        if (formData.position !== "Corporate" && (!formData.subDomain1 || !formData.subDomain2)) {
-            fieldErrors.subDomain1 = "Sub-domain preferences are required.";
+        if (formData.position !== "Corporate" && !formData.subDomain1) {
+            fieldErrors.subDomain1 = "Sub-domain 1 is required.";
             isValid = false;
         } else {
             delete fieldErrors.subDomain1;
@@ -299,6 +299,7 @@ function FormSub() {
                             <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
                                 <label className="text-sm lg:text-lg font-semibold mb-2">Sub-Domain Preference 1</label>
                                 <select
+                                    required
                                     name="subDomain1"
                                     value={formData.subDomain1}
                                     onChange={handleChange}
