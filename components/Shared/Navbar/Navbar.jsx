@@ -43,7 +43,7 @@ const Navbar = () => {
                         key={item.id}
                         className={`p-4 font-medium m-2 cursor-pointer duration-300 
                      ${currentPath === item.path ? "text-bright_green" : ""}
-                     ${item.text === "Recruitments" ? "text-black bg-bright_green px-5 rounded-full h-7 font-semibold my-2 pb-9 " : "hover:text-black"}
+                     ${item.text === "Recruitments" ? "text-black bg-bright_green px-5 rounded-full h-7 font-semibold my-2 pb-9 " : "hover:text-bright_green"}
                      `}
                         onClick={() => handleNavigation(item.path)}
                     >
@@ -69,7 +69,7 @@ const Navbar = () => {
                         key={item.id}
                         className={`p-4 w-[80%] rounded-lg duration-300 cursor-pointer font-poppins text-center first:mt-10
                      ${currentPath === item.path ? "text-black bg-bright_green" : "text-white bg-zinc-900"}
-                     ${item.text === "Recruitments" ? "text-black bg-bright_green hover:text-red-300" : "hover:text-black"}
+                     ${item.text === "Recruitments" ? "text-black bg-bright_green hover:text-red-300" : "hover:text-bright_green"}
                      `}
                         onClick={() => handleNavigation(item.path)}
                     >
