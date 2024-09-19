@@ -41,6 +41,7 @@ export default async function handler(req, res) {
                 email,
                 phoneNo: phone,
                 dept: branch,
+                year,
                 domain,
                 status: "registered"
             });
