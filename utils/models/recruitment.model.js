@@ -19,6 +19,10 @@ const participantSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
+    year: {
+        type: String,
+        required: true
+    },
     dept: {
         type: String,
         required: true
@@ -52,6 +56,6 @@ const participantSchema = new mongoose.Schema({
     }
 });
 
-const ParticipantUser = mongoose.model("Recruitment24", participantSchema);
+const ParticipantUser = mongoose.model.Recruitment24 || mongoose.model("Recruitment24", participantSchema);
 
 module.exports = ParticipantUser;
