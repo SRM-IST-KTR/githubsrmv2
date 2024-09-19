@@ -19,7 +19,7 @@ function recruitment() {
             domainName: "Corporate",
             description:
                 "Be the strategist behind the scenes! In the Corporate domain, you’ll manage operations, secure sponsorships, and handle PR to make things happen.",
-                // subDomains: ["Operations", "Sponsorship", "Public Relations"],
+            // subDomains: ["Operations", "Sponsorship", "Public Relations"],
             icon: <MdBusiness />
         },
         {
@@ -99,7 +99,7 @@ function recruitment() {
             </section>
 
             <div className="bg-bg_black flex justify-center items-center p-6 lg:pb-16 lg:p-0">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-screen-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-screen-lg mx-auto">
                     {domains.map((domain, index) => (
                         <DomainCard
                             key={index}
