@@ -1,14 +1,47 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 function Domains() {
-    return (
-        <div className="p-20">
-            <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
-                Our Domains
-            </h1>
-            <section className="flex justify-center items-center font-dmSans">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
-                    <div className="">
-                        <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                            <div>
+  const [domain, setDomain] = React.useState(''); // Current domain state
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // Function to switch domain
+  const handleDomainChange = (selectedDomain) => {
+    if (selectedDomain !== domain) {
+      setDomain(selectedDomain);
+      handleOpen(); // Open modal when domain changes
+    }
+  };
+
+  return (
+    <div className="p-20">
+      <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
+        Our Domains
+      </h1>
+      <section className="domain-box container flex justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 text-center">
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
+            onClick={() => handleDomainChange('Technical')}
+          >
+            <div>
                                 <svg
                                     width="101"
                                     height="101"
@@ -137,15 +170,15 @@ function Domains() {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                            </div>
-                            <h2 className="text-xl font-semibold mb-2">
-                                Technical
-                            </h2>
-                        </div>
-                    </div>
+                                </div>
+            <h2 className="text-xl font-semibold mb-2">Technical</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+            onClick={() => handleDomainChange('Creatives')}
+          >
+            <div>
                             <svg
                                 width="108"
                                 height="107"
@@ -194,14 +227,15 @@ function Domains() {
                                     fill="black"
                                 />
                             </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2">
-                            Creatives
-                        </h2>
-                    </div>
+                            </div>
+            <h2 className="text-xl font-semibold mb-2">Creatives</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+            onClick={() => handleDomainChange('Corporate')}
+          >
+            <div>
                             <svg
                                 width="101"
                                 height="101"
@@ -227,14 +261,15 @@ function Domains() {
                                     fill="#0DFF4E"
                                 />
                             </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2 ">
-                            Corporate
-                        </h2>
-                    </div>
+                            </div>
+            <h2 className="text-xl font-semibold mb-2">Corporate</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+            onClick={() => handleDomainChange('Content')}
+          >
+            <div>
                             <svg
                                 width="101"
                                 height="101"
@@ -251,11 +286,36 @@ function Domains() {
                                     fill="white"
                                 />
                             </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2 ">Content</h2>
-                    </div>
-                </div>
-            </section>
+                            </div>
+            <h2 className="text-xl font-semibold mb-2">Content</h2>
+          </div>
+        </div>
+      </section>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className="bg-bg_black border-[2px] border-bright_green rounded-xl p-6 w-[70vw] h-[70vw] max-w-[250px] max-h-[250px] flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-4 relative">
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 bg-red-500 text-white  px-1 rounded-sm h-7 hover:bg-red-600"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          <Typography id="modal-modal-title" variant="h6" component="h2" className="text-bright_green">
+            {domain}
+          </Typography>
+          <Typography id="modal-modal-description" className="text-white mt-2">
+            {domain === 'Technical' && 'This domain enhances your coding skills, dealing with Web dev, App dev, and blockchain.'}
+            {domain === 'Creatives' && 'Creatives focus on artistic design, including graphic design, visual arts, and multimedia projects.'}
+            {domain === 'Corporate' && 'Corporate domains are centered around business operations, management, and organizational strategies.'}
+            {domain === 'Content' && 'Content involves creating and managing written material for various platforms, including blogs, articles, and social media.'}
+          </Typography>
+        </Box>
+      </Modal>
 
             <style jsx>{`
                 .domain-box {
