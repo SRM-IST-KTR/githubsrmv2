@@ -35,8 +35,8 @@ function Domains() {
       <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
         Our Domains
       </h1>
-      <section className="domain-box container flex justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 text-center">
+      <section className="domain-box container flex items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 text-center">
           <div
             className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
             onClick={() => handleDomainChange('Technical')}
@@ -265,30 +265,7 @@ function Domains() {
             <h2 className="text-xl font-semibold mb-2">Corporate</h2>
           </div>
 
-          <div
-            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
-            onClick={() => handleDomainChange('Content')}
-          >
-            <div>
-                            <svg
-                                width="101"
-                                height="101"
-                                viewBox="0 0 101 101"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M30.328 48.4998L27.3697 69.0832C27.0614 71.5415 28.578 73.8332 32.1197 73.8332L52.703 70.8748C53.6008 70.7555 54.4349 70.3458 55.078 69.7082C55.4072 69.379 87.703 37.1123 87.9947 36.7498C102.336 20.9082 79.7655 -0.70434 64.453 13.2082C64.0905 13.4998 31.8197 45.7998 31.4947 46.1248C30.8571 46.768 30.4474 47.6021 30.328 48.4998ZM75.703 17.2498C76.7943 17.2354 77.8776 17.4384 78.8897 17.8469C79.9018 18.2553 80.8224 18.8612 81.5981 19.629C82.3737 20.3969 82.9887 21.3114 83.4073 22.3193C83.8259 23.3273 84.0398 24.4084 84.0364 25.4998C84.039 27.2778 83.453 29.0066 82.3697 30.4165L70.7864 18.8332C72.2073 17.7805 73.9349 17.2241 75.703 17.2498ZM38.3697 51.0415L64.7864 24.6665L76.5364 36.4165L50.1614 62.8332L36.4114 64.7915L38.3697 51.0415Z"
-                                    fill="#0DFF4E"
-                                />
-                                <path
-                                    d="M79.8698 55.1875V71.3333C79.8665 74.6475 78.5484 77.825 76.205 80.1685C73.8615 82.512 70.684 83.83 67.3698 83.8333H29.8698C26.5556 83.83 23.3781 82.512 21.0346 80.1685C18.6911 77.825 17.3731 74.6475 17.3698 71.3333V33.8333C17.3731 30.5191 18.6911 27.3416 21.0346 24.9982C23.3781 22.6547 26.5556 21.3366 29.8698 21.3333H46.4073C47.5123 21.3333 48.5722 20.8943 49.3535 20.1129C50.135 19.3315 50.5739 18.2717 50.5739 17.1667C50.5739 16.0616 50.135 15.0018 49.3535 14.2204C48.5722 13.439 47.5123 13 46.4073 13H29.8698C24.3465 13.0066 19.0513 15.2037 15.1457 19.1093C11.2401 23.0148 9.04305 28.31 9.03644 33.8333V71.3333C9.04305 76.8567 11.2401 82.1518 15.1457 86.0574C19.0513 89.963 24.3465 92.1601 29.8698 92.1667H67.3698C72.8931 92.1601 78.1883 89.963 82.0939 86.0574C85.9994 82.1518 88.1965 76.8567 88.2031 71.3333V55.1875C88.2031 54.0824 87.7641 53.0226 86.9827 52.2412C86.2013 51.4598 85.1415 51.0208 84.0364 51.0208C82.9314 51.0208 81.8716 51.4598 81.0902 52.2412C80.3088 53.0226 79.8698 54.0824 79.8698 55.1875Z"
-                                    fill="white"
-                                />
-                            </svg>
-                            </div>
-            <h2 className="text-xl font-semibold mb-2">Content</h2>
-          </div>
+          
         </div>
       </section>
       <Modal
