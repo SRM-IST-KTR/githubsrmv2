@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import recruitmentpos from "@/public/recruitmentpos.jpg";
+import recruitmentpos from "@/public/RecruitmentPoster.png";
 import Event_error from "@/public/Event_error.svg";
 import {
     MdDateRange,
