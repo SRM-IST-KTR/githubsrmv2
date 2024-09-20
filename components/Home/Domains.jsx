@@ -1,14 +1,47 @@
+import * as React from 'react';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import Modal from '@mui/material/Modal';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
+
 function Domains() {
-    return (
-        <div className="p-20">
-            <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
-                Our Domains
-            </h1>
-            <section className="flex justify-center items-center font-dmSans">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-center">
-                    <div className="">
-                        <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                            <div>
+  const [domain, setDomain] = React.useState(''); // Current domain state
+  const [open, setOpen] = React.useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  // Function to switch domain
+  const handleDomainChange = (selectedDomain) => {
+    if (selectedDomain !== domain) {
+      setDomain(selectedDomain);
+      handleOpen(); // Open modal when domain changes
+    }
+  };
+
+  return (
+    <div className="p-20">
+      <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
+        Our Domains
+      </h1>
+      <section className="domain-box container flex items-center justify-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 text-center">
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
+            onClick={() => handleDomainChange('Technical')}
+          >
+            <div>
                                 <svg
                                     width="101"
                                     height="101"
@@ -137,15 +170,15 @@ function Domains() {
                                         </clipPath>
                                     </defs>
                                 </svg>
-                            </div>
-                            <h2 className="text-xl font-semibold mb-2">
-                                Technical
-                            </h2>
-                        </div>
-                    </div>
+                                </div>
+            <h2 className="text-xl font-semibold mb-2">Technical</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+            onClick={() => handleDomainChange('Creatives')}
+          >
+            <div>
                             <svg
                                 width="108"
                                 height="107"
@@ -194,14 +227,15 @@ function Domains() {
                                     fill="black"
                                 />
                             </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2">
-                            Creatives
-                        </h2>
-                    </div>
+                            </div>
+            <h2 className="text-xl font-semibold mb-2">Creatives</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
+          <div
+            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+            onClick={() => handleDomainChange('Corporate')}
+          >
+            <div>
                             <svg
                                 width="101"
                                 height="101"
@@ -227,35 +261,38 @@ function Domains() {
                                     fill="#0DFF4E"
                                 />
                             </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2 ">
-                            Corporate
-                        </h2>
-                    </div>
+                            </div>
+            <h2 className="text-xl font-semibold mb-2">Corporate</h2>
+          </div>
 
-                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
-                        <div>
-                            <svg
-                                width="101"
-                                height="101"
-                                viewBox="0 0 101 101"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
-                            >
-                                <path
-                                    d="M30.328 48.4998L27.3697 69.0832C27.0614 71.5415 28.578 73.8332 32.1197 73.8332L52.703 70.8748C53.6008 70.7555 54.4349 70.3458 55.078 69.7082C55.4072 69.379 87.703 37.1123 87.9947 36.7498C102.336 20.9082 79.7655 -0.70434 64.453 13.2082C64.0905 13.4998 31.8197 45.7998 31.4947 46.1248C30.8571 46.768 30.4474 47.6021 30.328 48.4998ZM75.703 17.2498C76.7943 17.2354 77.8776 17.4384 78.8897 17.8469C79.9018 18.2553 80.8224 18.8612 81.5981 19.629C82.3737 20.3969 82.9887 21.3114 83.4073 22.3193C83.8259 23.3273 84.0398 24.4084 84.0364 25.4998C84.039 27.2778 83.453 29.0066 82.3697 30.4165L70.7864 18.8332C72.2073 17.7805 73.9349 17.2241 75.703 17.2498ZM38.3697 51.0415L64.7864 24.6665L76.5364 36.4165L50.1614 62.8332L36.4114 64.7915L38.3697 51.0415Z"
-                                    fill="#0DFF4E"
-                                />
-                                <path
-                                    d="M79.8698 55.1875V71.3333C79.8665 74.6475 78.5484 77.825 76.205 80.1685C73.8615 82.512 70.684 83.83 67.3698 83.8333H29.8698C26.5556 83.83 23.3781 82.512 21.0346 80.1685C18.6911 77.825 17.3731 74.6475 17.3698 71.3333V33.8333C17.3731 30.5191 18.6911 27.3416 21.0346 24.9982C23.3781 22.6547 26.5556 21.3366 29.8698 21.3333H46.4073C47.5123 21.3333 48.5722 20.8943 49.3535 20.1129C50.135 19.3315 50.5739 18.2717 50.5739 17.1667C50.5739 16.0616 50.135 15.0018 49.3535 14.2204C48.5722 13.439 47.5123 13 46.4073 13H29.8698C24.3465 13.0066 19.0513 15.2037 15.1457 19.1093C11.2401 23.0148 9.04305 28.31 9.03644 33.8333V71.3333C9.04305 76.8567 11.2401 82.1518 15.1457 86.0574C19.0513 89.963 24.3465 92.1601 29.8698 92.1667H67.3698C72.8931 92.1601 78.1883 89.963 82.0939 86.0574C85.9994 82.1518 88.1965 76.8567 88.2031 71.3333V55.1875C88.2031 54.0824 87.7641 53.0226 86.9827 52.2412C86.2013 51.4598 85.1415 51.0208 84.0364 51.0208C82.9314 51.0208 81.8716 51.4598 81.0902 52.2412C80.3088 53.0226 79.8698 54.0824 79.8698 55.1875Z"
-                                    fill="white"
-                                />
-                            </svg>
-                        </div>
-                        <h2 className="text-xl font-semibold mb-2 ">Content</h2>
-                    </div>
-                </div>
-            </section>
+          
+        </div>
+      </section>
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box className="bg-bg_black border-[2px] border-bright_green rounded-xl p-6 w-[70vw] h-[70vw] max-w-[250px] max-h-[250px] flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-4 relative">
+          <button
+            onClick={handleClose}
+            className="absolute top-2 right-2 bg-red-500 text-white  px-1 rounded-sm h-7 hover:bg-red-600"
+            aria-label="Close"
+          >
+            &times;
+          </button>
+          <Typography id="modal-modal-title" variant="h6" component="h2" className="text-bright_green">
+            {domain}
+          </Typography>
+          <Typography id="modal-modal-description" className="text-white mt-2">
+            {domain === 'Technical' && 'This domain enhances your coding skills, dealing with Web dev, App dev, and blockchain.'}
+            {domain === 'Creatives' && 'Creatives focus on artistic design, including graphic design, visual arts, and multimedia projects.'}
+            {domain === 'Corporate' && 'Corporate domains are centered around business operations, management, and organizational strategies.'}
+            {domain === 'Content' && 'Content involves creating and managing written material for various platforms, including blogs, articles, and social media.'}
+          </Typography>
+        </Box>
+      </Modal>
 
             <style jsx>{`
                 .domain-box {
