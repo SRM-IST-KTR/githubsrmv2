@@ -42,9 +42,13 @@ const Navbar = () => {
                     <li
                         key={item.id}
                         className={`p-4 font-medium m-2 cursor-pointer duration-300 
-                     ${currentPath === item.path ? "text-bright_green" : ""}
-                     ${item.text === "Recruitments" ? "text-black bg-bright_green px-5 rounded-full h-7 font-semibold my-2 pb-9 " : "hover:text-bright_green"}
-                     `}
+                        ${currentPath === item.path ? "text-black" : ""}
+                        ${item.text === "Recruitments" 
+                            ? `text-bg_black bg-bright_green px-5 rounded-full h-7 font-semibold my-2 pb-9 
+                            ${currentPath === item.path ? "text-black" : "hover:bg-black hover:text-bright_green"}` 
+                            : "hover:text-green-500"
+                        }`}
+
                         onClick={() => handleNavigation(item.path)}
                     >
                         {item.text}
@@ -68,9 +72,12 @@ const Navbar = () => {
                     <li
                         key={item.id}
                         className={`p-4 w-[80%] rounded-lg duration-300 cursor-pointer font-poppins text-center first:mt-10
-                     ${currentPath === item.path ? "text-black bg-bright_green" : "text-white bg-zinc-900"}
-                     ${item.text === "Recruitments" ? "text-black bg-bright_green hover:text-red-300" : "hover:text-bright_green"}
-                     `}
+                        ${currentPath === item.path ? "text-black bg-bright_green" : "text-white bg-zinc-900"}
+                        ${item.text === "Recruitments" 
+                            ? `${currentPath === item.path ? "text-black bg-bright_green" : "hover:bg-black hover:text-white"}` 
+                            : "hover:text-black"
+                        }`}
+
                         onClick={() => handleNavigation(item.path)}
                     >
                         {item.text}
