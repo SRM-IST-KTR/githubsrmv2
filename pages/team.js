@@ -176,16 +176,6 @@ const Teams = () => {
                         >
                             Creatives
                         </button>
-                        <button
-                            onClick={() => handleDomainChange("Content")}
-                            className={`bg-bright_green text-blk font-dmSans  h-12 w-32 px-6 rounded-full my-2 md:my-6 shadow-lg transition-transform transform hover:scale-105 ${
-                                domain === "Content"
-                                    ? " text-black bg-bright_green font-bold"
-                                    : "text-white bg-zinc-900 font-medium"
-                            }`}
-                        >
-                            Content
-                        </button>
                     </div>
                 </div>
 
