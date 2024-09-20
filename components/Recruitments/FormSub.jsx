@@ -345,19 +345,19 @@ function FormSub() {
                                     className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3"
                                 >
                                     <option value="">Select Sub-Domain</option>
-                                    {subDomainOptions.map((option) => (
-                                        <option key={option.value} value={option.value}>
-                                            {option.label}
-                                        </option>
-                                    ))}
+                                    {subDomainOptions
+                                        .filter((option) => option.value !== formData.subDomain1)
+                                        .map((option) => (
+                                            <option key={option.value} value={option.value}>
+                                                {option.label}
+                                            </option>
+                                        ))}
                                 </select>
                                 {errors.subDomain2 && <p className="text-red-500">{errors.subDomain2}</p>}
                             </div>
                         </>
                     )}
-                    {error && (
-                        <div className="text-red-500 text-sm">{error}</div>
-                    )}
+                    {error && <div className="text-red-500 text-sm">{error}</div>}
                     <div className="flex justify-center">
                         <button
                             type="submit"
