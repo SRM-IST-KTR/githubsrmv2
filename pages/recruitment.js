@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import FormSub from '@/components/Recruitments/FormSub';
+import React, { useState } from "react";
+import FormSub from "@/components/Recruitments/FormSub";
 import heroimg_events from "@/public/heroimg_events.png";
 import recruitmentpos from "@/public/recruitmentpos.jpg";
-import DomainCard from '@/components/Recruitments/DomainCard';
-import Hero from '@/components/Recruitments/Hero';
+import DomainCard from "@/components/Recruitments/DomainCard";
+import Hero from "@/components/Recruitments/Hero";
 import { MdBuild, MdBusiness, MdBrush } from "react-icons/md"; // Icons for the domains
 import Head from "next/head";
 function recruitment() {
@@ -12,15 +12,13 @@ function recruitment() {
             domainName: "Technical",
             description:
                 "Love tech? The Technical domain is where we build, code, and innovate. From web development to AI, push boundaries and create the future with us.",
-            subDomains: ["Web Development", "App Development", "AIML", "Competitive Programming"],
+            subDomains: [
+                "Web Development",
+                "App Development",
+                "AIML",
+                "Competitive Programming"
+            ],
             icon: <MdBuild />
-        },
-        {
-            domainName: "Corporate",
-            description:
-                "Be the strategist behind the scenes! In the Corporate domain, you’ll manage operations, secure sponsorships, and handle PR to make things happen.",
-            // subDomains: ["Operations", "Sponsorship", "Public Relations"],
-            icon: <MdBusiness />
         },
         {
             domainName: "Creatives",
@@ -28,10 +26,17 @@ function recruitment() {
                 "Got ideas? The Creatives domain is for designers, writers, and visual artists. Create content, craft designs, and bring visions to life.",
             subDomains: ["Graphic Design", "VFX"],
             icon: <MdBrush />
+        },
+        {
+            domainName: "Corporate",
+            description:
+                "Be the strategist behind the scenes! In the Corporate domain, you’ll manage operations, secure sponsorships, and handle PR to make things happen.",
+            // subDomains: ["Operations", "Sponsorship", "Public Relations"],
+            icon: <MdBusiness />
         }
     ];
     return (
-        <div className='bg-bg_black'>
+        <div className="bg-bg_black">
             <Head>
                 <title>Recruitments | GitHub Community SRM</title>
                 <meta
@@ -47,7 +52,10 @@ function recruitment() {
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <link rel="canonical" href="https://githubsrmist.tech/recruitment" />
+                <link
+                    rel="canonical"
+                    href="https://githubsrmist.tech/recruitment"
+                />
 
                 <meta name="twitter:card" content="/public/x_logo.png" />
                 <meta
@@ -113,7 +121,6 @@ function recruitment() {
             </div>
 
             <FormSub />
-
         </div>
     );
 }

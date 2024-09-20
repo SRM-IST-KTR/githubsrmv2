@@ -11,7 +11,7 @@ import {
 // #202020 -> bg of info
 
 const Hero = () => {
-    const targetDate = '2024-09-25T09:00:00'; // Ensure this matches the event start date and time
+    const targetDate = "2024-09-25T09:00:00"; // Ensure this matches the event start date and time
     // Calculate time left on the server-side
     const calculateTimeLeft = () => {
         const difference = new Date(targetDate) - new Date();
@@ -54,9 +54,9 @@ const Hero = () => {
     });
 
     const scrollToAnchor = () => {
-        const anchorElement = document.getElementById('registration-form'); // Replace with your target element's ID
+        const anchorElement = document.getElementById("registration-form"); // Replace with your target element's ID
         if (anchorElement) {
-            anchorElement.scrollIntoView({ behavior: 'smooth' });
+            anchorElement.scrollIntoView({ behavior: "smooth" });
         }
     };
     return (
@@ -67,11 +67,12 @@ const Hero = () => {
                         <Image //USE img TAG IF LINK IS PROVIDED
                             src={recruitmentpos}
                             alt="Upcoming Event"
+                            className="rounded-lg w-[400px] sm:w-[526px]"
                         />
                     </div>
-                    <h3 className="text-sm font-bold max-md:text-center text-white sm:text-xl py-4 max-md:hidden px-4 pl-0">
+                    {/* <h3 className="text-sm font-bold max-md:text-center text-white sm:text-xl py-4 max-md:hidden px-4 pl-0">
                         Recruitments
-                    </h3>
+                    </h3> */}
                 </div>
 
                 {/* INFO */}
@@ -95,7 +96,8 @@ const Hero = () => {
                             )}
                         </div>
 
-                        <button className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
+                        <button
+                            className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
                             onClick={scrollToAnchor}
                         >
                             Register Now
@@ -105,6 +107,6 @@ const Hero = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Hero;
