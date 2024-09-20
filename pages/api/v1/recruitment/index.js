@@ -5,11 +5,31 @@ DBInstance();
 
 export default async function handler(req, res) {
     if (req.method === "POST") {
-        const { name, registrationNo, email, phone, branch, year, position, subDomain1, subDomain2 } = req.body;
+        const {
+            name,
+            registrationNo,
+            email,
+            phone,
+            branch,
+            year,
+            position,
+            subDomain1,
+            subDomain2
+        } = req.body;
 
         // Validate required fields
-        if (!name || !registrationNo || !email || !phone || !branch || !year || !position) {
-            return res.status(400).json({ success: false, error: "All fields are required." });
+        if (
+            !name ||
+            !registrationNo ||
+            !email ||
+            !phone ||
+            !branch ||
+            !year ||
+            !position
+        ) {
+            return res
+                .status(400)
+                .json({ success: false, error: "All fields are required." });
         }
 
         try {
@@ -19,7 +39,7 @@ export default async function handler(req, res) {
             });
 
             if (existingParticipant) {
-                return res.status(400).json({
+                return res.status(401).json({
                     success: false,
                     error: "Email or Registration Number already registered."
                 });

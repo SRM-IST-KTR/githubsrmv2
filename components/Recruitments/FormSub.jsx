@@ -13,7 +13,7 @@ function FormSub() {
         year: "",
         position: "",
         subDomain1: "",
-        subDomain2: "",
+        subDomain2: ""
     });
 
     const [errors, setErrors] = useState({});
@@ -42,7 +42,8 @@ function FormSub() {
             case "email":
                 const emailPattern = /^[^\s@]+@srmist\.edu\.in$/;
                 if (!emailPattern.test(value)) {
-                    fieldErrors.email = "Email should be in the format @srmist.edu.in";
+                    fieldErrors.email =
+                        "Email should be in the format @srmist.edu.in";
                 } else {
                     delete fieldErrors.email;
                 }
@@ -50,7 +51,8 @@ function FormSub() {
             case "registrationNo":
                 const regPattern = /^RA[0-9]{13}$/;
                 if (!regPattern.test(value)) {
-                    fieldErrors.registrationNo = "Registration Number should start with 'RA' and be 15 characters long";
+                    fieldErrors.registrationNo =
+                        "Registration Number should start with 'RA' and be 15 characters long";
                 } else {
                     delete fieldErrors.registrationNo;
                 }
@@ -58,14 +60,17 @@ function FormSub() {
             case "phone":
                 // Ensure the phone number is exactly 10 digits and is a valid number
                 if (value.toString().length !== 10) {
-                    fieldErrors.phone = "Phone number should be exactly 10 digits.";
+                    fieldErrors.phone =
+                        "Phone number should be exactly 10 digits.";
                 } else {
                     delete fieldErrors.phone;
                 }
                 break;
             default:
                 if (!value.trim()) {
-                    fieldErrors[name] = `${name.charAt(0).toUpperCase() + name.slice(1)} is required.`;
+                    fieldErrors[name] = `${
+                        name.charAt(0).toUpperCase() + name.slice(1)
+                    } is required.`;
                 } else {
                     delete fieldErrors[name];
                 }
@@ -78,16 +83,16 @@ function FormSub() {
     const updateSubDomainOptions = (domain) => {
         if (domain === "Technical") {
             setSubDomainOptions([
-                { value: 'Web-Dev', label: 'Web-Dev' },
-                { value: 'App-dev', label: 'App-dev' },
-                { value: 'AIML', label: 'AIML' },
-                { value: 'CP', label: 'CP' }
+                { value: "Web-Dev", label: "Web-Dev" },
+                { value: "App-dev", label: "App-dev" },
+                { value: "AIML", label: "AIML" },
+                { value: "CP", label: "CP" }
             ]);
         } else if (domain === "Creatives") {
             setSubDomainOptions([
                 // { value: 'Content', label: 'Content' },
-                { value: 'GD', label: 'GD' },
-                { value: 'VFX', label: 'VFX' }
+                { value: "GD", label: "GD" },
+                { value: "VFX", label: "VFX" }
             ]);
         } else {
             setSubDomainOptions([]);
@@ -95,13 +100,23 @@ function FormSub() {
     };
 
     const validateForm = () => {
-        const requiredFields = ["name", "registrationNo", "email", "phone", "branch", "year", "position"];
+        const requiredFields = [
+            "name",
+            "registrationNo",
+            "email",
+            "phone",
+            "branch",
+            "year",
+            "position"
+        ];
         let isValid = true;
         let fieldErrors = { ...errors };
 
-        requiredFields.forEach(field => {
+        requiredFields.forEach((field) => {
             if (!formData[field]) {
-                fieldErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)} is required.`;
+                fieldErrors[field] = `${
+                    field.charAt(0).toUpperCase() + field.slice(1)
+                } is required.`;
                 isValid = false;
             }
         });
@@ -132,7 +147,7 @@ function FormSub() {
         // Convert phone from string to number before submission
         const updatedFormData = {
             ...formData,
-            phone: Number(formData.phone), // Ensure phone is converted to number
+            phone: Number(formData.phone) // Ensure phone is converted to number
         };
 
         try {
@@ -140,7 +155,10 @@ function FormSub() {
             console.log("Form data:", updatedFormData);
 
             // Send the form data to the backend API
-            const response = await axios.post("/api/v1/recruitment", updatedFormData);
+            const response = await axios.post(
+                "/api/v1/recruitment",
+                updatedFormData
+            );
 
             // Stop the loading state
             setLoading(false);
@@ -148,18 +166,30 @@ function FormSub() {
             // Check for the 201 status code for success (resource creation)
             if (response.status === 201) {
                 setSuccess(true);
-                console.log("Registration successful:", response.data);
+                // console.log("Registration successful:", response.data);
                 toast.success("Registration successful!"); // You can trigger a success toast
+            }
+            if (response.status === 401) {
+                console.log(response.error);
+                setSuccess(false);
+                //  console.log("Registration successful:", response.data);
+                toast.error("Email already registered!"); // You can trigger a success toast
             }
         } catch (err) {
             setLoading(false);
 
             // Handle specific errors
-            if (err.response?.data?.error === "Email already registered for this event.") {
+            if (
+                err.response?.data?.error ===
+                "Email already registered for this event."
+            ) {
                 setError("Email already registered");
             } else {
                 // Generic error handling
-                setError(err.response?.data?.message || "An error occurred during registration.");
+                setError(
+                    err.response?.data?.message ||
+                        "An error occurred during registration."
+                );
             }
 
             // Log the error for debugging
@@ -227,7 +257,9 @@ function FormSub() {
                             onChange={handleChange}
                             className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3 placeholder:text-lg"
                         />
-                        {errors.name && <p className="text-red-500">{errors.name}</p>}
+                        {errors.name && (
+                            <p className="text-red-500">{errors.name}</p>
+                        )}
                     </div>
 
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
@@ -241,7 +273,9 @@ function FormSub() {
                             className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3 placeholder:text-lg"
                         />
                         {errors.registrationNo && (
-                            <p className="text-red-500">{errors.registrationNo}</p>
+                            <p className="text-red-500">
+                                {errors.registrationNo}
+                            </p>
                         )}
                     </div>
 
@@ -255,7 +289,9 @@ function FormSub() {
                             onChange={handleChange}
                             className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3 placeholder:text-lg"
                         />
-                        {errors.email && <p className="text-red-500">{errors.email}</p>}
+                        {errors.email && (
+                            <p className="text-red-500">{errors.email}</p>
+                        )}
                     </div>
 
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
@@ -268,7 +304,9 @@ function FormSub() {
                             onChange={handleChange}
                             className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3 placeholder:text-lg"
                         />
-                        {errors.phone && <p className="text-red-500">{errors.phone}</p>}
+                        {errors.phone && (
+                            <p className="text-red-500">{errors.phone}</p>
+                        )}
                     </div>
 
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
@@ -281,11 +319,15 @@ function FormSub() {
                             onChange={handleChange}
                             className="border-b-2 border-gray text-white bg-bg_black outline-none py-2 px-3 placeholder:text-lg"
                         />
-                        {errors.branch && <p className="text-red-500">{errors.branch}</p>}
+                        {errors.branch && (
+                            <p className="text-red-500">{errors.branch}</p>
+                        )}
                     </div>
 
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
-                        <label className="text-sm lg:text-lg font-semibold mb-2">Year</label>
+                        <label className="text-sm lg:text-lg font-semibold mb-2">
+                            Year
+                        </label>
                         <select
                             name="year"
                             value={formData.year}
@@ -296,11 +338,15 @@ function FormSub() {
                             <option value="1st">1st Year</option>
                             <option value="2nd">2nd Year</option>
                         </select>
-                        {errors.year && <p className="text-red-500">{errors.year}</p>}
+                        {errors.year && (
+                            <p className="text-red-500">{errors.year}</p>
+                        )}
                     </div>
 
                     <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
-                        <label className="text-sm lg:text-lg font-semibold mb-2">Domain</label>
+                        <label className="text-sm lg:text-lg font-semibold mb-2">
+                            Domain
+                        </label>
                         <select
                             name="position"
                             value={formData.position}
@@ -312,13 +358,17 @@ function FormSub() {
                             <option value="Creatives">Creatives</option>
                             <option value="Corporate">Corporate</option>
                         </select>
-                        {errors.position && <p className="text-red-500">{errors.position}</p>}
+                        {errors.position && (
+                            <p className="text-red-500">{errors.position}</p>
+                        )}
                     </div>
 
                     {formData.position && formData.position !== "Corporate" && (
                         <>
                             <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
-                                <label className="text-sm lg:text-lg font-semibold mb-2">Sub-Domain Preference 1</label>
+                                <label className="text-sm lg:text-lg font-semibold mb-2">
+                                    Sub-Domain Preference 1
+                                </label>
                                 <select
                                     required
                                     name="subDomain1"
@@ -328,16 +378,25 @@ function FormSub() {
                                 >
                                     <option value="">Select Sub-Domain</option>
                                     {subDomainOptions.map((option) => (
-                                        <option key={option.value} value={option.value}>
+                                        <option
+                                            key={option.value}
+                                            value={option.value}
+                                        >
                                             {option.label}
                                         </option>
                                     ))}
                                 </select>
-                                {errors.subDomain1 && <p className="text-red-500">{errors.subDomain1}</p>}
+                                {errors.subDomain1 && (
+                                    <p className="text-red-500">
+                                        {errors.subDomain1}
+                                    </p>
+                                )}
                             </div>
 
                             <div className="flex flex-col my-4 w-full px-4 md:px-8 lg:w-[80%] lg:mx-auto">
-                                <label className="text-sm lg:text-lg font-semibold mb-2">Sub-Domain Preference 2</label>
+                                <label className="text-sm lg:text-lg font-semibold mb-2">
+                                    Sub-Domain Preference 2
+                                </label>
                                 <select
                                     name="subDomain2"
                                     value={formData.subDomain2}
@@ -346,18 +405,31 @@ function FormSub() {
                                 >
                                     <option value="">Select Sub-Domain</option>
                                     {subDomainOptions
-                                        .filter((option) => option.value !== formData.subDomain1)
+                                        .filter(
+                                            (option) =>
+                                                option.value !==
+                                                formData.subDomain1
+                                        )
                                         .map((option) => (
-                                            <option key={option.value} value={option.value}>
+                                            <option
+                                                key={option.value}
+                                                value={option.value}
+                                            >
                                                 {option.label}
                                             </option>
                                         ))}
                                 </select>
-                                {errors.subDomain2 && <p className="text-red-500">{errors.subDomain2}</p>}
+                                {/* {errors.subDomain2 && (
+                                    <p className="text-red-500">
+                                        {errors.subDomain2}
+                                    </p>
+                                )} */}
                             </div>
                         </>
                     )}
-                    {error && <div className="text-red-500 text-sm">{error}</div>}
+                    {error && (
+                        <div className="text-red-500 text-sm">{error}</div>
+                    )}
                     <div className="flex justify-center">
                         <button
                             type="submit"
