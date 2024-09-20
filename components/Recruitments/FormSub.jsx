@@ -68,9 +68,8 @@ function FormSub() {
                 break;
             default:
                 if (!value.trim()) {
-                    fieldErrors[name] = `${
-                        name.charAt(0).toUpperCase() + name.slice(1)
-                    } is required.`;
+                    fieldErrors[name] = `${name.charAt(0).toUpperCase() + name.slice(1)
+                        } is required.`;
                 } else {
                     delete fieldErrors[name];
                 }
@@ -114,9 +113,8 @@ function FormSub() {
 
         requiredFields.forEach((field) => {
             if (!formData[field]) {
-                fieldErrors[field] = `${
-                    field.charAt(0).toUpperCase() + field.slice(1)
-                } is required.`;
+                fieldErrors[field] = `${field.charAt(0).toUpperCase() + field.slice(1)
+                    } is required.`;
                 isValid = false;
             }
         });
@@ -147,7 +145,7 @@ function FormSub() {
         // Convert phone from string to number before submission
         const updatedFormData = {
             ...formData,
-            phone: Number(formData.phone) // Ensure phone is converted to number
+            phone: Number(formData.phone), // Ensure phone is converted to number
         };
 
         try {
@@ -155,10 +153,7 @@ function FormSub() {
             console.log("Form data:", updatedFormData);
 
             // Send the form data to the backend API
-            const response = await axios.post(
-                "/api/v1/recruitment",
-                updatedFormData
-            );
+            const response = await axios.post("/api/v1/recruitment", updatedFormData);
 
             // Stop the loading state
             setLoading(false);
@@ -166,35 +161,25 @@ function FormSub() {
             // Check for the 201 status code for success (resource creation)
             if (response.status === 201) {
                 setSuccess(true);
-                // console.log("Registration successful:", response.data);
-                toast.success("Registration successful!"); // You can trigger a success toast
-            }
-            if (response.status === 401) {
-                console.log(response.error);
-                setSuccess(false);
-                //  console.log("Registration successful:", response.data);
-                toast.error("Email already registered!"); // You can trigger a success toast
+                toast.success("Registration successful!"); // Trigger success toast
             }
         } catch (err) {
             setLoading(false);
 
-            // Handle specific errors
-            if (
-                err.response?.data?.error ===
-                "Email already registered for this event."
-            ) {
-                setError("Email already registered");
+            // Check if the error status is 401
+            if (err.response?.status === 401) {
+                setError("Email already registered");  // Show specific error message
+                toast.error("Email already registered!"); // Trigger specific error toast
             } else {
                 // Generic error handling
                 setError(
-                    err.response?.data?.message ||
-                        "An error occurred during registration."
+                    err.response?.data?.message || "An error occurred during registration."
                 );
+                toast.error("An error occurred during registration!"); // Trigger generic error toast
             }
 
             // Log the error for debugging
             console.error("Registration error:", err);
-            toast.error("An error occurred during registration!"); // Trigger error toast
         }
     };
 
