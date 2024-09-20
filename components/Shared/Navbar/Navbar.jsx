@@ -31,7 +31,7 @@ const Navbar = () => {
         { id: 3, text: "Our Story", path: "/about" },
         { id: 4, text: "Events", path: "/events" },
         { id: 5, text: "Contact Us", path: "/contact" },
-        { id: 6, text: "Recruitments", path: "/Recruitments" }
+        { id: 6, text: "Recruitments", path: "/recruitment" }
     ];
 
     return (
@@ -48,6 +48,7 @@ const Navbar = () => {
                             ${currentPath === item.path ? "text-black" : "hover:bg-black hover:text-bright_green"}` 
                             : "hover:text-green-500"
                         }`}
+
                         onClick={() => handleNavigation(item.path)}
                     >
                         {item.text}
@@ -62,11 +63,10 @@ const Navbar = () => {
                 )}
             </div>
             <ul
-                className={`fixed md:hidden top-20 right-0 w-full h-[calc(100%-5rem)] font-semibold text-md flex flex-col justify-start items-center space-y-6 bg-black transition-transform duration-500 z-50 ${
-                    nav
-                        ? "transform translate-x-0"
-                        : "transform translate-x-full"
-                }`}
+                className={`fixed md:hidden top-20 right-0 w-full h-[calc(100%-5rem)] font-semibold text-md flex flex-col justify-start items-center space-y-6 bg-black transition-transform duration-500 z-50 ${nav
+                    ? "transform translate-x-0"
+                    : "transform translate-x-full"
+                    }`}
             >
                 {navItems.map((item) => (
                     <li
@@ -77,6 +77,7 @@ const Navbar = () => {
                             ? `${currentPath === item.path ? "text-black bg-bright_green" : "hover:bg-black hover:text-white"}` 
                             : "hover:text-black"
                         }`}
+
                         onClick={() => handleNavigation(item.path)}
                     >
                         {item.text}
