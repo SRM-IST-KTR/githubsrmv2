@@ -2,7 +2,6 @@ import DBInstance from "@/utils/db";
 import Event from "@/utils/models/event.models";
 import textOverlay from "@/utils/certificates/jimpOverlay";
 import mongoose from "mongoose";
-import path from "path";
 
 DBInstance();
 
@@ -77,18 +76,14 @@ export default async function handler(req, res) {
             const fontSize = eventData.jimp_config.font_size || "64";
             const yOffset = eventData.jimp_config.yOffset || "380";
             const jimpOptions = {
-                FONT_64_WHITE: path.resolve(
-                    "./public/fonts/open-sans-64-white/open-sans-64-white.fnt"
-                ),
-                FONT_64_BLACK: path.resolve(
-                    "./public/fonts/open-sans-64-black/open-sans-64-black.fnt"
-                ),
-                FONT_32_WHITE: path.resolve(
-                    "./public/fonts/open-sans-32-white/open-sans-32-white.fnt"
-                ),
-                FONT_32_BLACK: path.resolve(
-                    "./public/fonts/open-sans-32-black/open-sans-32-black.fnt"
-                )
+                FONT_64_WHITE:
+                    "https://ik.imagekit.io/githubsrm/fonts/open-sans-64-white/open-sans-64-white.fnt?updatedAt=1726944338422",
+                FONT_64_BLACK:
+                    "https://ik.imagekit.io/githubsrm/fonts/open-sans-64-black/open-sans-64-black.fnt?updatedAt=1726944338432",
+                FONT_32_WHITE:
+                    "https://ik.imagekit.io/githubsrm/fonts/open-sans-32-white/open-sans-32-white.fnt?updatedAt=1726944338436",
+                FONT_32_BLACK:
+                    "https://ik.imagekit.io/githubsrm/fonts/open-sans-32-black/open-sans-32-black.fnt?updatedAt=1726944338420"
             };
             const { buffer, error, error_message } = await textOverlay(
                 userData.name,
