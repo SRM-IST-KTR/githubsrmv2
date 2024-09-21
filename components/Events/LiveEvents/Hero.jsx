@@ -47,7 +47,6 @@ const Hero = ({
                 Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                 Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 Minutes: Math.floor((difference / 1000 / 60) % 60)
-                // Seconds: Math.floor((difference / 1000) % 60)
             };
         }
 
@@ -78,6 +77,8 @@ const Hero = ({
         );
     });
 
+    const isRegistrationClosed = Object.keys(timeLeft).length === 0;
+
     if (isActive) {
         return (
             <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
@@ -87,7 +88,7 @@ const Hero = ({
                 <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
                     <div className="relative group pt-4">
                         <div className="rounded-lg">
-                            <img //USE img TAG IF LINK IS PROVIDED
+                            <img
                                 src={poster}
                                 alt="Upcoming Event"
                                 className="rounded-lg w-[400px] sm:w-[526px]"
@@ -113,7 +114,7 @@ const Hero = ({
 
                             <div className="h-[60px] sm:h-20 lg:h-28  lg:w-[447px] w-full bg-event_gray rounded-lg text-center flex justify-start items-center px-7">
                                 {timerComponents.length ? (
-                                    <div className=" flex justify-start items-center">
+                                    <div className="flex justify-start items-center">
                                         <MdOutlineAccessTimeFilled className="mr-1 size-[30px] sm:size-[40px] text-bright_green" />
                                         {timerComponents}
                                     </div>
@@ -124,11 +125,14 @@ const Hero = ({
                                 )}
                             </div>
                             <button
-                                // onClick={Registration_Link}
-                                onClick={handleRegisterButtonClick}
-                                className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
+                                onClick={!isRegistrationClosed ? handleRegisterButtonClick : null}
+                                disabled={isRegistrationClosed}
+                                className={`ml-auto filter font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl ${isRegistrationClosed
+                                        ? "bg-gray-500 text-gray-200 cursor-not-allowed"
+                                        : "bg-bright_green hover:bg-green-700 text-black"
+                                    }`}
                             >
-                                Register Now
+                                {isRegistrationClosed ? "Registration Closed" : "Register Now"}
                             </button>
                         </div>
                     </div>
