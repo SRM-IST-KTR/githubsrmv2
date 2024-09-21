@@ -61,10 +61,9 @@ export default async function handler(req, res) {
             const userData = await User.findOne({ email });
 
             if (!userData) {
-                // console.log("User not found for email:", email);
                 return res.status(404).json({
                     success: false,
-                    error: `User not found with email: ${email}`
+                    error: `No certificate found for email: ${email}`
                 });
             }
             // console.log("User data:", userData);
