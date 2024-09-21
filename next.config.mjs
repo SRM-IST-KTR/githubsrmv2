@@ -8,11 +8,6 @@ const nextConfig = {
                 hostname: "**"
             }
         ]
-    },
-    experimental: {
-        outputFileTracingIncludes: {
-            "/api/certificates": ["./fonts/**"]
-        }
     }
 };
 

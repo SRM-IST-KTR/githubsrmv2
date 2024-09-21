@@ -1,7 +1,13 @@
 import Jimp from "jimp-compact";
-import path from "path";
 
-const textOverlay = async (name, url, color, font_size, yOffset) => {
+const textOverlay = async (
+    name,
+    url,
+    color,
+    font_size,
+    yOffset,
+    jimpOptions
+) => {
     // console.log("textOverlay function called");
 
     try {
@@ -16,21 +22,6 @@ const textOverlay = async (name, url, color, font_size, yOffset) => {
                 error_message: "Missing required image config values."
             };
         }
-
-        const jimpOptions = {
-            FONT_64_WHITE: path.resolve(
-                "./fonts/open-sans-64-white/open-sans-64-white.fnt"
-            ),
-            FONT_64_BLACK: path.resolve(
-                "./fonts/open-sans-64-black/open-sans-64-black.fnt"
-            ),
-            FONT_32_WHITE: path.resolve(
-                "./fonts/open-sans-32-white/open-sans-32-white.fnt"
-            ),
-            FONT_32_BLACK: path.resolve(
-                "./fonts/open-sans-32-black/open-sans-32-black.fnt"
-            )
-        };
 
         const fontKey = `FONT_${font_size}_${color.toUpperCase()}`;
         // console.log("Constructed fontKey:", fontKey);
