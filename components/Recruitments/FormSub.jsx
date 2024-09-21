@@ -163,6 +163,18 @@ function FormSub() {
                 setSuccess(true);
                 toast.success("Registration successful!"); // Trigger success toast
             }
+            // Clear form data
+            setFormData({
+                name: "",
+                registrationNo: "",
+                email: "",
+                phone: "",
+                branch: "",
+                year: "",
+                position: "",
+                subDomain1: "",
+                subDomain2: ""
+            });
         } catch (err) {
             setLoading(false);
 
