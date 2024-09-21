@@ -185,7 +185,8 @@ const Events = () => {
                                           openModal={(certificateLink) =>
                                               setIsModalOpen({
                                                   open: true,
-                                                  certificate: certificateLink
+                                                  certificate: certificateLink,
+                                                  slug: event.slug
                                               })
                                           }
                                       />
@@ -199,6 +200,7 @@ const Events = () => {
                     <EmailDialogBox
                         CertiOBJ={isModalOpen.certificate}
                         handelCloseModel={closeModal}
+                        title={isModalOpen.slug || ""}
                     />
                 </div>
             )}
