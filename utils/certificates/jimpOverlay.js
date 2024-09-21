@@ -19,16 +19,16 @@ const textOverlay = async (name, url, color, font_size, yOffset) => {
 
         const jimpOptions = {
             FONT_64_WHITE: path.resolve(
-                "./public/fonts/open-sans-64-white/open-sans-64-white.fnt"
+                "./fonts/open-sans-64-white/open-sans-64-white.fnt"
             ),
             FONT_64_BLACK: path.resolve(
-                "./public/fonts/open-sans-64-black/open-sans-64-black.fnt"
+                "./fonts/open-sans-64-black/open-sans-64-black.fnt"
             ),
             FONT_32_WHITE: path.resolve(
-                "./public/fonts/open-sans-32-white/open-sans-32-white.fnt"
+                "./fonts/open-sans-32-white/open-sans-32-white.fnt"
             ),
             FONT_32_BLACK: path.resolve(
-                "./public/fonts/open-sans-32-black/open-sans-32-black.fnt"
+                "./fonts/open-sans-32-black/open-sans-32-black.fnt"
             )
         };
 
