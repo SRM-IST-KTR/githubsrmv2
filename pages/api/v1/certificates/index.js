@@ -54,13 +54,14 @@ export default async function handler(req, res) {
             const db = mongoose.connection.useDb(eventData.database);
             const userSchema = new mongoose.Schema({
                 name: { type: String, required: true },
-                email: { type: String, required: true }
+                email: { type: String, required: true },
+                checkin: { type: Boolean, default: false }
             });
 
             const User = db.model(eventData.collection[type], userSchema);
             const userData = await User.findOne({ email });
 
-            if (!userData) {
+            if (!userData || !userData.checkin) {
                 return res.status(404).json({
                     success: false,
                     error: `No certificate found for email: ${email}`
