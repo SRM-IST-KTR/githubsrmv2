@@ -28,7 +28,7 @@ function MyApp({ Component, pageProps }) {
                 <meta name="spiders" content="index, follow" />
                 <meta name="google" content="index, follow" />
                 <meta name="google-site-verification" content="google-site-verification= " />
-                <meta property="og:site_name" content="Diptayan Jash - Web Developer and Student Portfolio" />
+                <meta property="og:site_name" content="GitHub Community SRM - The Official student-led community affiliated with GitHub, spearheading the open-source revolution at SRMIST." />
                 <meta property="og:type" content="website" />
                 <meta property="og:url" content="https://githubsrmist.tech" />
                 <link rel="canonical" href="https://githubsrmist.tech" />
