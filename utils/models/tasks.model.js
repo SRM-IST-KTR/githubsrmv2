@@ -9,6 +9,10 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    guidelines: {
+        type: String,
+        required
+    },
     domain: {
         type: String,
         enum: ["Technical", "Creatives", "Corporate"],
