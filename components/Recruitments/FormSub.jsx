@@ -26,11 +26,21 @@ function FormSub() {
         const { name, value } = e.target;
         setFormData({
             ...formData,
-            [name]: value
+            [name]: value,
         });
 
         if (name === "position") {
             updateSubDomainOptions(value);
+
+            // Reset subdomains if "Corporate" is selected
+            if (value === "Corporate") {
+                setFormData({
+                    ...formData,
+                    position: value,
+                    subDomain1: "",  // Clear subDomain1
+                    subDomain2: "",  // Clear subDomain2
+                });
+            }
         }
         validateField(name, value);
     };
