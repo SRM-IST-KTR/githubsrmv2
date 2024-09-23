@@ -11,7 +11,7 @@ const taskSchema = new mongoose.Schema({
     },
     guidelines: {
         type: String,
-        required
+        required: true
     },
     domain: {
         type: String,
