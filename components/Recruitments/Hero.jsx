@@ -59,6 +59,9 @@ const Hero = () => {
             anchorElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+    const getTask = () => {
+        window.location.href = "/submission";
+    };
     return (
         <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
             <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
@@ -102,6 +105,12 @@ const Hero = () => {
                         >
                             Register Now
                         </button>
+                        {/* <button
+                            className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
+                            onClick={getTask}
+                        >
+                            Get Task
+                        </button> */}
                     </div>
                 </div>
             </div>
