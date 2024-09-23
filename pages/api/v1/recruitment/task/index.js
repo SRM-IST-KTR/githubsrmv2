@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
     if (method === "GET") {
         try {
-            const { email } = req.body;
+            const { email } = req.query;
 
             if (!email) {
                 return res.status(400).json({ message: "Email is required" });
@@ -24,6 +24,9 @@ export default async function handler(req, res) {
             const { name, regNo, email: participantEmail, phoneNo, year, dept, domain, status } = participant;
             let taskQueries = [];
             let subdomainsList = [];
+
+            // Extract the domain keys only
+            const domainKeys = Array.from(domain.keys())[0]; // Take the first key
 
             // Handle different domains (Technical, Creatives, Corporate, etc.)
             for (let [domainKey, subdomains] of domain.entries()) {
@@ -49,7 +52,7 @@ export default async function handler(req, res) {
                     year,
                     dept,
                     phoneNo,
-                    domain: Object.fromEntries(domain),
+                    domain: domainKeys, // Return only the domain keys
                     subdomains: subdomainsList,
                     status,
                     tasks: []
@@ -66,7 +69,7 @@ export default async function handler(req, res) {
                 year,
                 dept,
                 phoneNo,
-                domain: Object.fromEntries(domain),
+                domain: domainKeys, // Return only the domain keys
                 subdomains: subdomainsList,
                 status,
                 tasks
