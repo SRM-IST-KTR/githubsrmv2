@@ -4,7 +4,7 @@ const EmailLogin = ({ email, emailError, handleEmailChange, handleLogin }) => {
     return (
         <div className="absolute inset-0 flex items-center justify-center z-40 p-4 sm:p-6">
             <div className="w-full max-w-sm sm:max-w-md justify-center bg-gray-800 bg-opacity-40 rounded-lg shadow-lg p-4 sm:p-6 text-white backdrop-filter backdrop-blur-lg border border-gray-800 domain-box drop-shadow-glow">
-                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6 text-center font-poppins">
                     Login with your SRMIST Email
                 </h2>
                 <input
