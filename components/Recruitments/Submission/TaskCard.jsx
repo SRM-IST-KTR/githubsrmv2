@@ -37,31 +37,24 @@ const TaskCard = ({ task }) => {
                             </g>
                         </g>
                     </svg>
-                    {/* <img
-                        src="@/public/moniter.svg"
-                        alt="moniter"
-                        className="w-16 h-16"
-                    /> */}
-                    {/* <svg width="256px" height="256px" viewBox="0 0 32.00 32.00" xmlns="http://www.w3.org/2000/svg" fill="#000000" stroke="#000000" stroke-width="0.064"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <defs> <style>.cls-1{fill:#0DFF4E4009a;}.cls-2{fill:#0DFF4E;}</style> </defs> <g data-name="8. Monitor Screen" id="_8._Monitor_Screen"> <path class="cls-1" d="M31,18a1,1,0,0,0,1-1V3a3,3,0,0,0-3-3H3A3,3,0,0,0,0,3V23a3,3,0,0,0,3,3H8a1,1,0,0,0,0-2H3a1,1,0,0,1-1-1V22H30v1a1,1,0,0,1-1,1H12a1,1,0,0,0-1,1v1.171A5.786,5.786,0,0,1,9.559,30H8a1,1,0,0,0,0,2H24a1,1,0,0,0,0-2H22.441A5.788,5.788,0,0,1,21,26.171V26h8a3,3,0,0,0,3-3V21a1,1,0,0,0-1-1H2V3A1,1,0,0,1,3,2H29a1,1,0,0,1,1,1V17A1,1,0,0,0,31,18ZM20,30H12a7.787,7.787,0,0,0,1-3.829V26h6v.171A7.787,7.787,0,0,0,20,30Z"></path> <path class="cls-2" d="M19,18H5a1,1,0,0,1,0-2H19a1,1,0,0,1,0,2Z"></path> <path class="cls-2" d="M27,14H5a1,1,0,0,1,0-2H27a1,1,0,0,1,0,2Z"></path> <path class="cls-2" d="M27,10H5A1,1,0,0,1,5,8H27a1,1,0,0,1,0,2Z"></path> <path class="cls-2" d="M22,6H10a1,1,0,0,1,0-2H22a1,1,0,0,1,0,2Z"></path> </g> </g></svg> */}
-                    <h2 className="mt-4 text-xl font-medium sm:text-2xl text-white">
+                    <h2 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black">
                         {task.title}
                     </h2>
                 </div>
                 <div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8 z-50">
-                    <h3 className="mt-4 text-xl font-medium sm:text-2xl text-white">
+                    <h3 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black">
                         {task.title}
                     </h3>
-                    <p
-                        className="mt-4 text-sm sm:text-base text-white
-                    "
-                    >
+                    <p className="mt-4 text-sm sm:text-base text-bg_black">
                         {task.description}
                     </p>
                     <button
                         className="cursor-pointer"
                         onClick={handleTaskClick}
                     >
-                        <p className="mt-8 font-bold text-white">Submit task</p>
+                        <p className="mt-8 font-bold text-bg_black">
+                            Submit task
+                        </p>
                     </button>
                 </div>
                 <style jsx>{`

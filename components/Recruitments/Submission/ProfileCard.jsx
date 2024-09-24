@@ -149,11 +149,11 @@ const ProfileCard = ({ name, regNo, domain }) => {
 
             <section className="block border-l border-gray-300 m-3">
                 <div className="pl-3">
-                    <h3 className="text-white font-extrabold font-poppins text-xl">
+                    <h3 className="text-white font-bold font-poppins text-xl">
                         {name}
                     </h3>
-                    <h4 className="text-gray-400 font-light text-m">{regNo}</h4>
-                    <h3 className="bg-clip-text text-transparent bg-bright_green text-lg">
+                    <h4 className="text-gray-400 font-light font-dmSans text-m">{regNo}</h4>
+                    <h3 className="bg-clip-text text-transparent bg-bright_green text-lg font-dmSans">
                         {role}
                     </h3>
                 </div>
