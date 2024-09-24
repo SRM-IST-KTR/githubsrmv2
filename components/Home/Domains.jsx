@@ -1,184 +1,186 @@
-import * as React from 'react';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Modal from '@mui/material/Modal';
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 
 const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-  width: 400,
-  bgcolor: 'background.paper',
-  border: '2px solid #000',
-  boxShadow: 24,
-  p: 4,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    width: 400,
+    bgcolor: "background.paper",
+    border: "2px solid #000",
+    boxShadow: 24,
+    p: 4
 };
 
 function Domains() {
-  const [domain, setDomain] = React.useState(''); // Current domain state
-  const [open, setOpen] = React.useState(false);
+    const [domain, setDomain] = React.useState(""); // Current domain state
+    const [open, setOpen] = React.useState(false);
 
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
 
-  // Function to switch domain
-  const handleDomainChange = (selectedDomain) => {
-    if (selectedDomain !== domain) {
-      setDomain(selectedDomain);
-      handleOpen(); // Open modal when domain changes
-    }
-  };
+    // Function to switch domain
+    const handleDomainChange = (selectedDomain) => {
+        if (selectedDomain !== domain) {
+            setDomain(selectedDomain);
+            handleOpen(); // Open modal when domain changes
+        }
+    };
 
-  return (
-    <div className="p-20">
-      <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
-        Our Domains
-      </h1>
-      <section className="domain-box container flex items-center justify-center">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 text-center">
-          <div
-            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
-            onClick={() => handleDomainChange('Technical')}
-          >
-            <div>
-                                <svg
-                                    width="101"
-                                    height="101"
-                                    viewBox="0 0 101 101"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                >
-                                    <g clip-path="url(#clip0_2486_413)">
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M46.999 8.32275V29.1341H31.4504C32.3462 25.7364 33.4655 22.6358 34.7658 19.9191C37.987 13.1899 42.2878 8.86109 46.999 8.32275Z"
+    return (
+        <div className="p-20">
+            <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
+                Our Domains
+            </h1>
+            <section className="domain-box container flex items-center justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 text-center">
+                    <div
+                        className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
+                        // onClick={() => handleDomainChange('Technical')}
+                    >
+                        <div>
+                            <svg
+                                width="101"
+                                height="101"
+                                viewBox="0 0 101 101"
+                                fill="none"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+                                <g clip-path="url(#clip0_2486_413)">
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M46.999 8.32275V29.1341H31.4504C32.3462 25.7364 33.4655 22.6358 34.7658 19.9191C37.987 13.1899 42.2878 8.86109 46.999 8.32275Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M11.2942 29.1341C17.563 17.5746 29.1329 9.30681 42.7443 7.59766C38.9568 9.55391 35.6003 13.5826 32.9778 19.0631C31.5598 22.0225 30.3508 25.4158 29.4006 29.1341H11.2942Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M30.9546 31.127H46.9959V48.0008H29.0189C29.0866 41.9584 29.7749 36.2441 30.9546 31.127Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M6.27759 48.0008C6.41879 41.9732 7.83818 36.2603 10.2754 31.127H28.9187C27.7655 36.2779 27.0948 41.9864 27.0272 48.0008H6.27759Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M29.0189 49.9927H46.9959V67.0886H30.984C29.7882 61.917 29.0881 56.1233 29.0189 49.9927Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M10.3843 67.0886C7.88231 61.8964 6.42173 56.1086 6.27759 49.9927H27.0272C27.0963 56.0938 27.7935 61.8773 28.9908 67.0886H10.3843Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M31.4814 69.0815H46.9991V89.6723C40.3405 88.9339 34.5894 80.8279 31.4814 69.0815Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M42.8124 90.4048C29.2583 88.725 17.7223 80.544 11.4152 69.0815H29.4833C32.2236 79.5453 37.0392 87.4145 42.8124 90.4048Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M67.1498 86.0802C62.8931 88.2821 58.2084 89.7736 53.2516 90.3958C57.0405 88.441 60.3971 84.4108 63.0211 78.9303C63.2491 78.4523 63.4727 77.964 63.6904 77.4639L67.1498 86.0802Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M62.6289 74.8223C62.1891 75.9593 61.7228 77.0448 61.2301 78.0744C58.0089 84.8037 53.708 89.1324 48.9954 89.6708V69.0815H60.3225L62.6289 74.8223Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M84.5771 69.0815C84.505 69.211 84.4329 69.3404 84.3609 69.4684L83.3739 69.0815H84.5771Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M59.5224 67.0886H48.9954V49.9927H66.9738C66.94 52.8918 66.7649 55.7144 66.4605 58.4325L54.0963 53.5787L59.5224 67.0886Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M89.716 49.9927C89.5821 55.7335 88.2863 61.1845 86.0579 66.1252L68.3781 59.1841C68.7296 56.2292 68.9311 53.1536 68.9664 49.9927H89.716Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M66.9738 48.0008H48.9954V31.127H65.0587C66.2237 36.2412 66.9047 41.957 66.9738 48.0008Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M85.711 31.127C88.1482 36.2603 89.5676 41.9732 89.7088 48.0008H68.9593C68.8916 41.9864 68.2135 36.2794 67.0471 31.127H85.711Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M64.5719 29.1341H48.9954V8.32129C55.6966 9.06408 61.4772 17.2671 64.5719 29.1341Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M53.1829 7.58887C66.8237 9.28037 78.4215 17.554 84.7007 29.1342H66.5693C63.8378 18.5601 58.9957 10.6012 53.1829 7.58887Z"
+                                        fill="white"
+                                    />
+                                    <path
+                                        fill-rule="evenodd"
+                                        clip-rule="evenodd"
+                                        d="M89.9527 69.6329L57.4244 56.8628L70.5093 89.444L76.8958 82.9354L87.2316 93.2904L94.3286 86.2052L83.9207 75.7782L89.9527 69.6329Z"
+                                        fill="#0DFF4E"
+                                    />
+                                </g>
+                                <defs>
+                                    <clipPath id="clip0_2486_413">
+                                        <rect
+                                            width="99.625"
+                                            height="99.625"
                                             fill="white"
+                                            transform="translate(0.484375 0.466797)"
                                         />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M11.2942 29.1341C17.563 17.5746 29.1329 9.30681 42.7443 7.59766C38.9568 9.55391 35.6003 13.5826 32.9778 19.0631C31.5598 22.0225 30.3508 25.4158 29.4006 29.1341H11.2942Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M30.9546 31.127H46.9959V48.0008H29.0189C29.0866 41.9584 29.7749 36.2441 30.9546 31.127Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M6.27759 48.0008C6.41879 41.9732 7.83818 36.2603 10.2754 31.127H28.9187C27.7655 36.2779 27.0948 41.9864 27.0272 48.0008H6.27759Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M29.0189 49.9927H46.9959V67.0886H30.984C29.7882 61.917 29.0881 56.1233 29.0189 49.9927Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M10.3843 67.0886C7.88231 61.8964 6.42173 56.1086 6.27759 49.9927H27.0272C27.0963 56.0938 27.7935 61.8773 28.9908 67.0886H10.3843Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M31.4814 69.0815H46.9991V89.6723C40.3405 88.9339 34.5894 80.8279 31.4814 69.0815Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M42.8124 90.4048C29.2583 88.725 17.7223 80.544 11.4152 69.0815H29.4833C32.2236 79.5453 37.0392 87.4145 42.8124 90.4048Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M67.1498 86.0802C62.8931 88.2821 58.2084 89.7736 53.2516 90.3958C57.0405 88.441 60.3971 84.4108 63.0211 78.9303C63.2491 78.4523 63.4727 77.964 63.6904 77.4639L67.1498 86.0802Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M62.6289 74.8223C62.1891 75.9593 61.7228 77.0448 61.2301 78.0744C58.0089 84.8037 53.708 89.1324 48.9954 89.6708V69.0815H60.3225L62.6289 74.8223Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M84.5771 69.0815C84.505 69.211 84.4329 69.3404 84.3609 69.4684L83.3739 69.0815H84.5771Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M59.5224 67.0886H48.9954V49.9927H66.9738C66.94 52.8918 66.7649 55.7144 66.4605 58.4325L54.0963 53.5787L59.5224 67.0886Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M89.716 49.9927C89.5821 55.7335 88.2863 61.1845 86.0579 66.1252L68.3781 59.1841C68.7296 56.2292 68.9311 53.1536 68.9664 49.9927H89.716Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M66.9738 48.0008H48.9954V31.127H65.0587C66.2237 36.2412 66.9047 41.957 66.9738 48.0008Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M85.711 31.127C88.1482 36.2603 89.5676 41.9732 89.7088 48.0008H68.9593C68.8916 41.9864 68.2135 36.2794 67.0471 31.127H85.711Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M64.5719 29.1341H48.9954V8.32129C55.6966 9.06408 61.4772 17.2671 64.5719 29.1341Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M53.1829 7.58887C66.8237 9.28037 78.4215 17.554 84.7007 29.1342H66.5693C63.8378 18.5601 58.9957 10.6012 53.1829 7.58887Z"
-                                            fill="white"
-                                        />
-                                        <path
-                                            fill-rule="evenodd"
-                                            clip-rule="evenodd"
-                                            d="M89.9527 69.6329L57.4244 56.8628L70.5093 89.444L76.8958 82.9354L87.2316 93.2904L94.3286 86.2052L83.9207 75.7782L89.9527 69.6329Z"
-                                            fill="#0DFF4E"
-                                        />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_2486_413">
-                                            <rect
-                                                width="99.625"
-                                                height="99.625"
-                                                fill="white"
-                                                transform="translate(0.484375 0.466797)"
-                                            />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                                </div>
-            <h2 className="text-xl font-semibold mb-2">Technical</h2>
-          </div>
+                                    </clipPath>
+                                </defs>
+                            </svg>
+                        </div>
+                        <h2 className="text-xl font-semibold mb-2">
+                            Technical
+                        </h2>
+                    </div>
 
-          <div
-            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
-            onClick={() => handleDomainChange('Creatives')}
-          >
-            <div>
+                    <div
+                        className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
+                        // onClick={() => handleDomainChange('Creatives')}
+                    >
+                        <div>
                             <svg
                                 width="108"
                                 height="107"
@@ -227,15 +229,14 @@ function Domains() {
                                     fill="black"
                                 />
                             </svg>
-                            </div>
-            <h2 className="text-xl font-semibold mb-2">Creatives</h2>
-          </div>
+                        </div>
+                        <h2 className="text-xl font-semibold mb-2">
+                            Creatives
+                        </h2>
+                    </div>
 
-          <div
-            className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center"
-            onClick={() => handleDomainChange('Corporate')}
-          >
-            <div>
+                    <div className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center">
+                        <div>
                             <svg
                                 width="101"
                                 height="101"
@@ -261,21 +262,21 @@ function Domains() {
                                     fill="#0DFF4E"
                                 />
                             </svg>
-                            </div>
-            <h2 className="text-xl font-semibold mb-2">Corporate</h2>
-          </div>
-
-          
-        </div>
-      </section>
-      <Modal
-        open={open}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box className="bg-bg_black border-[2px] border-bright_green rounded-xl p-6 w-[70vw] h-[70vw] max-w-[250px] max-h-[250px] flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-4 relative">
-          <button
+                        </div>
+                        <h2 className="text-xl font-semibold mb-2">
+                            Corporate
+                        </h2>
+                    </div>
+                </div>
+            </section>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="modal-modal-title"
+                aria-describedby="modal-modal-description"
+            >
+                <Box className="bg-bg_black border-[2px] border-bright_green rounded-xl p-6 w-[70vw] h-[70vw] max-w-[250px] max-h-[250px] flex flex-col justify-center items-center absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 mt-4 relative">
+                    {/* <button
             onClick={handleClose}
             className="absolute top-2 right-2 bg-red-500 text-white  px-1 rounded-sm h-7 hover:bg-red-600"
             aria-label="Close"
@@ -290,9 +291,9 @@ function Domains() {
             {domain === 'Creatives' && 'Creatives focus on artistic design, including graphic design, visual arts, and multimedia projects.'}
             {domain === 'Corporate' && 'Corporate domains are centered around business operations, management, and organizational strategies.'}
             {domain === 'Content' && 'Content involves creating and managing written material for various platforms, including blogs, articles, and social media.'}
-          </Typography>
-        </Box>
-      </Modal>
+          </Typography> */}
+                </Box>
+            </Modal>
 
             <style jsx>{`
                 .domain-box {
