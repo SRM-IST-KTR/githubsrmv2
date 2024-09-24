@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ProfileCard from "@/components/Recruitments/Submission/ProfileCard";
 import TimeLine from "@/components/Recruitments/Submission/TimeLine";
@@ -62,7 +62,7 @@ const Submission = () => {
                 } else {
                     setError(
                         error.response?.data?.message ||
-                            "Failed to fetch data. Please try again."
+                        "Failed to fetch data. Please try again."
                     );
                 }
                 setLoading(false);
@@ -88,19 +88,27 @@ const Submission = () => {
     const getTaskTypes = (tasks) => {
         const taskTypes = new Set();
         tasks.forEach((task) => {
-            taskTypes.add(task.taskType); // Task types like 'Frontend', 'Backend', 'General', etc.
+            taskTypes.add(task.taskType);
         });
         return Array.from(taskTypes);
     };
+
+    useEffect(() => {
+        if (participantData && participantData.tasks.length > 0) {
+            const taskTypes = getTaskTypes(participantData.tasks);
+            if (taskTypes.length > 0) {
+                setSelectedTaskType(taskTypes[0]);
+            }
+        }
+    }, [participantData]);
 
     // Render buttons for each task type
     const renderTaskTypeButtons = (taskTypes) => {
         return taskTypes.map((type) => (
             <button
                 key={type}
-                className={`mx-2 px-4 py-2 rounded-md text-white ${
-                    selectedTaskType === type ? "bg-green-500" : "bg-gray-700"
-                } hover:bg-green-600`}
+                className={`mx-2 px-4 py-2 rounded-md text-white ${selectedTaskType === type ? "bg-green-500" : "bg-gray-700"
+                    } hover:bg-green-600`}
                 onClick={() => setSelectedTaskType(type)}
             >
                 {type} Tasks
@@ -108,18 +116,16 @@ const Submission = () => {
         ));
     };
 
-    // Render each task in its own card using the Uiverse card design
     const renderTasks = (groupedTasks) => {
         const tasksToShow = groupedTasks[selectedTaskType] || [];
 
-        return tasksToShow.map((task, index) => <TaskCard task={task} />);
+        return tasksToShow.map((task, index) => <TaskCard key={task._id} task={task} />);
     };
 
     return (
         <section
-            className={`relative w-full ${
-                participantData ? "" : "h-screen"
-            } overflow-hidden`}
+            className={`relative w-full ${participantData ? "" : "h-screen"
+                } overflow-hidden`}
         >
             <video
                 autoPlay
@@ -150,9 +156,8 @@ const Submission = () => {
                             </div>
                         </div>
                         <div
-                            className={`p-2.5 ${
-                                error ? "text-red-500" : "text-[#0f0]"
-                            }`}
+                            className={`p-2.5 ${error ? "text-red-500" : "text-[#0f0]"
+                                }`}
                         >
                             <div>
                                 <span className="mr-2">
