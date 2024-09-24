@@ -18,7 +18,7 @@ const ProfileCard = ({ name, regNo, domain }) => {
     const role = getRoleByDomain(domain);
 
     return (
-        <div className="flex items-center p-3 w-96 h-32 bg-stone-50 bg-opacity-30 rounded-lg shadow-lg p-6 backdrop-filter backdrop-blur-lg border border-gray-800 z-40">
+        <div className="flex items-center p-3 w-96 h-32 bg-gray-500 bg-opacity-30 rounded-lg shadow-lg p-6 backdrop-filter backdrop-blur-sm border border-transparent z-40">
             <section className="flex justify-center items-center w-20 h-20 bg-white rounded-full shadow-md hover:scale-110 duration-300">
                 {domain === "Technical" ? (
                     <svg
