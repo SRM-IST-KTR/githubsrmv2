@@ -36,22 +36,22 @@ const TaskCard = ({ task }) => {
                             </g>
                         </g>
                     </svg>
-                    <h2 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black">
+                    <h2 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black font-poppins">
                         {task.title}
                     </h2>
                 </div>
                 <div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8 z-50">
-                    <h3 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black">
+                    <h3 className="mt-4 text-xl font-medium sm:text-2xl text-bg_black font-dmSans">
                         {task.title}
                     </h3>
-                    <p className="mt-4 text-sm sm:text-base text-bg_black">
+                    <p className="mt-4 text-sm sm:text-base text-bg_black font-dmSans">
                         {task.description}
                     </p>
                     <button
                         className="cursor-pointer"
                         onClick={handleTaskClick}
                     >
-                        <p className="mt-8 font-bold text-bg_black">
+                        <p className="mt-8 font-bold text-bright_green font-dmSans ">
                             Submit task
                         </p>
                     </button>
