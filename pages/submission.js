@@ -5,6 +5,12 @@ import TimeLine from "@/components/Recruitments/Submission/TimeLine";
 import EmailLogin from "@/components/Recruitments/Submission/EmailLogin";
 import TaskCard from "@/components/Recruitments/Submission/TaskCard";
 
+const taskTypeInstructions = {
+    Technical: "Complete the coding challenges and submit your solutions. Focus on performance, optimization, and code clarity.",
+    Creatives: "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines.",
+    Corporate: "Complete the corporate-related tasks with professionalism. Ensure attention to detail and submit all required documents."
+};
+
 const Submission = () => {
     const [email, setEmail] = useState("");
     const [participantData, setParticipantData] = useState(null);
@@ -96,14 +102,14 @@ const Submission = () => {
     useEffect(() => {
         if (participantData && participantData.tasks.length > 0) {
             const taskTypes = getTaskTypes(participantData.tasks);
-            if (taskTypes.length > 0) {
+            if (taskTypes.length > 0 && !selectedTaskType) {
+                // Set the first task type as default
                 setSelectedTaskType(taskTypes[0]);
             }
         }
-    }, [participantData]);
+    }, [participantData, selectedTaskType]);
 
     // Render buttons for each task type
-    // Render buttons for each task type with a responsive 2x2 grid layout
     const renderTaskTypeButtons = (taskTypes) => {
         return (
             <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
@@ -129,10 +135,21 @@ const Submission = () => {
         ));
     };
 
+    // Render instructions for the selected task type
+    const renderInstructions = (domain) => {
+        if (!domain) return null;
+
+        const instructions = taskTypeInstructions[domain] || "No instructions available.";
+        return (
+            <div className="mb-4 p-4 bg-gray-800 text-white rounded-md text-center z-40">
+                <p>{instructions}</p>
+            </div>
+        );
+    };
+
     return (
         <section
-            className={`relative w-full ${participantData ? "" : "h-screen"
-                } overflow-hidden`}
+            className={`relative w-full ${participantData ? "" : "h-screen"} overflow-hidden`}
         >
             <video
                 autoPlay
@@ -145,6 +162,7 @@ const Submission = () => {
                 Your browser does not support the video tag.
             </video>
             <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/40 to-bg_black"></div>
+
             {/* Loading or error overlay */}
             {(loading || error) && (
                 <div className="absolute inset-0 flex items-center justify-center bg-bg_black bg-opacity-60 backdrop-blur-sm z-50">
@@ -204,19 +222,18 @@ const Submission = () => {
                         <TimeLine status="taskSubmitted" />
                     </div>
 
+                    {/* Task Instructions */}
+                    {renderInstructions(participantData.domain)}
+
                     {/* Render Task Type Buttons */}
                     <div className="flex flex-row sm:flex-row justify-center my-4 z-40 pt-20 sm:pt-60">
-                        {renderTaskTypeButtons(
-                            getTaskTypes(participantData.tasks)
-                        )}
+                        {renderTaskTypeButtons(getTaskTypes(participantData.tasks))}
                     </div>
 
                     {/* Render Tasks Based on Selected Task Type */}
                     <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-10 z-40">
                         {selectedTaskType &&
-                            renderTasks(
-                                groupTasksByType(participantData.tasks)
-                            )}
+                            renderTasks(groupTasksByType(participantData.tasks))}
                     </div>
                 </div>
             ) : (
@@ -230,6 +247,7 @@ const Submission = () => {
                 </div>
             )}
         </section>
+
     );
 };
 
