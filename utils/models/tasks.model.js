@@ -28,7 +28,7 @@ const taskSchema = new mongoose.Schema({
     },
     taskType: {
         type: String,
-        enum: ["Frontend", "Backend", "Full-stack", "General"],
+        enum: ["Frontend", "Backend", "Full-stack", "AIML", "CP", "App-dev", "GD", "VFX"],
         required: true
     },
     year: {
