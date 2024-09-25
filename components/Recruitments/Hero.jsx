@@ -11,7 +11,7 @@ import {
 // #202020 -> bg of info
 
 const Hero = () => {
-    const targetDate = "2024-09-25T09:00:00"; // Ensure this matches the event start date and time
+    const targetDate = "2024-09-27T23:59:59"; // Ensure this matches the event start date and time
     // Calculate time left on the server-side
     const calculateTimeLeft = () => {
         const difference = new Date(targetDate) - new Date();
