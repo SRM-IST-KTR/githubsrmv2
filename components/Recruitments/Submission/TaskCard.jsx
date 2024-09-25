@@ -183,12 +183,17 @@ const TaskCard = ({ task }) => {
                             </g>
                         </svg>
                     </div>
-                    <h2 className="mt-4 text-lg font-extrabold sm:text-xl w-full text-white text-center sm:text-left">
+                    <h2 className="mt-4 text-lg font-extrabold sm:text-xl w-full text-white text-center sm:text-left font-poppins">
                         {task.title}
                     </h2>
                 </div>
-                <div className="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-4 z-50">
-                    <p className="text-sm sm:text-base text-white text-justify pl-4 pr-4">
+                {/* Updated details section with overflow and scroll behavior */}
+                <div className="absolute top-0 left-0 right-0 bottom-0 opacity-0 transition-opacity group-hover:opacity-100 group-hover:relative bg-opacity-90 rounded-xl p-4 overflow-y-auto max-h-full sm:max-h-80 lg:max-h-96 z-50">
+                    <h2 className="mt-2 mb-4 text-base font-bold text-white text-justify pl-4 pr-4 font-poppins">
+                        {task.description}
+                    </h2>
+                    <h3 className="pl-4 pr-4 mb-2 font-extrabold text-sm">Guidelines:</h3>
+                    <p className="text-sm sm:text-base text-white text-justify pl-4 pr-4 font-dmSans">
                         {task.guidelines}
                     </p>
 
@@ -197,7 +202,7 @@ const TaskCard = ({ task }) => {
                         onClick={handleTaskClick}
                     >
                         <p className="font-bold text-black text-sm bg-[#0DFF4E] rounded-full py-1 px-2 w-20 md:w-28 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto">
-                            <a href="www.google.com">Submit</a>
+                            <a href="www.google.com">Submit Task</a>
                         </p>
                     </button>
                 </div>
