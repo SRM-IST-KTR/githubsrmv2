@@ -62,7 +62,7 @@ const Submission = () => {
                 } else {
                     setError(
                         error.response?.data?.message ||
-                            "Failed to fetch data. Please try again."
+                        "Failed to fetch data. Please try again."
                     );
                 }
                 setLoading(false);
@@ -103,18 +103,22 @@ const Submission = () => {
     }, [participantData]);
 
     // Render buttons for each task type
+    // Render buttons for each task type with a responsive 2x2 grid layout
     const renderTaskTypeButtons = (taskTypes) => {
-        return taskTypes.map((type) => (
-            <button
-                key={type}
-                className={`mx-2 px-4 py-2 rounded-md text-white ${
-                    selectedTaskType === type ? "bg-green-500" : "bg-gray-700"
-                } hover:bg-green-600`}
-                onClick={() => setSelectedTaskType(type)}
-            >
-                {type} Tasks
-            </button>
-        ));
+        return (
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
+                {taskTypes.map((type) => (
+                    <button
+                        key={type}
+                        className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type ? "bg-green-500" : "bg-gray-700"
+                            } hover:bg-green-600`}
+                        onClick={() => setSelectedTaskType(type)}
+                    >
+                        {type} Tasks
+                    </button>
+                ))}
+            </div>
+        );
     };
 
     const renderTasks = (groupedTasks) => {
@@ -127,9 +131,8 @@ const Submission = () => {
 
     return (
         <section
-            className={`relative w-full ${
-                participantData ? "" : "h-screen"
-            } overflow-hidden`}
+            className={`relative w-full ${participantData ? "" : "h-screen"
+                } overflow-hidden`}
         >
             <video
                 autoPlay
@@ -160,9 +163,8 @@ const Submission = () => {
                             </div>
                         </div>
                         <div
-                            className={`p-2.5 ${
-                                error ? "text-red-500" : "text-[#0f0]"
-                            }`}
+                            className={`p-2.5 ${error ? "text-red-500" : "text-[#0f0]"
+                                }`}
                         >
                             <div>
                                 <span className="mr-2">
@@ -219,7 +221,6 @@ const Submission = () => {
                 </div>
             ) : (
                 <div className="absolute inset-0 flex items-center justify-center z-60 p-4 sm:p-6">
-                    {/* Email login at center of screen */}
                     <EmailLogin
                         email={email}
                         emailError={emailError}
