@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 const TimeLine = ({ status }) => {
     // Determine which step is active based on status
@@ -7,56 +7,84 @@ const TimeLine = ({ status }) => {
             registered: 1,
             taskSubmitted: 2,
             interviewCompleted: 3,
-            onboardingCompleted: 4,
+            onboardingCompleted: 4
         };
-        return steps[status] >= step ? 'bg-green-500 text-white' : 'bg-gray-300 text-gray-500';
+        return steps[status] >= step
+            ? "bg-green-500 text-white"
+            : "bg-gray-300 text-gray-500";
+    };
+
+    // Get dynamic width for the connecting line based on the status
+    const getLineWidth = () => {
+        const steps = {
+            registered: 1,
+            taskSubmitted: 2,
+            interviewCompleted: 3,
+            onboardingCompleted: 4
+        };
+        const stepCount = steps[status];
+        return `${(stepCount - 0.5) * 33}%`; // Adjust to stop line in the middle of the current step
     };
 
     return (
-        <div className="relative max-w-4xl mx-auto my-10">
-            {/* Timeline bar (gray) */}
-            <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300 transform -translate-y-1/2 z-0"></div>
-
-            {/* Timeline bar (green, dynamic width) */}
-            <div
-                className="absolute top-1/2 left-0 h-1 bg-green-500 transform -translate-y-1/2 z-0 transition-all duration-700 ease-in-out"
-                style={{
-                    width: `${(getStepClass(1) === 'bg-green-500 text-white' ? 25 : 0) +
-                        (getStepClass(2) === 'bg-green-500 text-white' ? 25 : 0) +
-                        (getStepClass(3) === 'bg-green-500 text-white' ? 25 : 0) +
-                        (getStepClass(4) === 'bg-green-500 text-white' ? 25 : 0)}%`
-                }}
-            ></div>
-
-            <ul className="flex justify-between z-10 relative">
-                <li className="flex flex-col items-center relative z-10">
-                    <div className={`rounded-full w-12 h-12 flex items-center justify-center ${getStepClass(1)} transition-colors duration-500 shadow-lg`}>
-                        <span className="font-bold">1</span>
+        <div className="py-8">
+            <div className="relative w-full max-w-full lg:max-w-6xl mx-auto px-4">
+                {" "}
+                {/* Increase the width constraint and centering */}
+                {/* Dynamic connecting line */}
+                <div className="absolute top-3 left-0 w-full h-0.5 bg-gray-300 z-0"></div>
+                <div
+                    className="absolute top-3 left-0 h-0.5 bg-green-500 z-0"
+                    style={{ width: getLineWidth() }}
+                ></div>
+                {/* Timeline Steps */}
+                <div className="flex justify-between items-center relative z-10">
+                    {/* Registered */}
+                    <div className="flex flex-col items-center h-20 text-center w-full">
+                        <div
+                            className={`w-6 h-6 rounded-full ${getStepClass(
+                                1
+                            )}`}
+                        ></div>
+                        <div className="text-xs mt-2 font-semibold">
+                            Registered
+                        </div>
                     </div>
-                    <span className="block text-center mt-2 text-sm font-semibold">Register</span>
-                </li>
-
-                <li className="flex flex-col items-center relative z-10">
-                    <div className={`rounded-full w-12 h-12 flex items-center justify-center ${getStepClass(2)} transition-colors duration-500 shadow-lg`}>
-                        <span className="font-bold">2</span>
+                    {/* Task Submitted */}
+                    <div className="flex flex-col items-center  h-20 text-center w-full">
+                        <div
+                            className={`w-6 h-6 rounded-full ${getStepClass(
+                                2
+                            )}`}
+                        ></div>
+                        <div className="text-xs mt-2 font-semibold">
+                            Task Submitted
+                        </div>
                     </div>
-                    <span className="block text-center mt-2 text-sm font-semibold">Task Submission</span>
-                </li>
-
-                <li className="flex flex-col items-center relative z-10">
-                    <div className={`rounded-full w-12 h-12 flex items-center justify-center ${getStepClass(3)} transition-colors duration-500 shadow-lg`}>
-                        <span className="font-bold">3</span>
+                    {/* Interview Completed */}
+                    <div className="flex flex-col items-center text-center h-20 w-full">
+                        <div
+                            className={`w-6 h-6 rounded-full ${getStepClass(
+                                3
+                            )}`}
+                        ></div>
+                        <div className="text-xs mt-2 font-semibold">
+                            Interview Completed
+                        </div>
                     </div>
-                    <span className="block text-center mt-2 text-sm font-semibold">Interview</span>
-                </li>
-
-                <li className="flex flex-col items-center relative z-10">
-                    <div className={`rounded-full w-12 h-12 flex items-center justify-center ${getStepClass(4)} transition-colors duration-500 shadow-lg`}>
-                        <span className="font-bold">4</span>
+                    {/* Onboarding Completed */}
+                    <div className="flex flex-col items-center text-center h-20 w-full">
+                        <div
+                            className={`w-6 h-6 rounded-full ${getStepClass(
+                                4
+                            )}`}
+                        ></div>
+                        <div className="text-xs mt-2 font-semibold">
+                            Onboarding Completed
+                        </div>
                     </div>
-                    <span className="block text-center mt-2 text-sm font-semibold">Onboarding</span>
-                </li>
-            </ul>
+                </div>
+            </div>
         </div>
     );
 };

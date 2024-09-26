@@ -6,9 +6,12 @@ import EmailLogin from "@/components/Recruitments/Submission/EmailLogin";
 import TaskCard from "@/components/Recruitments/Submission/TaskCard";
 
 const taskTypeInstructions = {
-    Technical: "Complete the coding challenges and submit your solutions. Focus on performance, optimization, and code clarity.",
-    Creatives: "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines.",
-    Corporate: "Complete the corporate-related tasks with professionalism. Ensure attention to detail and submit all required documents."
+    Technical:
+        "Complete the coding challenges and submit your solutions. Focus on performance, optimization, and code clarity.",
+    Creatives:
+        "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines.",
+    Corporate:
+        "Complete the corporate-related tasks with professionalism. Ensure attention to detail and submit all required documents."
 };
 
 const Submission = () => {
@@ -68,7 +71,7 @@ const Submission = () => {
                 } else {
                     setError(
                         error.response?.data?.message ||
-                        "Failed to fetch data. Please try again."
+                            "Failed to fetch data. Please try again."
                     );
                 }
                 setLoading(false);
@@ -112,12 +115,15 @@ const Submission = () => {
     // Render buttons for each task type
     const renderTaskTypeButtons = (taskTypes) => {
         return (
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-cols-4">
+            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-flow-col-dense">
                 {taskTypes.map((type) => (
                     <button
                         key={type}
-                        className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type ? "bg-green-500" : "bg-gray-700"
-                            } hover:bg-green-600`}
+                        className={`px-4 py-2 rounded-md text-white font-poppins ${
+                            selectedTaskType === type
+                                ? "bg-green-500"
+                                : "bg-gray-700"
+                        } hover:bg-green-600`}
                         onClick={() => setSelectedTaskType(type)}
                     >
                         {type} Tasks
@@ -131,7 +137,11 @@ const Submission = () => {
         const tasksToShow = groupedTasks[selectedTaskType] || [];
 
         return tasksToShow.map((task, index) => (
-            <TaskCard key={task._id} task={task} />
+            <TaskCard
+                key={task._id}
+                task={task}
+                domain={participantData.domain}
+            />
         ));
     };
 
@@ -139,9 +149,10 @@ const Submission = () => {
     const renderInstructions = (domain) => {
         if (!domain) return null;
 
-        const instructions = taskTypeInstructions[domain] || "No instructions available.";
+        const instructions =
+            taskTypeInstructions[domain] || "No instructions available.";
         return (
-            <div className="mb-4 p-4 bg-gray-800 text-white rounded-md text-center z-40">
+            <div className="mb-4 p-4 border-transparent backdrop-filter backdrop-blur-sm bg-gray-500 bg-opacity-30 text-white rounded-xl max-w-2xl z-40 text-justify">
                 <p>{instructions}</p>
             </div>
         );
@@ -149,7 +160,9 @@ const Submission = () => {
 
     return (
         <section
-            className={`relative w-full ${participantData ? "" : "h-screen"} overflow-hidden`}
+            className={`relative w-full ${
+                participantData ? "" : "h-[80vh]"
+            } overflow-hidden`}
         >
             <video
                 autoPlay
@@ -181,8 +194,9 @@ const Submission = () => {
                             </div>
                         </div>
                         <div
-                            className={`p-2.5 ${error ? "text-red-500" : "text-[#0f0]"
-                                }`}
+                            className={`p-2.5 ${
+                                error ? "text-red-500" : "text-[#0f0]"
+                            }`}
                         >
                             <div>
                                 <span className="mr-2">
@@ -209,7 +223,7 @@ const Submission = () => {
             {participantData ? (
                 <div className="bg-bg_black flex flex-col items-center justify-center text-white p-4 sm:p-6">
                     {/* Profile Card Section */}
-                    <div className="relative w-full sm:w-auto mx-4 my-4 sm:mx-10 sm:absolute sm:top-20 sm:left-40">
+                    <div className="relative w-full sm:w-auto mx-4 my-2 sm:mx-10">
                         <ProfileCard
                             name={participantData.name}
                             regNo={participantData.regNo}
@@ -218,22 +232,26 @@ const Submission = () => {
                     </div>
 
                     {/* Timeline Section */}
-                    <div className="relative w-full sm:w-auto my-4 sm:my-0 sm:absolute sm:top-20 sm:right-40">
+                    <div className="relative w-full sm:w-auto my-1">
                         <TimeLine status="taskSubmitted" />
                     </div>
 
-                    {/* Task Instructions */}
+                    {/* Task Instructions*/}
                     {renderInstructions(participantData.domain)}
 
                     {/* Render Task Type Buttons */}
-                    <div className="flex flex-row sm:flex-row justify-center my-4 z-40 pt-20 sm:pt-60">
-                        {renderTaskTypeButtons(getTaskTypes(participantData.tasks))}
+                    <div className="flex flex-row sm:flex-row justify-center my-4 z-40">
+                        {renderTaskTypeButtons(
+                            getTaskTypes(participantData.tasks)
+                        )}
                     </div>
 
                     {/* Render Tasks Based on Selected Task Type */}
                     <div className="flex flex-col items-center gap-4 sm:flex-row sm:flex-wrap sm:justify-center sm:gap-10 z-40">
                         {selectedTaskType &&
-                            renderTasks(groupTasksByType(participantData.tasks))}
+                            renderTasks(
+                                groupTasksByType(participantData.tasks)
+                            )}
                     </div>
                 </div>
             ) : (
@@ -247,7 +265,6 @@ const Submission = () => {
                 </div>
             )}
         </section>
-
     );
 };
 
