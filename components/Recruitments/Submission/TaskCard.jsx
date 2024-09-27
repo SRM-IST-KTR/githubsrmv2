@@ -5,6 +5,15 @@ const TaskCard = ({ task, domain }) => {
         console.log("Task clicked");
     };
 
+    const normalizeLink = (link) => {
+        // Remove any extra quotes and check for https://
+        let cleanedLink = link.replace(/^"+|"+$/g, ''); // Remove leading and trailing quotes
+        if (!cleanedLink.startsWith("https://") && !cleanedLink.startsWith("http://")) {
+            cleanedLink = `https://${cleanedLink}`; // Add https:// if missing
+        }
+        return cleanedLink;
+    };
+
     const getSvgByDomain = (domain) => {
         switch (domain) {
             case "Technical":
@@ -102,6 +111,7 @@ const TaskCard = ({ task, domain }) => {
                 );
         }
     };
+
     const svgIcon = getSvgByDomain(domain);
 
     return (
@@ -129,11 +139,28 @@ const TaskCard = ({ task, domain }) => {
                         {task.guidelines}
                     </p>
 
+                    {/* Conditionally render the reference link if available */}
+                    {task["link"] && (
+                        <div className="mt-4">
+                            <h4 className="pl-4 pr-4 mb-2 font-extrabold text-sm">
+                                Reference Link:
+                            </h4>
+                            <a
+                                href={task["link"]}
+                                className="text-blue-400 underline pl-4 pr-4 text-sm"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {task["link"]}
+                            </a>
+                        </div>
+                    )}
+
                     <button
                         className="cursor-pointer pt-4 pb-2 pl-2 sm:pb-0 sm:pl-0"
                         onClick={handleTaskClick}
                     >
-                        <p className="font-bold text-black text-sm bg-[#0DFF4E] rounded-full py-1 px-2 w-24 md:w-28 sm:w-96 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto">
+                        <p className="font-bold text-black text-sm bg-[#0DFF4E] rounded-full py-1 px-2 w-32 md:w-28 sm:w-96 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto">
                             <a href="www.google.com">Submit Task</a>
                         </p>
                     </button>
