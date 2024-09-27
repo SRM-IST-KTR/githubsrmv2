@@ -13,6 +13,9 @@ const taskSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    link: {
+        type: String,
+    },
     domain: {
         type: String,
         enum: ["Technical", "Creatives", "Corporate"],
