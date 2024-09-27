@@ -31,13 +31,19 @@ const Navbar = () => {
         { id: 3, text: "Our Story", path: "/about" },
         { id: 4, text: "Events", path: "/events" },
         { id: 5, text: "Contact Us", path: "/contact" },
-        { id: 6, text: "Recruitment", path: "/recruitment" },
+        { id: 6, text: "Recruitment", path: "/recruitment" }
         // { id: 6, text: "Submission", path: "/submission" }
     ];
 
     return (
         <div className="bg-black flex justify-between items-center h-20 py-2 mx-auto px-4 md:px-16 lg:px-16 text-white z-50 font-dmSans">
-            <img src="logo.png" className="h-8 md:h-10" />
+            <img
+                src="logo.png"
+                className="h-8 md:h-10 cursor-pointer"
+                onClick={() =>
+                    (window.location.href = "https://githubsrmist.tech/")
+                }
+            />
             <ul className="hidden md:flex space-x-6">
                 {navItems.map((item) => (
                     <li

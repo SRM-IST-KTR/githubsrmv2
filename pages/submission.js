@@ -11,7 +11,7 @@ const taskTypeInstructions = {
     Creatives:
         "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines.",
     Corporate:
-        "Complete the corporate-related tasks with professionalism. Ensure attention to detail and submit all required documents."
+        "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
 };
 
 const Submission = () => {
@@ -114,23 +114,43 @@ const Submission = () => {
 
     // Render buttons for each task type
     const renderTaskTypeButtons = (taskTypes) => {
-        return (
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-flow-col-dense">
-                {taskTypes.map((type) => (
-                    <button
-                        key={type}
-                        className={`px-4 py-2 rounded-md text-white font-poppins ${
-                            selectedTaskType === type
-                                ? "bg-green-500"
-                                : "bg-gray-700"
-                        } hover:bg-green-600`}
-                        onClick={() => setSelectedTaskType(type)}
-                    >
-                        {type} Tasks
-                    </button>
-                ))}
-            </div>
-        );
+        if (taskTypes.length > 1) {
+            return (
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 md:grid-flow-col-dense">
+                    {taskTypes.map((type) => (
+                        <button
+                            key={type}
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${
+                                selectedTaskType === type
+                                    ? "bg-green-500"
+                                    : "bg-gray-700"
+                            } hover:bg-green-600`}
+                            onClick={() => setSelectedTaskType(type)}
+                        >
+                            {type} Tasks
+                        </button>
+                    ))}
+                </div>
+            );
+        } else {
+            return (
+                <div className="center">
+                    {taskTypes.map((type) => (
+                        <button
+                            key={type}
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${
+                                selectedTaskType === type
+                                    ? "bg-green-500"
+                                    : "bg-gray-700"
+                            } hover:bg-green-600`}
+                            onClick={() => setSelectedTaskType(type)}
+                        >
+                            {type} Tasks
+                        </button>
+                    ))}
+                </div>
+            );
+        }
     };
 
     const renderTasks = (groupedTasks) => {
@@ -232,7 +252,7 @@ const Submission = () => {
                     </div>
 
                     {/* Timeline Section */}
-                    <div className="relative w-full sm:w-auto my-1">
+                    <div className="relative w-full sm:w-auto lg:w-max my-1">
                         <TimeLine status="taskSubmitted" />
                     </div>
 

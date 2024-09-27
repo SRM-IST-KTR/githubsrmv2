@@ -27,12 +27,17 @@ const getStepClass = (currentStep, stepId) => {
 
 // Helper function for calculating the dynamic width for the connecting line
 const getLineWidth = (currentStep) => {
-    return `${(currentStep - 1) * 33}%`; // Correct line length between completed steps
+    return `${(currentStep - 1) * 50}%`; // Correct line length between completed steps
 };
 
 const TimeLineStep = ({ step, currentStep }) => (
     <div className="flex flex-col items-center h-20 text-center w-full">
-        <div className={`w-6 h-6 rounded-full ${getStepClass(currentStep, step.id)}`}></div>
+        <div
+            className={`w-6 h-6 rounded-full ${getStepClass(
+                currentStep,
+                step.id
+            )}`}
+        ></div>
         <div className="text-xs mt-2 font-semibold">{step.label}</div>
     </div>
 );
@@ -53,7 +58,11 @@ const TimeLine = ({ status }) => {
                 {/* Timeline Steps */}
                 <div className="flex justify-between items-center relative z-10">
                     {steps.map((step) => (
-                        <TimeLineStep key={step.key} step={step} currentStep={currentStep} />
+                        <TimeLineStep
+                            key={step.key}
+                            step={step}
+                            currentStep={currentStep}
+                        />
                     ))}
                 </div>
             </div>
