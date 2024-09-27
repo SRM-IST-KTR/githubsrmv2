@@ -51,7 +51,7 @@ const participantSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["registered", "taskShortlisted", "interviewShortlisted"],
+        enum: ["registered", "taskSubmitted", "interviewShortlisted", "onboarding"],
         default: "registered"
     }
 });
