@@ -19,7 +19,7 @@ import img7 from "../../public/Home/7.JPG";
 import img8 from "../../public/Home/8.JPG";
 import img9 from "../../public/Home/9.JPG";
 import img10 from "../../public/Home/10.JPG";
-import img11 from "../../public/Home/11.JPG";
+import img11 from "../../public/Home/11.jpg";
 
 const serviceData = [
     img1,
