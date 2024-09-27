@@ -4,6 +4,15 @@ import Task from "@/utils/models/tasks.model";
 
 DBInstance();
 
+// Utility function to clean up the reference link and any other fields if necessary
+const cleanTaskData = (task) => {
+    // Ensure the reference-link is cleaned from any extra quotes and whitespace
+    if (task["link"]) {
+        task["link"] = task["link"].replace(/^\s*"+|"+\s*$/g, ''); // Remove leading/trailing quotes and whitespace
+    }
+    return task;
+};
+
 export default async function handler(req, res) {
     const { method } = req;
 
@@ -59,9 +68,14 @@ export default async function handler(req, res) {
                 });
             }
 
-            const tasks = await Task.find({
+            // Fetch tasks based on the query
+            let tasks = await Task.find({
                 $or: taskQueries
             });
+
+            // Clean each task before sending it to the client
+            tasks = tasks.map(cleanTaskData);
+
             return res.status(200).json({
                 name,
                 regNo,
@@ -72,7 +86,7 @@ export default async function handler(req, res) {
                 domain: domainKeys, // Return only the domain keys
                 subdomains: subdomainsList,
                 status,
-                tasks
+                tasks // This will include the reference link along with other task details
             });
         } catch (error) {
             console.error("Error fetching participant data:", error);
