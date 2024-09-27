@@ -1,88 +1,60 @@
 import React from "react";
 
-const TimeLine = ({ status }) => {
-    // Determine which step is active based on status
-    const getStepClass = (step) => {
-        const steps = {
-            registered: 1,
-            taskSubmitted: 2,
-            interviewCompleted: 3,
-            onboardingCompleted: 4
-        };
-        return steps[status] >= step
-            ? "bg-green-500 text-white"
-            : "bg-gray-300 text-gray-500";
-    };
+// Step mapping for easier control
+const steps = [
+    { id: 1, key: "registered", label: "Registered" },
+    { id: 2, key: "taskSubmitted", label: "Task Submitted" },
+    { id: 3, key: "interviewShortlisted", label: "Interview Shortlisted" },
+    { id: 4, key: "onboarding", label: "Onboarding" }
+];
 
-    // Get dynamic width for the connecting line based on the status
-    const getLineWidth = () => {
-        const steps = {
-            registered: 1,
-            taskSubmitted: 2,
-            interviewCompleted: 3,
-            onboardingCompleted: 4
-        };
-        const stepCount = steps[status];
-        return `${(stepCount - 0.5) * 33}%`; // Adjust to stop line in the middle of the current step
-    };
+// Helper function to get current step index from status
+const getCurrentStep = (status) => {
+    const stepIndex = steps.findIndex((step) => step.key === status);
+    return stepIndex + 1; // Adding 1 to convert index to step count
+};
+
+// Helper function to determine the step class (active, future)
+const getStepClass = (currentStep, stepId) => {
+    if (stepId < currentStep) {
+        return "bg-green-500 text-white"; // Completed steps
+    } else if (stepId === currentStep) {
+        return "bg-green-500 text-white"; // Current step
+    } else {
+        return "bg-gray-300 text-gray-500"; // Future steps
+    }
+};
+
+// Helper function for calculating the dynamic width for the connecting line
+const getLineWidth = (currentStep) => {
+    return `${(currentStep - 1) * 33}%`; // Correct line length between completed steps
+};
+
+const TimeLineStep = ({ step, currentStep }) => (
+    <div className="flex flex-col items-center h-20 text-center w-full">
+        <div className={`w-6 h-6 rounded-full ${getStepClass(currentStep, step.id)}`}></div>
+        <div className="text-xs mt-2 font-semibold">{step.label}</div>
+    </div>
+);
+
+const TimeLine = ({ status }) => {
+    const currentStep = getCurrentStep(status);
 
     return (
         <div className="py-8">
-            <div className="relative w-full max-w-full lg:max-w-6xl mx-auto px-4">
-                {" "}
-                {/* Increase the width constraint and centering */}
+            <div className="relative w-full max-w-full lg:max-w-6xl mx-auto px-4 font-bold text-xl">
                 {/* Dynamic connecting line */}
                 <div className="absolute top-3 left-0 w-full h-0.5 bg-gray-300 z-0"></div>
                 <div
                     className="absolute top-3 left-0 h-0.5 bg-green-500 z-0"
-                    style={{ width: getLineWidth() }}
+                    style={{ width: getLineWidth(currentStep) }}
                 ></div>
+
                 {/* Timeline Steps */}
                 <div className="flex justify-between items-center relative z-10">
-                    {/* Registered */}
-                    <div className="flex flex-col items-center h-20 text-center w-full">
-                        <div
-                            className={`w-6 h-6 rounded-full ${getStepClass(
-                                1
-                            )}`}
-                        ></div>
-                        <div className="text-xs mt-2 font-semibold">
-                            Registered
-                        </div>
-                    </div>
-                    {/* Task Submitted */}
-                    <div className="flex flex-col items-center  h-20 text-center w-full">
-                        <div
-                            className={`w-6 h-6 rounded-full ${getStepClass(
-                                2
-                            )}`}
-                        ></div>
-                        <div className="text-xs mt-2 font-semibold">
-                            Task Submitted
-                        </div>
-                    </div>
-                    {/* Interview Completed */}
-                    <div className="flex flex-col items-center text-center h-20 w-full">
-                        <div
-                            className={`w-6 h-6 rounded-full ${getStepClass(
-                                3
-                            )}`}
-                        ></div>
-                        <div className="text-xs mt-2 font-semibold">
-                            Interview Completed
-                        </div>
-                    </div>
-                    {/* Onboarding Completed */}
-                    <div className="flex flex-col items-center text-center h-20 w-full">
-                        <div
-                            className={`w-6 h-6 rounded-full ${getStepClass(
-                                4
-                            )}`}
-                        ></div>
-                        <div className="text-xs mt-2 font-semibold">
-                            Onboarding Completed
-                        </div>
-                    </div>
+                    {steps.map((step) => (
+                        <TimeLineStep key={step.key} step={step} currentStep={currentStep} />
+                    ))}
                 </div>
             </div>
         </div>
