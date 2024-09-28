@@ -14,12 +14,39 @@ function TechTask() {
         setOpen(false);
     };
 
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        const demoVideoInput = event.target.elements.demoVideo.value;
+
+        try {
+            const response = await fetch(demoVideoInput, {
+                method: "HEAD",
+                redirect: "follow"
+            });
+            if (
+                response.url.startsWith("https://accounts.google.com/v3/signin")
+            ) {
+                alert(
+                    "The provided link is not public. Please provide a public link."
+                );
+            } else {
+                // Handle form submission
+                console.log("Form submitted successfully");
+            }
+        } catch (error) {
+            alert("There was an error checking the link. Please try again.");
+        }
+    };
+
     return (
         <>
             <button onClick={handleOpen}>Open Modal</button>
             <Modal open={open} onClose={handleClose}>
                 <Box className="flex justify-center items-center h-screen w-screen">
-                    <div className="form bg-white mx-3 md:mx-10 my-3 p-4 md:p-10 px-6 md:px-16 rounded-lg space-y-4 flex flex-col w-full max-w-xs sm:max-w-sm md:max-w-xl relative">
+                    <form
+                        onSubmit={handleSubmit}
+                        className="form bg-white mx-3 md:mx-10 my-3 p-4 md:p-10 px-6 md:px-16 rounded-lg space-y-4 flex flex-col w-full max-w-xs sm:max-w-sm md:max-w-xl relative"
+                    >
                         {/* Close Button */}
                         <button
                             onClick={handleClose}
@@ -81,17 +108,21 @@ function TechTask() {
                                 Demo Video:
                             </label>
                             <input
+                                name="demoVideo"
                                 className="rounded-lg px-3 py-2 text-sm sm:text-base md:text-lg bg-gray-200 text-bg_black placeholder:text-gray-400"
                                 placeholder="Drive link"
                             />
                         </div>
 
                         <div className="subtn mt-8 sm:mt-10 md:mt-20">
-                            <button className="w-full rounded-lg font-semibold text-bg_black py-2 text-base sm:text-lg md:text-xl bg-bright_green">
+                            <button
+                                type="submit"
+                                className="w-full rounded-lg font-semibold text-bg_black py-2 text-base sm:text-lg md:text-xl bg-bright_green"
+                            >
                                 Submit
                             </button>
                         </div>
-                    </div>
+                    </form>
                 </Box>
             </Modal>
         </>
