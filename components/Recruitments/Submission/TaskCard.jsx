@@ -207,19 +207,19 @@ const TaskCard = ({ task, domain }) => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                             >
-                                {task["link"]}
+                                CLICK HERE
                             </a>
                         </div>
                     )}
 
-                    <button
+                    {/* <button
                         className="cursor-pointer pt-4 pb-2 pl-2 sm:pb-0 sm:pl-0"
                         onClick={handleTaskClick}
                     >
                         <p className="font-bold text-black text-sm bg-[#0DFF4E] rounded-full py-1 px-2 w-32 md:w-28 sm:w-96 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto">
                             <a href={Form}>Submit Task</a>
                         </p>
-                    </button>
+                    </button> */}
                 </div>
                 <style jsx>{`
                     .drop-shadow-glow {

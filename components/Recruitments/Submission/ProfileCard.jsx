@@ -5,13 +5,13 @@ const ProfileCard = ({ name, regNo, domain }) => {
     const getRoleByDomain = (domain) => {
         switch (domain) {
             case "Technical":
-                return "Developer";
+                return "Technical";
             case "Creatives":
-                return "Artist";
+                return "Creatives";
             case "Corporate":
-                return "Business Analyst";
+                return "Corporate";
             default:
-                return "Business";
+                return "None";
         }
     };
 
