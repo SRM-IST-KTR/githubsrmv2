@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import recruitmentpos from "@/public/RecruitmentPoster.png";
-import Event_error from "@/public/Event_error.svg";
 import {
     MdDateRange,
     MdLocationPin,
@@ -12,7 +11,8 @@ import {
 
 const Hero = () => {
     const targetDate = "2024-09-27T23:59:59"; // Ensure this matches the event start date and time
-    // Calculate time left on the server-side
+
+    // Calculate time left for the countdown
     const calculateTimeLeft = () => {
         const difference = new Date(targetDate) - new Date();
         let timeLeft = {};
@@ -22,7 +22,6 @@ const Hero = () => {
                 Days: Math.floor(difference / (1000 * 60 * 60 * 24)),
                 Hours: Math.floor((difference / (1000 * 60 * 60)) % 24),
                 Minutes: Math.floor((difference / 1000 / 60) % 60)
-                // Seconds: Math.floor((difference / 1000) % 60)
             };
         }
 
@@ -37,14 +36,12 @@ const Hero = () => {
         }, 1000);
 
         return () => clearTimeout(timer);
-    });
+    }, [timeLeft]);
 
     const timerComponents = [];
 
     Object.keys(timeLeft).forEach((interval) => {
-        if (!timeLeft[interval]) {
-            return;
-        }
+        if (!timeLeft[interval]) return;
 
         timerComponents.push(
             <span key={interval} className="mx-2">
@@ -54,10 +51,14 @@ const Hero = () => {
     });
 
     const scrollToAnchor = () => {
-        const anchorElement = document.getElementById("registration-form"); // Replace with your target element's ID
+        const anchorElement = document.getElementById("registration-form");
         if (anchorElement) {
             anchorElement.scrollIntoView({ behavior: "smooth" });
         }
+    };
+
+    const goToTask = () => {
+        window.location.href = "/registration/submission";
     };
 
     const isRegistrationClosed = Object.keys(timeLeft).length === 0;
@@ -67,15 +68,12 @@ const Hero = () => {
             <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
                 <div className="relative group pt-4">
                     <div className="rounded-lg">
-                        <Image //USE img TAG IF LINK IS PROVIDED
+                        <Image
                             src={recruitmentpos}
                             alt="Upcoming Event"
                             className="rounded-lg w-[400px] sm:w-[526px]"
                         />
                     </div>
-                    {/* <h3 className="text-sm font-bold max-md:text-center text-white sm:text-xl py-4 max-md:hidden px-4 pl-0">
-                        Recruitments
-                    </h3> */}
                 </div>
 
                 {/* INFO */}
@@ -86,29 +84,44 @@ const Hero = () => {
                             <p>{targetDate.split("T")[0].toUpperCase()}</p>
                         </div>
 
-                        <div className="h-[60px] sm:h-20 lg:h-28  lg:w-[447px] w-full bg-event_gray rounded-lg text-center flex justify-start items-center px-7">
+                        <div className="h-[60px] sm:h-20 lg:h-28 lg:w-[447px] w-full bg-event_gray rounded-lg text-center flex justify-start items-center px-7">
                             {timerComponents.length ? (
-                                <div className=" flex justify-start items-center">
+                                <div className="flex justify-start items-center">
                                     <MdOutlineAccessTimeFilled className="mr-1 size-[30px] sm:size-[40px] text-bright_green" />
                                     {timerComponents}
                                 </div>
                             ) : (
-                                <span className="text-red-500">
-                                    Registration closed
-                                </span>
+                                <span className="text-red-500">Registration closed</span>
                             )}
                         </div>
 
-                        <button
+                        {/* Show the Register Now button only if registration is still open */}
+                        {!isRegistrationClosed && (
+                            <button
                             onClick={!isRegistrationClosed ? handleRegisterButtonClick : null}
                             disabled={isRegistrationClosed}
                             className={`ml-auto filter font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl ${isRegistrationClosed
-                                ? "bg-gray-500 text-gray-200 cursor-not-allowed"
-                                : "bg-bright_green hover:bg-green-700 text-black"
+                                    ? "bg-gray-500 text-gray-200 cursor-not-allowed"
+                                    : "bg-bright_green hover:bg-green-700 text-black"
                                 }`}
                         >
                             {isRegistrationClosed ? "Registration Closed" : "Register Now"}
                         </button>
+                        )}
+
+                        {/* Show the Tasks Coming Soon button only if registration is closed */}
+                        {isRegistrationClosed && (
+                            <button
+                                onClick={goToTask}
+                                disabled
+                                className={`ml-auto filter font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl ${isRegistrationClosed
+                                    ? "bg-gray-500 text-gray-200 cursor-not-allowed"
+                                    : "bg-bright_green hover:bg-green-700 text-black"
+                                }`}
+                        >
+                            {isRegistrationClosed ? "Tasks coming soon" : "Get Task"}
+                            </button>
+                        )}
                     </div>
                 </div>
             </div>
