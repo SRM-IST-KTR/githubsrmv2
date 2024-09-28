@@ -7,6 +7,8 @@ import {
     MdLocationPin,
     MdOutlineAccessTimeFilled
 } from "react-icons/md";
+import { redirect } from "next/dist/server/api-utils";
+import Router from "next/router";
 
 // #202020 -> bg of info
 
@@ -53,11 +55,8 @@ const Hero = () => {
         );
     });
 
-    const scrollToAnchor = () => {
-        const anchorElement = document.getElementById("registration-form"); // Replace with your target element's ID
-        if (anchorElement) {
-            anchorElement.scrollIntoView({ behavior: "smooth" });
-        }
+    const redirectToDashboard = () => {
+        Router.push("/recruitment/dashboard");
     };
     const getTask = () => {
         window.location.href = "/submission";
@@ -98,12 +97,11 @@ const Hero = () => {
                                 </span>
                             )}
                         </div>
-
                         <button
                             className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
-                            onClick={scrollToAnchor}
+                            onClick={redirectToDashboard}
                         >
-                            Register Now
+                            View Tasks
                         </button>
                         {/* <button
                             className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
