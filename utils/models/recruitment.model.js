@@ -51,11 +51,11 @@ const participantSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        enum: ["registered", "taskShortlisted", "interviewShortlisted"],
+        enum: ["registered", "taskSubmitted", "interviewShortlisted", "onboarding"],
         default: "registered"
     }
 });
 
-const ParticipantUser = mongoose.model.Recruitment24 || mongoose.model("Recruitment24", participantSchema);
+const ParticipantUser = mongoose.models.Recruitment24 || mongoose.model("Recruitment24", participantSchema);
 
 module.exports = ParticipantUser;

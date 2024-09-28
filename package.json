@@ -13,6 +13,7 @@
         "@aws-sdk/client-ses": "^3.637.0",
         "@emotion/react": "^11.13.3",
         "@emotion/styled": "^11.13.0",
+        "@heroicons/react": "v1",
         "@material-tailwind/react": "^2.1.9",
         "@mui/material": "^6.1.0",
         "@nextui-org/accordion": "^2.0.38",

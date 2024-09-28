@@ -7,6 +7,8 @@ import {
     MdLocationPin,
     MdOutlineAccessTimeFilled
 } from "react-icons/md";
+import { redirect } from "next/dist/server/api-utils";
+import Router from "next/router";
 
 // #202020 -> bg of info
 
@@ -53,14 +55,25 @@ const Hero = () => {
         );
     });
 
-    const scrollToAnchor = () => {
-        const anchorElement = document.getElementById("registration-form"); // Replace with your target element's ID
-        if (anchorElement) {
-            anchorElement.scrollIntoView({ behavior: "smooth" });
-        }
+    const redirectToDashboard = () => {
+        Router.push("/recruitment/dashboard");
+    };
+    const getTask = () => {
+        window.location.href = "/submission";
     };
     return (
         <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
+            <h1 className="text-white text-center text-2xl md:text-4xl font-bold mb-4">
+                Have any queries? Reach us on
+                <a
+                    href="https://discord.gg/Ek2FKk855n"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 text-bright_green hover:text-green-400 underline transition duration-300 ease-in-out"
+                >
+                    Discord
+                </a>
+            </h1>
             <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
                 <div className="relative group pt-4">
                     <div className="rounded-lg">
@@ -95,13 +108,18 @@ const Hero = () => {
                                 </span>
                             )}
                         </div>
-
                         <button
                             className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
-                            onClick={scrollToAnchor}
+                            onClick={redirectToDashboard}
                         >
-                            Register Now
+                            View Tasks
                         </button>
+                        {/* <button
+                            className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
+                            onClick={getTask}
+                        >
+                            Get Task
+                        </button> */}
                     </div>
                 </div>
             </div>
