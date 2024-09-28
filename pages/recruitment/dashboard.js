@@ -7,7 +7,7 @@ import TaskCard from "@/components/Recruitments/Submission/TaskCard";
 
 const taskTypeInstructions = {
     Technical:
-        "Complete the tasks and submit your solutions. Click the Submit Task button to submit your task before the deadline.",
+        "Choose the task as per your preference, for Web Dev Choose any one among Front End, Back End or Full Stack. Click the Submit Task button to submit your task before the deadline.",
     Creatives:
         "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines. Click the Submit Task button to submit your work.",
     Corporate:

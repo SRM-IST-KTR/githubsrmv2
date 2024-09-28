@@ -31,7 +31,7 @@ const Hero = () => {
                     Spearheading the open-source revolution at SRMIST
                 </p>
                 <a
-                    href="https://githubsrmist.tech/recruitment"
+                    href="https://discord.gg/Ek2FKk855n"
                     target="_blank"
                     rel="noopener noreferrer"
                 >
