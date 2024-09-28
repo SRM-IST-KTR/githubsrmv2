@@ -63,6 +63,17 @@ const Hero = () => {
     };
     return (
         <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
+            <h1 className="text-white text-center text-2xl md:text-4xl font-bold mb-4">
+                Have any queries? Reach us on
+                <a
+                    href="https://discord.gg/Ek2FKk855n"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="ml-2 text-bright_green hover:text-green-400 underline transition duration-300 ease-in-out"
+                >
+                    Discord
+                </a>
+            </h1>
             <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
                 <div className="relative group pt-4">
                     <div className="rounded-lg">

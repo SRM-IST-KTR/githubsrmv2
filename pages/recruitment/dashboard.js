@@ -7,7 +7,7 @@ import TaskCard from "@/components/Recruitments/Submission/TaskCard";
 
 const taskTypeInstructions = {
     Technical:
-        "Complete the coding challenges and submit your solutions. Focus on performance, optimization, and code clarity. Click the Submit Task button to submit your task.",
+        "Complete the tasks and submit your solutions. Click the Submit Task button to submit your task before the deadline.",
     Creatives:
         "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines. Click the Submit Task button to submit your work.",
     Corporate:
@@ -71,7 +71,7 @@ const Submission = () => {
                 } else {
                     setError(
                         error.response?.data?.message ||
-                            "Failed to fetch data. Please try again."
+                        "Failed to fetch data. Please try again."
                     );
                 }
                 setLoading(false);
@@ -120,11 +120,10 @@ const Submission = () => {
                     {taskTypes.map((type) => (
                         <button
                             key={type}
-                            className={`px-4 py-2 rounded-md text-white font-poppins ${
-                                selectedTaskType === type
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type
                                     ? "bg-green-500"
                                     : "bg-gray-700"
-                            } hover:bg-green-600`}
+                                } hover:bg-green-600`}
                             onClick={() => setSelectedTaskType(type)}
                         >
                             {type} Tasks
@@ -138,11 +137,10 @@ const Submission = () => {
                     {taskTypes.map((type) => (
                         <button
                             key={type}
-                            className={`px-4 py-2 rounded-md text-white font-poppins ${
-                                selectedTaskType === type
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type
                                     ? "bg-green-500"
                                     : "bg-gray-700"
-                            } hover:bg-green-600`}
+                                } hover:bg-green-600`}
                             onClick={() => setSelectedTaskType(type)}
                         >
                             {type} Tasks
@@ -174,9 +172,22 @@ const Submission = () => {
         return (
             <div className="mb-4 p-4 border-transparent backdrop-filter backdrop-blur-sm bg-gray-500 bg-opacity-30 text-white rounded-xl max-w-2xl z-40 text-justify">
                 <p>{instructions}</p>
+                {/* Added Discord Query Section */}
+                <p className="mt-4 text-lg font-semibold">
+                    For any queries, reach us on{" "}
+                    <a
+                        href="https://discord.gg/Ek2FKk855n"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-bright_green underline hover:text-green-400 transition-colors duration-300"
+                    >
+                        Discord
+                    </a>
+                </p>
             </div>
         );
     };
+
 
     const taskForm = (domain) => {
         switch (domain) {
@@ -193,9 +204,8 @@ const Submission = () => {
 
     return (
         <section
-            className={`relative w-full ${
-                participantData ? "" : "h-[80vh]"
-            } overflow-hidden`}
+            className={`relative w-full ${participantData ? "" : "h-[80vh]"
+                } overflow-hidden`}
         >
             <video
                 autoPlay
@@ -227,9 +237,8 @@ const Submission = () => {
                             </div>
                         </div>
                         <div
-                            className={`p-2.5 ${
-                                error ? "text-red-500" : "text-[#0f0]"
-                            }`}
+                            className={`p-2.5 ${error ? "text-red-500" : "text-[#0f0]"
+                                }`}
                         >
                             <div>
                                 <span className="mr-2">
