@@ -7,11 +7,11 @@ import TaskCard from "@/components/Recruitments/Submission/TaskCard";
 
 const taskTypeInstructions = {
     Technical:
-        "Complete the coding challenges and submit your solutions. Focus on performance, optimization, and code clarity.",
+        "Choose the task as per your preference, for Web Dev Choose any one among Front End, Back End or Full Stack. Click the Submit Task button to submit your task before the deadline.",
     Creatives:
-        "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines.",
+        "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines. Click the Submit Task button to submit your work.",
     Corporate:
-        "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
+        "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID click the 'Submit Task' Button to Open submission form. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
 };
 
 const Submission = () => {
@@ -174,8 +174,33 @@ const Submission = () => {
         return (
             <div className="mb-4 p-4 border-transparent backdrop-filter backdrop-blur-sm bg-gray-500 bg-opacity-30 text-white rounded-xl max-w-2xl z-40 text-justify">
                 <p>{instructions}</p>
+                {/* Added Discord Query Section */}
+                <p className="mt-4 text-lg font-semibold">
+                    For any queries, reach us on{" "}
+                    <a
+                        href="https://discord.gg/Ek2FKk855n"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-bright_green underline hover:text-green-400 transition-colors duration-300"
+                    >
+                        Discord
+                    </a>
+                </p>
             </div>
         );
+    };
+
+    const taskForm = (domain) => {
+        switch (domain) {
+            case "Technical":
+                return "https://forms.gle/TNJcF9X6xxXYo8Ax9";
+            case "Creatives":
+                return "https://forms.gle/1CMRyQnDfyXQDrFj7";
+            case "Corporate":
+                return "https://docs.google.com/forms/d/e/1FAIpQLSfEpy3fL_Rz_NcJBKYoqIKbXTEvz0TgR2PNPqJq_FjN0RFJiQ/viewform?usp=sf_link";
+            default:
+                return "";
+        }
     };
 
     return (
@@ -253,7 +278,7 @@ const Submission = () => {
 
                     {/* Timeline Section */}
                     <div className="relative w-full sm:w-auto lg:w-max my-1">
-                        <TimeLine status="taskSubmitted" />
+                        <TimeLine status={participantData.status} />
                     </div>
 
                     {/* Task Instructions*/}
@@ -272,6 +297,16 @@ const Submission = () => {
                             renderTasks(
                                 groupTasksByType(participantData.tasks)
                             )}
+                    </div>
+                    <div className="mt-16 z-50">
+                        <a
+                            href={taskForm(participantData.domain)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-bold text-black text-md bg-[#0DFF4E] rounded-full py-4 px-8 w-32 md:w-28 sm:w-96 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto"
+                        >
+                            Submit Task
+                        </a>
                     </div>
                 </div>
             ) : (
