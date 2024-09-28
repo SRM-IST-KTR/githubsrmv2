@@ -9,6 +9,31 @@ function MyApp({ Component, pageProps }) {
         <>
             <Head>
                 <title>GitHub Community SRM</title>
+                <meta charSet="UTF-8" />
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+                <meta name="language" content="English" />
+                <meta name="geo.region" content="US;IN" />
+                <meta name="geo.placename" content="New York;Mumbai" />
+                <meta name="theme-color" content="#000000" />
+                <meta name="revisit-after" content="7 days" />
+                <meta name="rating" content="General" />
+                <meta name="robots" content="index, follow" />
+                <meta name="googlebot" content="index, follow" />
+                <meta name="bingbot" content="index, follow" />
+                <meta name="msnbot" content="index, follow" />
+                <meta name="alexabot" content="index, follow" />
+                <meta name="slurp" content="index, follow" />
+                <meta name="yahoobot" content="index, follow" />
+                <meta name="webcrawlers" content="index, follow" />
+                <meta name="spiders" content="index, follow" />
+                <meta name="google" content="index, follow" />
+                <meta name="google-site-verification" content="google-site-verification= " />
+                <meta property="og:site_name" content="GitHub Community SRM - The Official student-led community affiliated with GitHub, spearheading the open-source revolution at SRMIST." />
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://githubsrmist.tech" />
+                <link rel="canonical" href="https://githubsrmist.tech" />
+
+                <meta property="image" content="../public/favicon.ico" />
                 <meta
                     name="description"
                     content="The Official student-led community affiliated with GitHub, spearheading the open-source revolution at SRMIST."
@@ -81,6 +106,23 @@ function MyApp({ Component, pageProps }) {
                 <link rel="canonical" href="https://githubsrmist.tech" />
 
                 <link rel="icon" href="/favicon.ico" />
+
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "http://schema.org",
+                        "@type": "Community",
+                        "name": "GitHub Community SRM",
+                        "jobTitle": "Student Developer Community at SRMIST",
+                        "email": "mailto:community@githubsrmist.tech",
+                        "url": "https://githubsrmist.tech",
+                        "image": "../public/favicon.ico",
+                        "sameAs": [
+                            "https://www.instagram.com/githubsrm/",
+                            "https://github.com/SRM-IST-KTR",
+                            "https://www.linkedin.com/company/githubsrm"
+                        ]
+                    })}
+                </script>
             </Head>
             <Navbar />
             <Component {...pageProps} />
