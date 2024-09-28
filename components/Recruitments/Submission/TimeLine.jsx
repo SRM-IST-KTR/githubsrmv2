@@ -26,7 +26,11 @@ const getStepClass = (currentStep, stepId) => {
 };
 
 // Helper function for calculating the dynamic width for the connecting line
+// Helper function for calculating the dynamic width for the connecting line
 const getLineWidth = (currentStep) => {
+    if (currentStep === 1) {
+        return "28%"; // Starting width before the first step
+    }
     return `${(currentStep - 1) * 50}%`; // Correct line length between completed steps
 };
 
