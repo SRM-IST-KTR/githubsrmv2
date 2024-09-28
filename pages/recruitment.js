@@ -120,7 +120,7 @@ function recruitment() {
                 </div>
             </div>
 
-            <FormSub />
+            {/* <FormSub /> */}
         </div>
     );
 }
