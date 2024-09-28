@@ -177,7 +177,7 @@ const TaskCard = ({ task, domain }) => {
         >
             <span className="absolute inset-0 rounded-xl z-50"></span>
             <div className="relative rounded-xl flex h-full w-full sm:w-96 transform items-end border-2 border-transparent backdrop-filter backdrop-blur-sm bg-gray-500 bg-opacity-30 transition-transform group-hover::scale-105 z-50 drop-shadow-glow">
-                <div className="p-4 !pt-0 transition-opacity group-hover:absolute group-hover:opacity-0">
+                <div className="p-4 !pt-0 min-w-80 transition-opacity group-hover:absolute group-hover:opacity-0">
                     {svgIcon}
                     <h2 className="mt-4 text-lg font-extrabold sm:text-xl w-full text-white text-center sm:text-left font-poppins">
                         {task.title}
