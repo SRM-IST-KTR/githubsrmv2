@@ -59,6 +59,9 @@ const Hero = () => {
             anchorElement.scrollIntoView({ behavior: "smooth" });
         }
     };
+
+    const isRegistrationClosed = Object.keys(timeLeft).length === 0;
+
     return (
         <div className="w-screen -translate-y-6 sm:-translate-y-20 p-5 sm:p-0 lg:mx-auto">
             <div className="flex flex-col justify-center items-center md:flex-row xl:mx-48 gap-4 lg:gap-16">
@@ -97,10 +100,14 @@ const Hero = () => {
                         </div>
 
                         <button
-                            className="ml-auto filter bg-bright_green hover:bg-green-700 text-black font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl"
-                            onClick={scrollToAnchor}
+                            onClick={!isRegistrationClosed ? handleRegisterButtonClick : null}
+                            disabled={isRegistrationClosed}
+                            className={`ml-auto filter font-dmSans font-semibold w-full rounded-lg p-3 sm:p-5 text-xl ${isRegistrationClosed
+                                ? "bg-gray-500 text-gray-200 cursor-not-allowed"
+                                : "bg-bright_green hover:bg-green-700 text-black"
+                                }`}
                         >
-                            Register Now
+                            {isRegistrationClosed ? "Registration Closed" : "Register Now"}
                         </button>
                     </div>
                 </div>
