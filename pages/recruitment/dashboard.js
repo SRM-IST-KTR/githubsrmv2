@@ -14,6 +14,10 @@ const taskTypeInstructions = {
         "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID click the 'Submit Task' Button to Open submission form. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
 };
 
+const getSubmitButtonText = (domain) => {
+    return domain === "Corporate" ? "View Task" : "Submit Task";
+};
+
 const Submission = () => {
     const [email, setEmail] = useState("");
     const [participantData, setParticipantData] = useState(null);
@@ -71,7 +75,7 @@ const Submission = () => {
                 } else {
                     setError(
                         error.response?.data?.message ||
-                            "Failed to fetch data. Please try again."
+                        "Failed to fetch data. Please try again."
                     );
                 }
                 setLoading(false);
@@ -120,11 +124,10 @@ const Submission = () => {
                     {taskTypes.map((type) => (
                         <button
                             key={type}
-                            className={`px-4 py-2 rounded-md text-white font-poppins ${
-                                selectedTaskType === type
-                                    ? "bg-green-500"
-                                    : "bg-gray-700"
-                            } hover:bg-green-600`}
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type
+                                ? "bg-green-500"
+                                : "bg-gray-700"
+                                } hover:bg-green-600`}
                             onClick={() => setSelectedTaskType(type)}
                         >
                             {type} Tasks
@@ -138,11 +141,10 @@ const Submission = () => {
                     {taskTypes.map((type) => (
                         <button
                             key={type}
-                            className={`px-4 py-2 rounded-md text-white font-poppins ${
-                                selectedTaskType === type
-                                    ? "bg-green-500"
-                                    : "bg-gray-700"
-                            } hover:bg-green-600`}
+                            className={`px-4 py-2 rounded-md text-white font-poppins ${selectedTaskType === type
+                                ? "bg-green-500"
+                                : "bg-gray-700"
+                                } hover:bg-green-600`}
                             onClick={() => setSelectedTaskType(type)}
                         >
                             {type} Tasks
@@ -205,9 +207,8 @@ const Submission = () => {
 
     return (
         <section
-            className={`relative w-full ${
-                participantData ? "" : "h-[80vh]"
-            } overflow-hidden`}
+            className={`relative w-full ${participantData ? "" : "h-[80vh]"
+                } overflow-hidden`}
         >
             <video
                 autoPlay
@@ -239,9 +240,8 @@ const Submission = () => {
                             </div>
                         </div>
                         <div
-                            className={`p-2.5 ${
-                                error ? "text-red-500" : "text-[#0f0]"
-                            }`}
+                            className={`p-2.5 ${error ? "text-red-500" : "text-[#0f0]"
+                                }`}
                         >
                             <div>
                                 <span className="mr-2">
@@ -305,7 +305,7 @@ const Submission = () => {
                             rel="noopener noreferrer"
                             className="font-bold text-black text-md bg-[#0DFF4E] rounded-full py-4 px-8 w-32 md:w-28 sm:w-96 max-w-xs opacity-95 hover:opacity-100 transition-opacity duration-300 text-center mx-auto"
                         >
-                            Submit Task
+                            {getSubmitButtonText(participantData.domain)}
                         </a>
                     </div>
                 </div>
