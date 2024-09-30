@@ -11,7 +11,7 @@ const taskTypeInstructions = {
     Creatives:
         "Submit your creative designs or content for review. Ensure your work is original and aligns with the provided guidelines. Click the Submit Task button to submit your work.",
     Corporate:
-        "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID click the 'Submit Task' Button to Open submission form. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
+        "Complete all sections thoughtfully and submit your responses by the deadline using your SRM email ID click the 'View Task' Button to Open submission form. Keep your answers original and true to yourself. (No AI/ChatGPT assistance allowed!)"
 };
 
 const getSubmitButtonText = (domain) => {
