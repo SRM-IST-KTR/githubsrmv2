@@ -170,19 +170,18 @@ const Teams = () => {
                 <h2 className="text-2xl sm:text-3xl font-bold text-center mt-16">
                     Convenor
                 </h2>
-                {convenor && (
+                {!fetched ? (
                     <div className="flex justify-center mt-8">
-                        {!fetched ? (
-                            <ProfileSkeleton />
-                        ) : (
-                            <ProfileCard
-                                photo={convenor.pictureUrl}
-                                name={convenor.name}
-                                caption={convenor.caption}
-                                socials={convenor.socials}
-                            />
-                        )
-                        }
+                        <ProfileSkeleton />
+                    </div>
+                ) : (
+                    <div className="flex justify-center mt-8">
+                        <ProfileCard
+                            photo={convenor.pictureUrl}
+                            name={convenor.name}
+                            caption={convenor.caption}
+                            socials={convenor.socials}
+                        />
                     </div>
                 )}
 
@@ -191,17 +190,15 @@ const Teams = () => {
                         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
                             President
                         </h2>
-                        {president && (
-                            !fetched ? (
-                                <ProfileSkeleton />
-                            ) : (
-                                <ProfileCard
-                                    photo={president.pictureUrl}
-                                    name={president.name}
-                                    caption={president.caption}
-                                    socials={president.socials}
-                                />
-                            )
+                        {!fetched ? (
+                            <ProfileSkeleton />
+                        ) : (
+                            <ProfileCard
+                                photo={president.pictureUrl}
+                                name={president.name}
+                                caption={president.caption}
+                                socials={president.socials}
+                            />
                         )}
                     </div>
 
@@ -209,17 +206,15 @@ const Teams = () => {
                         <h2 className="text-2xl sm:text-3xl font-bold text-center mb-6">
                             Vice President
                         </h2>
-                        {vp && (
-                            !fetched ? (
-                                <ProfileSkeleton />
-                            ) : (
-                                <ProfileCard
-                                    photo={vp.pictureUrl}
-                                    name={vp.name}
-                                    caption={vp.caption}
-                                    socials={vp.socials}
-                                />
-                            )
+                        {!fetched ? (
+                            <ProfileSkeleton />
+                        ) : (
+                            <ProfileCard
+                                photo={vp.pictureUrl}
+                                name={vp.name}
+                                caption={vp.caption}
+                                socials={vp.socials}
+                            />
                         )}
                     </div>
                 </div>
@@ -341,7 +336,8 @@ const Teams = () => {
                                     ))}
                                 </div>
                             ) : (
-                                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 justify-center gap-8 mt-8 mx-4 md:mx-16">
+                                // <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-8 mx-4 md:mx-16 justify-items-center">
+                                <div className="flex justify-center flex-wrap gap-8 mt-8">
                                     {filteredMembers.map((member, index) => (
                                         <ProfileCard
                                             key={index}
