@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
-const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
+const profileCard = ({ photo, name, caption, socials }) => {
+
+    const { linkedin, github, instagram } = socials || {};
     return (
         // <div className="flex flex-col items-center">
         //     <div className="w-24 h-24 rounded-full overflow-hidden border-bright_green border-4">
@@ -18,7 +20,7 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
         //     </div>
         // </div>
 
-        <div className="group relative block rounded-3xl h-52 w-52">
+        <div className="group relative block rounded-3xl h-60 w-60">
             <div className="absolute inset-0 bg-black rounded-3xl filter drop-shadow-glow"></div>
 
             <div className="relative z-10 outline-2 border-gradient bg-black rounded-3xl h-full w-full">
@@ -36,34 +38,44 @@ const profileCard = ({ photo, name, caption, linkedin, instagram, github }) => {
                         {name}
                     </p>
 
-                    <div className=" mt-20 font-dmSans">
+                    <div className=" mt-32 font-dmSans">
                         <div className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center">
                             <p className="text-center text-white">{caption}</p>
                             <div className="flex justify-between mb-2 space-x-2">
-                                <a href={linkedin} target="_blank" className="">
-                                    <Image
-                                        src="/linkedin.png"
-                                        width="20"
-                                        height="20"
-                                        className="w-6 h-6"
-                                    />
-                                </a>
-                                <a href={github} target="_blank">
-                                    <Image
-                                        src="/github_logo.png"
-                                        width="20"
-                                        height="20"
-                                        className="w-6 h-6"
-                                    />
-                                </a>
-                                <a href={instagram} target="_blank">
-                                    <Image
-                                        src="/instagram.png"
-                                        width="20"
-                                        height="20"
-                                        className="w-6 h-6"
-                                    />
-                                </a>
+                                {/* Conditionally render only if the social link exists */}
+                                {linkedin && (
+                                    <a href={linkedin} target="_blank" rel="noopener noreferrer">
+                                        <Image
+                                            src="/linkedin.png"
+                                            width="20"
+                                            height="20"
+                                            className="w-6 h-6"
+                                            alt="LinkedIn"
+                                        />
+                                    </a>
+                                )}
+                                {github && (
+                                    <a href={github} target="_blank" rel="noopener noreferrer">
+                                        <Image
+                                            src="/github_logo.png"
+                                            width="20"
+                                            height="20"
+                                            className="w-6 h-6"
+                                            alt="GitHub"
+                                        />
+                                    </a>
+                                )}
+                                {instagram && (
+                                    <a href={instagram} target="_blank" rel="noopener noreferrer">
+                                        <Image
+                                            src="/instagram.png"
+                                            width="20"
+                                            height="20"
+                                            className="w-6 h-6"
+                                            alt="Instagram"
+                                        />
+                                    </a>
+                                )}
                             </div>
                         </div>
                     </div>
