@@ -7,7 +7,8 @@
         "build": "next build",
         "start": "next start",
         "lint": "next lint",
-        "prepare": "husky install"
+        "prepare": "husky install",
+        "postbuild": "next-sitemap"
     },
     "dependencies": {
         "@aws-sdk/client-ses": "^3.637.0",
@@ -26,6 +27,7 @@
         "jimp-compact": "^0.16.1-2",
         "mongoose": "^8.2.1",
         "next": "^14.1.0",
+        "next-sitemap": "^4.2.3",
         "react": "^18",
         "react-confetti": "^6.1.0",
         "react-dom": "^18",
