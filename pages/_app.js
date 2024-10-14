@@ -8,7 +8,7 @@ function MyApp({ Component, pageProps }) {
     return (
         <>
             <Head>
-                <title>GitHub Community SRM</title>
+                <title>GitHub Community SRM | Open Source | SRM Institute of Science & Technology</title>
                 <meta charSet="UTF-8" />
                 <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
                 <meta name="language" content="English" />
@@ -36,93 +36,78 @@ function MyApp({ Component, pageProps }) {
                 <meta property="image" content="../public/favicon.ico" />
                 <meta
                     name="description"
-                    content="The Official student-led community affiliated with GitHub, spearheading the open-source revolution at SRMIST."
+                    content="GitHub Community SRMIST: The official student-led group promoting Open Source at SRM Institute of Science and Technology. Join us for coding, development, and more."
                 />
                 <meta
                     name="viewport"
                     content="width=device-width, initial-scale=1"
                 />
-                <meta
-                    name="keywords"
-                    content="GitHub, Open Source, SRMIST, GitHub Community SRM, Coding, Development, Tech Community"
-                />
+                <meta name="keywords" content="GitHub, Open Source, SRMIST, SRM Institute of Science and Technology, GitHub SRM, Developer Community SRM, GitHub SRMIST, Open Source Projects, GitHub Student Programs, SRMIST Open Source Contributions" />
                 <meta name="author" content="GitHub Community SRM" />
 
-                <meta name="twitter:card" content="/public/x_logo.png" />
-                <meta name="twitter:title" content="GitHub Community SRM" />
+                <meta name="twitter:card" content="/public/logo.png" />
+                <meta name="twitter:title" content="GitHub Community SRM - Open Source at SRMIST" />
                 <meta
                     name="twitter:description"
                     content="The Official student-led community affiliated with GitHub, spearheading the open-source revolution at SRMIST."
                 />
-                <meta name="twitter:image" content="/public/x_logo.png" />
+                <meta name="twitter:image" content="/public/logo.png" />
                 <meta name="twitter:site" content="@GithubSrm" />
                 <meta
                     name="twitter:url"
                     content="https://www.twitter.com/GithubSrm"
                 />
 
-                <meta property="og:title" content="GitHub Community SRM" />
-                <meta
-                    property="og:description"
-                    content="Join GitHub Community SRM, an official student-led group affiliated with GitHub, promoting open-source projects at SRMIST."
-                />
+                <meta property="og:site_name" content="GitHub Community SRM" />
+                <meta property="og:title" content="GitHub Community SRMIST | Open Source at SRMIST" />
+                <meta property="og:description" content="GitHub Community SRM is the student-led open-source community at SRM Institute of Science and Technology." />
                 <meta property="og:url" content="https://githubsrmist.tech" />
                 <meta property="og:image" content="/public/Logo.png" />
                 <meta property="og:type" content="website" />
-                <meta property="og:site_name" content="GitHub Community SRM" />
-                <meta
-                    property="og:see_also"
-                    content="https://www.linkedin.com/company/githubsrm"
-                />
-
-                <meta property="og:title" content="GitHub Community SRM" />
-                <meta
-                    property="og:description"
-                    content="Discover GitHub Community SRM on Instagram, where we promote coding, tech, and open-source collaborations."
-                />
-                <meta
-                    property="og:url"
-                    content="https://www.instagram.com/githubsrm/"
-                />
-                <meta
-                    property="og:image"
-                    content="/public/instagram_logo.png"
-                />
-
-                <meta
-                    property="og:title"
-                    content="GitHub Community SRM on GitHub"
-                />
-                <meta
-                    property="og:description"
-                    content="Contribute to open-source projects with GitHub Community SRM. Explore repositories, collaborate, and grow with us."
-                />
-                <meta
-                    property="og:url"
-                    content="https://github.com/SRM-IST-KTR"
-                />
-                <meta property="og:image" content="/public/github_logo.png" />
+                <meta property="og:see_also" content="https://github.com/SRM-IST-KTR" />
+                <meta property="og:see_also" content="https://www.instagram.com/githubsrm/" />
+                <meta property="og:see_also" content="https://www.linkedin.com/company/githubsrm" />
 
                 <link rel="canonical" href="https://githubsrmist.tech" />
 
                 <link rel="icon" href="/favicon.ico" />
 
-                <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "http://schema.org",
-                        "@type": "Community",
-                        "name": "GitHub Community SRM",
-                        "jobTitle": "Student Developer Community at SRMIST",
-                        "email": "mailto:community@githubsrmist.tech",
-                        "url": "https://githubsrmist.tech",
-                        "image": "../public/favicon.ico",
-                        "sameAs": [
-                            "https://www.instagram.com/githubsrm/",
-                            "https://github.com/SRM-IST-KTR",
-                            "https://www.linkedin.com/company/githubsrm"
-                        ]
-                    })}
-                </script>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{
+                        __html: JSON.stringify({
+                            "@context": "https://schema.org",
+                            "@type": "Organization",
+                            "name": "GitHub Community SRM",
+                            "url": "https://githubsrmist.tech",
+                            "logo": "https://githubsrmist.tech/logo.png",
+                            "contactPoint": {
+                                "@type": "ContactPoint",
+                                "email": "community@githubsrmist.tech",
+                                "contactType": "Customer Support",
+                                "url": "https://githubsrmist.tech/contact"
+                            },
+                            "sameAs": [
+                                "https://www.instagram.com/githubsrm/",
+                                "https://github.com/SRM-IST-KTR",
+                                "https://www.linkedin.com/company/githubsrm"
+                            ],
+                            "description": "GitHub Community SRM is a student-led open-source community at SRM Institute of Science and Technology, promoting open-source development and collaboration.",
+                            "location": {
+                                "@type": "Place",
+                                "name": "SRM Institute of Science and Technology",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "SRM Nagar",
+                                    "addressLocality": "Kattankulathur",
+                                    "addressRegion": "TN",
+                                    "postalCode": "603203",
+                                    "addressCountry": "IN"
+                                }
+                            }
+                        })
+                    }}
+                />
             </Head>
             <Navbar />
             <Component {...pageProps} />
