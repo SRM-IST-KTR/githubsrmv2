@@ -167,7 +167,7 @@ const Teams = () => {
             </Head>
             <Hero />
             <div className="text-white">
-                <h2 className="text-2xl sm:text-3xl font-bold text-center mt-16">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mt-2">
                     Convenor
                 </h2>
                 {!fetched ? (

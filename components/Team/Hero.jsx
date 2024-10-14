@@ -11,13 +11,13 @@ const Hero = () => {
                 backgroundAttachment: "fixed" //fix the background image while scrolling to look good
             }}
         >
-            <div className="bg-black/40 py-8 md:py-16 lg:py-16">
+            <div className="bg-black/40 py-8 md:py-16 lg:py-16 mb-4">
                 <div className="flex justify-start items-center relative z-10">
                     <div className="text-left">
                         <h1 className=" font-poppins text-4xl md:text-6xl font-bold mt-10 xl:mt-20 md:mt-20 px-8 lg:px-60 text-white">
                             Our <span className="text-bright_green">Team</span>
                         </h1>
-                        <p className="mt-4  lg:text-2xl text-md md:text-lg font-medium px-8 lg:px-60 text-left text-white font-dmSans">
+                        <p className="mt-4 lg:text-2xl md:text-lg font-medium px-8 lg:px-60 text-left text-white font-dmSans">
                             The GitHub Community SRM introduces you to the
                             dynamic and collaborative ecosystem of our diverse
                             teams. Discover passionate individuals driving
