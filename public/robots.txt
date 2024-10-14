@@ -1,2 +1,9 @@
+# *
 User-agent: *
-Disallow:
+Allow: /
+
+# Host
+Host: https://githubsrmist.tech
+
+# Sitemaps
+Sitemap: https://githubsrmist.tech/sitemap.xml
