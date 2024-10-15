@@ -7,14 +7,8 @@ function AboutUs() {
         <div className="bg-bg_black text-white">
             <Head>
                 <title>About Us | GitHub Community SRM</title>
-                <meta
-                    name="description"
-                    content="Learn about GitHub Community SRM, the official student-led group at SRMIST, fostering a collaborative open-source culture."
-                />
-                <meta
-                    name="keywords"
-                    content="GitHub, SRMIST, Open Source, Coding, GitHub Community SRM, Development, Collaboration"
-                />
+                <meta name="description" content="Discover GitHub Community SRM, a student-led group at SRMIST, promoting open-source collaboration. Join us to explore coding, innovation, and community-driven development." />
+                <meta name="keywords" content="GitHub, SRMIST, Open Source, Coding, GitHub Community SRM, Development, Collaboration, SRM Institute of Science and Technology, Tech Community SRM, Student Developers SRMIST, Open Source Projects SRM, Coding Club SRM" />
                 <meta name="author" content="GitHub Community SRM" />
                 <meta
                     name="viewport"
@@ -22,7 +16,7 @@ function AboutUs() {
                 />
                 <link rel="canonical" href="https://githubsrmist.tech/about" />
 
-                <meta name="twitter:card" content="/public/x_logo.png" />
+                <meta name="twitter:card" content="/public/logo.png" />
                 <meta
                     name="twitter:title"
                     content="About Us - GitHub Community SRM"
@@ -31,7 +25,7 @@ function AboutUs() {
                     name="twitter:description"
                     content="Discover the story behind GitHub Community SRM, a hub for collaborative open-source projects at SRMIST."
                 />
-                <meta name="twitter:image" content="/public/x_logo.png" />
+                <meta name="twitter:image" content="/public/logo.png" />
                 <meta name="twitter:site" content="@GithubSrm" />
                 <meta
                     name="twitter:url"
