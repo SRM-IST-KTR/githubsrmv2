@@ -55,59 +55,58 @@ const Events = () => {
     return (
         <div className="bg-bg_black">
             <Head>
-                <title>Events | Community SRM</title>
-                <meta
-                    name="description"
-                    content="Explore upcoming and past events organized by Community SRM, including detailed information and registration options."
-                />
-                <meta
-                    name="keywords"
-                    content={`events, Community SRM, technical events, corporate events, creative events, past events, ${allEvents
-                        .map((event) => event.event_name)
-                        .join(", ")}`}
-                />
+                <title>Events | Github Community SRM</title>
+                <meta name="description" content="Join exciting hackathons, workshops, and speaker sessions hosted by Github Community SRM. Discover upcoming events, register online, and explore past event highlights with certificates." />
+                <meta name="keywords" content={`events, Community SRM, hackathons, workshops, ${allEvents.map(event => event.event_name).join(", ")}, ${allEvents.map(event => event.venue).join(", ")}, tech events, student events`} />
 
-                <meta property="og:title" content="Events | Community SRM" />
-                <meta
-                    property="og:description"
-                    content="Discover upcoming and past events organized by Community SRM."
-                />
-                <meta property="og:image" content="/public/logo.png" />
-                <meta
-                    property="og:url"
-                    content="https://githubsrmist.tech/events"
-                />
-                <meta property="og:type" content="website" />
+                <meta property="og:title" content="Events | Github Community SRM" />
+                <meta property="og:description" content="Join exciting hackathons, technical workshops, and speaker sessions organized by Github Community SRM. Register now and explore past event highlights." />
+                <meta property="og:image" content="https://githubsrmist.tech/logo.png" />
+                <meta property="og:image:alt" content="Community SRM Hackathons and Workshops" />
 
-                <meta name="twitter:card" content="summary_large_image" />
-                <meta name="twitter:title" content="Events | Community SRM" />
-                <meta
-                    name="twitter:description"
-                    content="Find out more about the events organized by Community SRM."
-                />
-                <meta name="twitter:image" content="/public/x_logo.png" />
+                <meta name="twitter:title" content="Hackathons, Workshops & Speaker Sessions | Github Community SRM" />
+                <meta name="twitter:description" content="Explore upcoming hackathons, workshops, and speaker sessions hosted by Github Community SRM. Register now and check past event highlights." />
+                <meta name="twitter:image" content="https://githubsrmist.tech/logo.png" />
 
                 <script type="application/ld+json">
-                    {JSON.stringify({
-                        "@context": "https://schema.org",
-                        "@type": "Event",
-                        name: "Community SRM Events",
-                        url: "https://githubsrmist.tech/events",
-                        description:
-                            "Upcoming and past events organized by Community SRM.",
-                        image: "/public/logo.png",
-                        event: allEvents.map((event) => ({
+                    {JSON.stringify(
+                        {
+                            "@context": "https://schema.org",
                             "@type": "Event",
-                            name: event.event_name,
-                            startDate: event.event_date,
-                            location: {
+                            "name": "Hackathons, Workshops & Speaker Sessions | Github Community SRM Events",
+                            "url": "https://githubsrmist.tech/events",
+                            "description": "Discover and register for hackathons, workshops, and speaker sessions hosted by Github Community SRM.",
+                            "image": "https://githubsrmist.tech/logo.png",
+                            "location": {
                                 "@type": "Place",
-                                name: event.venue
+                                "name": "SRM Institute of Science and Technology",
+                                "address": {
+                                    "@type": "PostalAddress",
+                                    "streetAddress": "SRM Institute of Science and Technology",
+                                    "addressLocality": "Chennai",
+                                    "addressRegion": "TN",
+                                    "postalCode": "600062",
+                                    "addressCountry": "IN"
+                                }
                             },
-                            url: event.registration_url,
-                            image: event.poster_url
-                        }))
-                    })}
+                            "event": allEvents.map((event) => ({
+                                "@type": "Event",
+                                "name": event.event_name,
+                                "startDate": event.event_date,
+                                "location": {
+                                    "@type": "Place",
+                                    "name": event.venue
+                                },
+                                "offers": {
+                                    "@type": "Offer",
+                                    "url": event.registration_url,
+                                    "price": "0",
+                                    "priceCurrency": "INR",
+                                    "availability": "https://schema.org/InStock"
+                                }
+                            }))
+                        }
+                    )}
                 </script>
             </Head>
             <section
@@ -121,7 +120,7 @@ const Events = () => {
                 <div className="bg-black/40 -top-8 lg:top-0 lg:p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center items-center relative">
                     <div className="mt-10 relative z-10">
                         {eventData &&
-                        eventData.filter((event) => event.is_active).length >
+                            eventData.filter((event) => event.is_active).length >
                             0 ? (
                             eventData.map(
                                 (event, index) =>
@@ -163,36 +162,36 @@ const Events = () => {
             <div className="flex flex-wrap justify-center gap-4 items-center">
                 {!fetched
                     ? Array.from({ length: 4 }, (_, index) => (
-                          <div
-                              key={index}
-                              className="w-96 sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/3 pr-4 lg:pl-10"
-                          >
-                              <PastEventsSkeleton />
-                          </div>
-                      ))
+                        <div
+                            key={index}
+                            className="w-96 sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/3 pr-4 lg:pl-10"
+                        >
+                            <PastEventsSkeleton />
+                        </div>
+                    ))
                     : allEvents.map(
-                          (event, index) =>
-                              !event.is_active && (
-                                  <div
-                                      key={index}
-                                      className="w-full sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/3 p-4"
-                                  >
-                                      <PastEvents
-                                          poster={event.poster_url}
-                                          title={event.event_name}
-                                          certificateLink={event.certificate}
-                                          onButtonClick={handleButtonClick}
-                                          openModal={(certificateLink) =>
-                                              setIsModalOpen({
-                                                  open: true,
-                                                  certificate: certificateLink,
-                                                  slug: event.slug
-                                              })
-                                          }
-                                      />
-                                  </div>
-                              )
-                      )}
+                        (event, index) =>
+                            !event.is_active && (
+                                <div
+                                    key={index}
+                                    className="w-full sm:w-1/2 md:w-1/3 lg:w-1/2 xl:w-1/3 p-4"
+                                >
+                                    <PastEvents
+                                        poster={event.poster_url}
+                                        title={event.event_name}
+                                        certificateLink={event.certificate}
+                                        onButtonClick={handleButtonClick}
+                                        openModal={(certificateLink) =>
+                                            setIsModalOpen({
+                                                open: true,
+                                                certificate: certificateLink,
+                                                slug: event.slug
+                                            })
+                                        }
+                                    />
+                                </div>
+                            )
+                    )}
             </div>
 
             {isModalOpen && (

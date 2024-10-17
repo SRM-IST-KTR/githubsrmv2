@@ -87,87 +87,98 @@ const Teams = () => {
         (member) => member.domain === domain
     );
 
+    const generateKeywords = () => {
+        const keywordsArray = [
+            convenor?.name || "",
+            president?.name || "",
+            vp?.name || "",
+            leads.length > 0 ? leads.map(lead => lead.name).join(", ") : "",
+            associates.length > 0 ? associates.map(associate => associate.name).join(", ") : "",
+            members.length > 0 ? members.map(member => member.name).join(", ") : "",
+            "GitHub Community SRM team",
+            "Technical domain",
+            "Corporate domain",
+            "Creative domain",
+            "GitHub",
+            "SRM",
+            "SRMIST",
+            "LinkedIn",
+            "Instagram",
+            "Open Source",
+            "GitHub SRM community"
+        ];
+        return keywordsArray.filter(Boolean).join(", ");
+    };
+
     return (
         <section className="bg-bg_black">
             <Head>
-                <title>Meet the Team | GitHub Community SRM</title>
-                <meta
-                    name="description"
-                    content="Meet the talented team behind GitHub Community SRM, including Admins, Leads, and Members from Technical, Corporate, Creatives, and Content domains."
-                />
-                <meta
-                    name="keywords"
-                    content={`${admins
-                        .map((admin) => admin.name)
-                        .join(", ")}, ${leads
-                            .map((lead) => lead.name)
-                            .join(", ")}, ${members
-                                .map((member) => member.name)
-                                .join(
-                                    ", "
-                                )}, GitHub Community SRM team, Technical domain, Corporate domain, Creatives domain, Content domain, GitHub, LinkedIn, Instagram`}
-                />
-
-                <meta
-                    property="og:title"
-                    content="Meet the Team | GitHub Community SRM"
-                />
-                <meta
-                    property="og:description"
-                    content="Discover the GitHub Community SRM team."
-                />
-                <meta property="og:image" content="/public/logo.png" />
-                <meta
-                    property="og:url"
-                    content="https://githubsrmist.tech/team"
-                />
+                <title>Meet the Team | GitHub Community SRM | Technical, Corporate, Creative</title>
+                <meta name="description" content="Meet the GitHub Community SRM team, including President, Vice President, Leads, Associates, and Members from the Technical, Corporate, and Creative domains. Learn more about the talented individuals driving our open-source initiatives." />
+                <meta name="keywords" content={generateKeywords()} />
+                <meta property="og:title" content="Meet the Team | GitHub Community SRM | Technical, Corporate, Creative" />
+                <meta property="og:description" content="Meet the team behind GitHub Community SRM, including the President, Vice President, Leads, Associates, and Members from the Technical, Corporate, and Creative domains." />
+                <meta property="og:image" content="/public/Logo.png" />
+                <meta property="og:url" content="https://githubsrmist.tech/team" />
                 <meta property="og:type" content="website" />
 
-                <meta name="twitter:card" content="/public/x_logo.png" />
-                <meta
-                    name="twitter:title"
-                    content="Meet the Team | GitHub Community SRM"
-                />
-                <meta
-                    name="twitter:description"
-                    content="Discover the team behind GitHub Community SRM."
-                />
-                <meta name="twitter:image" content="/public/x_logo.png" />
+                <meta name="twitter:card" content="/public/Logo.png" />
+                <meta name="twitter:title" content="Meet the Team | GitHub Community SRM" />
+                <meta name="twitter:description" content="Discover the talented individuals from the Technical, Corporate, and Creative domains at GitHub Community SRM, including Leads, Associates, and Members." />
+                <meta name="twitter:image" content="/public/Logo.png" />
+                <meta name="twitter:site" content="@GithubSrm" />
 
                 <script type="application/ld+json">
                     {JSON.stringify({
                         "@context": "https://schema.org",
                         "@type": "Organization",
-                        name: "GitHub Community SRM",
-                        url: "https://githubsrmist.tech",
-                        logo: "/public/logo.png",
-                        sameAs: [
-                            "https://www.github.com/SRM-IST-KTR",
+                        "name": "GitHub Community SRM",
+                        "url": "https://githubsrmist.tech",
+                        "logo": "/public/Logo.png",
+                        "sameAs": [
+                            "https://github.com/SRM-IST-KTR",
                             "https://www.linkedin.com/company/githubsrm",
                             "https://www.instagram.com/githubsrm/",
                             "https://twitter.com/GithubSrm"
                         ],
-                        employee: members.map((member) => ({
-                            "@type": "Person",
-                            name: member.name,
-                            jobTitle: member.position,
-                            image: member.pictureUrl,
-                            url: `https://githubsrmist.tech/team/${member.name
-                                .replace(/\s+/g, "-")
-                                .toLowerCase()}`,
-                            sameAs: [
-                                member.socials.github,
-                                member.socials.linkedin,
-                                member.socials.instagram,
-                                member.socials.twitter
-                            ]
-                        }))
+                        "employee": [
+                            {
+                                "@type": "Person",
+                                "name": president?.name,
+                                "jobTitle": "President",
+                                "image": president?.pictureUrl,
+                            },
+                            {
+                                "@type": "Person",
+                                "name": vp?.name,
+                                "jobTitle": "Vice President",
+                                "image": vp?.pictureUrl,
+                            },
+                            ...leads.map(lead => ({
+                                "@type": "Person",
+                                "name": lead.name,
+                                "jobTitle": `Lead - ${lead.domain}`,
+                                "image": lead.pictureUrl,
+                            })),
+                            ...associates.map(associate => ({
+                                "@type": "Person",
+                                "name": associate.name,
+                                "jobTitle": `Associate - ${associate.domain}`,
+                                "image": associate.pictureUrl,
+                            })),
+                            ...members.map(member => ({
+                                "@type": "Person",
+                                "name": member.name,
+                                "jobTitle": `Member - ${member.domain}`,
+                                "image": member.pictureUrl,
+                            }))
+                        ]
                     })}
                 </script>
             </Head>
             <Hero />
             <div className="text-white">
-                <h2 className="text-2xl sm:text-3xl font-bold text-center mt-16">
+                <h2 className="text-2xl sm:text-3xl font-bold text-center mt-2">
                     Convenor
                 </h2>
                 {!fetched ? (
