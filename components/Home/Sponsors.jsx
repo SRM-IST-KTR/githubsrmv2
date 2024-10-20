@@ -36,7 +36,7 @@ const Sponsors = () => {
                 }
 
                 .border-gradient:hover {
-                    filter: drop-shadow(0 0 30px 10px rgba(13, 255, 78, 1)); /* Stronger glow on hover */
+                    filter: drop-shadow(0 0 20px rgba(13, 255, 78, 1)); /* Stronger glow on hover */
                     transition: filter 0.3s ease-in-out; /* Smooth transition on hover */
                 }
             `}</style>
