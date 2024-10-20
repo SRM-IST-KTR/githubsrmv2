@@ -31,12 +31,12 @@ const Sponsors = () => {
             <style jsx>{`
                 .border-gradient {
                     border: 3px solid transparent;
-                    filter: drop-shadow(0 0 10px rgba(13, 255, 78, 0.4));
+                    filter: drop-shadow(0 0 10px rgba(13, 255, 78, 0.2));
                     transition: filter 0.3s ease-in-out; /* Ensure smooth transition */
                 }
 
                 .border-gradient:hover {
-                    filter: drop-shadow(0 0 20px rgba(13, 255, 78, 0.8)); /* Stronger glow on hover */
+                    filter: drop-shadow(0 0 20px rgba(13, 255, 78, 1)); /* Stronger glow on hover */
                     transition: filter 0.3s ease-in-out; /* Smooth transition on hover */
                 }
             `}</style>
