@@ -3,29 +3,35 @@
 
 To get the project up and running, follow these steps:
 
-1. **Install dependencies**:  
+1. **Clone the repository**:  
+   First, clone the repository to your local machine by running the following command:
+   ```bash
+     git clone https://github.com/SRM-IST-KTR/githubsrmv2.git
+   ```
+
+2. **Install dependencies**:  
    Run the following command to install all necessary dependencies:
    ```bash
    yarn install
    ```
 
-2. **Start the development server**:  
+3. **Start the development server**:  
    Use the command below to start the server locally:
    ```bash
    yarn dev
    ```
 
-3. **View the project**:  
+4. **View the project**:  
    Open http://localhost:3000 in your browser to view the result.
 
-4. **Edit the project**:  
+5. **Edit the project**:  
    You can start editing the project by modifying `pages/index.js`. Any changes you make will automatically refresh in the browser.
 
-5. **API Routes**:  
+6. **API Routes**:  
    API routes can be accessed at http://localhost:3000/api/hello.  
    This route can be edited in `pages/api/hello.js`. The `pages/api` directory is mapped to `/api/*`. Files in this directory behave as API routes, not as React pages.
 
-6. **Font Optimization**:  
+7. **Font Optimization**:  
    This project uses `next/font` to automatically optimize and load Inter, a custom Google Font.
 
 ---
