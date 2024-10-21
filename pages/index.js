@@ -3,6 +3,7 @@ import Hero from "@/components/Home/Hero";
 import AboutUs from "@/components/Home/About";
 import Domains from "@/components/Home/Domains";
 import Gallery from "@/components/Home/Gallery";
+import Sponsors from "@/components/Home/Sponsors";
 import ContactForm from "@/components/Contact/ContactForm";
 
 const Index = () => {
@@ -11,6 +12,7 @@ const Index = () => {
             <Hero />
             <AboutUs />
             <Domains />
+            <Sponsors />
             <div className="overflow-hidden h-[500px]">
                 <Gallery />
             </div>

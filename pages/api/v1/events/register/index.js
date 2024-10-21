@@ -43,7 +43,7 @@ export default async function handler(req, res) {
                 participantSchema
             );
 
-            const existingParticipant = await Participant.findOne({ email });
+            const existingParticipant = await Participant.findOne({ email: { $eq: email } });
 
             if (existingParticipant) {
                 return res.status(400).json({
