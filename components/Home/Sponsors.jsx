@@ -2,7 +2,8 @@ import React from 'react';
 
 const sponsors = [
     { name: "SWOC", logo: "https://www.socialwinterofcode.com/img/logos/SWOC_W_Black.png" },
-    // { name: "Linux Foundation", logo: "https://www.linuxfoundation.org/hubfs/lf-stacked-color.svg" }
+    { name: "Linux Foundation", logo: "https://www.linuxfoundation.org/hubfs/lf-stacked-color.svg" },
+    { name: "Genxyz", logo: "https://res.cloudinary.com/doslhy0tq/image/upload/v1729540377/xyz-logo-color_mrldu1.svg" }
 ];
 
 const Sponsors = () => {
