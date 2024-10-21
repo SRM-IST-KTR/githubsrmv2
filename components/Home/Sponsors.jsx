@@ -17,7 +17,7 @@ const Sponsors = () => {
                         className="border-gradient rounded-xl transition-transform duration-300 hover:drop-shadow-glow"
                     >
                         <div
-                            className="bg-bg_black p-4 rounded-xl shadow-md flex justify-center items-center h-36 w-36 lg:w-80 lg:h-64"
+                            className="bg-bg_black p-4 rounded-xl shadow-md flex justify-center items-center h-36 w-36 lg:w-72 lg:h-64"
                         >
                             <img
                                 src={sponsor.logo}
