@@ -65,6 +65,10 @@ const ServiceSlider = () => {
     };
 
     return (
+        <>
+        <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
+                Gallery
+            </h1>
         <Swiper
             slidesPerView={slidesPerView}
             // effect={"coverflow"}
@@ -106,7 +110,7 @@ const ServiceSlider = () => {
                 </SwiperSlide>
             ))}
         </Swiper>
-
+        </>
         // <Swiper
         //     pagination={{
         //         dynamicBullets: true
