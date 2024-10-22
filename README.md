@@ -1,40 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## 🚀 Getting Started
 
-First, run the development server:
+To get the project up and running, follow these steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+1. **Clone the repository**:  
+   First, clone the repository to your local machine by running the following command:
+   ```bash
+     git clone https://github.com/SRM-IST-KTR/githubsrmv2.git
+   ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install dependencies**:  
+   Run the following command to install all necessary dependencies:
+   ```bash
+   yarn install
+   ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+3. **Start the development server**:  
+   Use the command below to start the server locally:
+   ```bash
+   yarn dev
+   ```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+4. **View the project**:  
+   Open http://localhost:3000 in your browser to view the result.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+5. **Edit the project**:  
+   You can start editing the project by modifying `pages/index.js`. Any changes you make will automatically refresh in the browser.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+6. **API Routes**:  
+   API routes can be accessed at http://localhost:3000/api/hello.  
+   This route can be edited in `pages/api/hello.js`. The `pages/api` directory is mapped to `/api/*`. Files in this directory behave as API routes, not as React pages.
 
-## Learn More
+7. **Font Optimization**:  
+   This project uses `next/font` to automatically optimize and load Inter, a custom Google Font.
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+🛠️ Guidelines for Handling Repository Issues
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Please follow these rules and instructions when contributing to the repository:
 
-## Deploy on Vercel
+📋 **Claiming an Issue**:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. **Check for issues**:  
+   Visit the “Issues” section in the repository for open issues related to bug fixes, feature requests, or UI updates.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+2. **Comment to claim**:  
+   To work on an issue, you must claim it by commenting on the issue. Say something like, “I’d like to work on this.”
+
+3. **Assignment confirmation**:  
+   A Tech Lead will assign the issue to you. Do not start working on the issue until it is officially assigned to you.
+
+---
+
+🏷️ **Branch Naming Convention**:
+
+When working on an issue, create a new branch with the following naming scheme:
+
+`<your-initials>/<component>/<short-description>`
+
+Example: `uj/navbar/add-links`
+
+---
+
+🔄 **Creating Pull Requests (PR)**:
+
+Once you’ve completed your work:
+
+1. **Create a pull request**:  
+   - Ensure that the PR is linked to the issue you worked on.  
+   - Name your PR descriptively.
+
+2. **Include detailed information**:  
+   Your PR should include:
+   - A clear and concise explanation of the changes made.
+   - Bulleted points summarizing the work done.
+   - Screenshots or videos demonstrating the changes (if applicable).
+
+3. **Add yourself and reviewer**:  
+   - Add yourself as the assignee of the PR.
+   - Add your Tech Lead as the reviewer.
+
+---
+
+🔒 **Important PR Rules**:
+
+1. **Do NOT merge into main**:  
+   Under no circumstances should contributors merge their own PRs into the main branch. This is reserved for Tech Leads.
+
+2. **Workflows**:  
+   - After creating your PR, notify in the respective issue thread.  
+   - Once your PR is reviewed and approved by the Tech Lead, the changes will be merged into the staging branch.
+
+3. **Closing the issue**:  
+   When the PR is merged successfully, the Tech Lead will close the issue. You don’t need to close the issue yourself.
+
+---
+
+⚠️ **Additional Notes**:
+
+- If you encounter any blockers or are unable to proceed with an issue, immediately notify the team in the issue thread or through direct communication with your Tech Lead.
+- Always pull the latest changes from staging before starting any new work to avoid merge conflicts.
