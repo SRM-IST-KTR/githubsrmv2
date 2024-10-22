@@ -2,7 +2,8 @@ import React from 'react';
 
 const sponsors = [
     { name: "SWOC", logo: "https://www.socialwinterofcode.com/img/logos/SWOC_W_Black.png" },
-    // { name: "Linux Foundation", logo: "https://www.linuxfoundation.org/hubfs/lf-stacked-color.svg" }
+    { name: "Linux Foundation", logo: "https://www.linuxfoundation.org/hubfs/lf-stacked-color.svg" },
+    { name: "Genxyz", logo: "https://res.cloudinary.com/doslhy0tq/image/upload/v1729540377/xyz-logo-color_mrldu1.svg" }
 ];
 
 const Sponsors = () => {
@@ -16,7 +17,7 @@ const Sponsors = () => {
                         className="border-gradient rounded-xl transition-transform duration-300 hover:drop-shadow-glow"
                     >
                         <div
-                            className="bg-bg_black p-4 rounded-xl shadow-md flex justify-center items-center h-36 w-36 lg:w-80 lg:h-64"
+                            className="bg-bg_black p-4 rounded-xl shadow-md flex justify-center items-center h-36 w-36 lg:w-72 lg:h-64"
                         >
                             <img
                                 src={sponsor.logo}
