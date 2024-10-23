@@ -51,6 +51,9 @@ Please follow these rules and instructions when contributing to the repository:
 3. **Assignment confirmation**:  
    A Tech Lead will assign the issue to you. Do not start working on the issue until it is officially assigned to you.
 
+4. **Development**:
+   Link a development branch to the issue and keep all your work there. When done, create a pull request and add the President, Vice President and Tech Lead as the reviewers. Follow branch naming convention as mentioned in the next section
+
 ---
 
 🏷️ **Branch Naming Convention**:
