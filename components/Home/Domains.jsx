@@ -31,12 +31,12 @@ function Domains() {
     };
 
     return (
-        <div className="p-20">
+        <div className="p-20 flex flex-col items-center">
             <h1 className="text-4xl text-white mb-10 font-bold font-poppins text-center">
                 Our Domains
             </h1>
-            <section className="domain-box container flex items-center justify-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 items-center justify-center gap-6 text-center">
+            <section className="domain-box container flex justify-center">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-center mx-auto">
                     <div
                         className="drop-shadow-glow filter bg-domain_bg rounded-xl p-6 shadow-lg text-white h-[200px] w-[200px] sm:w-[250px] sm:h-[250px] flex flex-col justify-center items-center transition-all duration-300 ease-in-out"
                         // onClick={() => handleDomainChange('Technical')}
