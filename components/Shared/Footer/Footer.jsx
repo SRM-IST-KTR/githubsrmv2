@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className="pr-7 sm:pr-0 text-center sm:text-left flex flex-col items-center justify-center lg:justify-start lg:items-start ml-4">
                         <div className="flex items-center justify-center">
                             <img
-                            className="h-[4   5px]  md:h-[60px] lg:h-[65px] mb-3"
+                            className="h-[45px] md:h-[60px] lg:h-[65px] mb-3"
                             src="Logo.png"
                             alt="Logo"
                             />
