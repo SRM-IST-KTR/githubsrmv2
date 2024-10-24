@@ -7,9 +7,9 @@ import { FaLinkedin } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="relative">
-            <footer className="flex flex-col md:px-20 bg-gradient-to-t from-green-950 to-bg_black pt-12 pb-10">
-                <div className="flex-grow grid mb-8 px-8 sm:px-24 sm:flex sm:justify-between sm:items-center space-y-4 sm:space-y-0">
-                    <div className="pr-7 sm:pr-0 text-center sm:text-left flex flex-col items-center justify-center ml-4">
+            <footer className="flex flex-col md:px-10 bg-gradient-to-t from-green-950 to-bg_black  pb-10">
+                <div className="flex-grow grid mb-4 px-8 sm:px-24 sm:flex sm:justify-between sm:items-center space-y-4 sm:space-y-0">
+                    <div className="pr-7 sm:pr-0 text-center sm:text-left flex flex-col items-center justify-center lg:justify-start lg:items-start ml-4">
                         <div className="flex items-center justify-center">
                             <img
                             className="h-[45px]  md:h-[60px] mb-3"
@@ -26,12 +26,12 @@ const Footer = () => {
                         <p className="text-zinc-400 font-dmSans">India</p>
                     </div>
 
-                    <div className="text-white text-center">
+                    <div className="text-white text-center ">
                         <h2 className="flex justify-center text-center font-poppins mb-1 sm:justify-start">
                             Follow Us On
                         </h2>
 
-                        <div className="flex justify-center space-x-3">
+                        <div className="flex justify-center space-x-3 lg:mr-20">
                             <a
                                 href="https://www.linkedin.com/company/githubsrm/mycompany/"
                                 target="_blank"
