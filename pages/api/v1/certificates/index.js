@@ -9,10 +9,10 @@ export default async function handler(req, res) {
     if (req.method === "POST") {
         const { email, event, type } = req.body;
 
-        if (!email || !event || !type) {
+        if (!email || !event || !type || typeof email !== "string") {
             return res
                 .status(400)
-                .json({ success: false, error: "All fields are required." });
+                .json({ success: false, error: "All fields are required and email must be a string." });
         }
 
         try {
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
             });
 
             const User = db.model(eventData.collection[type], userSchema);
-            const userData = await User.findOne({ email });
+            const userData = await User.findOne({ email: { $eq: email } });
 
             if (!userData || !userData.checkin) {
                 return res.status(404).json({
