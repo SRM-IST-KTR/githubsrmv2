@@ -18,7 +18,7 @@ const Faq = () => {
                 <h1 className="text-4xl font-poppins font-bold text-center mb-16">
                     Frequently Asked Questions
                 </h1>
-                <div className="flex flex-col items-center space-y-4 w-">
+                <div className="flex flex-col items-center space-y-4 ">
                     {faqData.map((item, index) => (
                         <div
                             key={index}
