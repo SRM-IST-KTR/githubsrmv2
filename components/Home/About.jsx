@@ -2,7 +2,7 @@ import React from "react";
 
 function AboutUs() {
     return (
-        <div className="lg:mt-2 mt-14 lg:px-48 p-8 rounded-2xl">
+        <div className="lg:mt-2 mt-14 lg:px-48 p-8 rounded-2xl"style={{ marginTop: '1cm' }}>
             <section className="about-us lg:p-10 py-8 px-6 rounded-2xl">
                 <h2 className="lg:text-5xl text-3xl md:text-4xl font-bold font-poppins mb-6">
                     About Us
