@@ -1,0 +1,12 @@
+{
+    "pipeline": {
+      "targets": [
+        "dev"
+      ]
+    },
+    "targets": {
+      "dev": {
+        "cmd": "next dev"
+      }
+    }
+  }

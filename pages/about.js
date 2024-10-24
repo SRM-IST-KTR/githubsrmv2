@@ -1,6 +1,8 @@
 import React from "react";
 import Hero from "@/components/OurStory/Hero";
 import Head from "next/head";
+import Script from 'next/script';
+
 
 function AboutUs() {
     return (
@@ -8,14 +10,16 @@ function AboutUs() {
         <div className="bg-bg_black text-white">
             <Head>
                 {/* Google Tag Manager */}
-                <script
-                dangerouslySetInnerHTML={{
-                __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-                })(window,document,'script','dataLayer','GTM-TXXTQDRC');`
-                }}/>
+                <Script
+                    id="google-tag-manager"
+                    dangerouslySetInnerHTML={{
+                    __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                    })(window,document,'script','dataLayer','GTM-TXXTQDRC');`
+                }}
+                />
                 {/* End Google Tag Manager */}
                 <title>About Us | GitHub Community SRM</title>
                 <meta name="description" content="Discover GitHub Community SRM, a student-led group at SRMIST, promoting open-source collaboration. Join us to explore coding, innovation, and community-driven development." />
