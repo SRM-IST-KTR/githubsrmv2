@@ -17,7 +17,6 @@ const Contact = () => {
                 })(window,document,'script','dataLayer','GTM-TXXTQDRC');`
                 }}/>
                 {/* End Google Tag Manager */}
-                <title>Contact Us | GitHub Community SRM | Support & Queries</title>
                 <meta name="description" content="Need help or have a query? Contact the GitHub Community SRM team for support and assistance. Explore our FAQ section for quick answers to common questions." />
                 <meta name="keywords" content="Contact, GitHub Community SRM, support, queries, FAQ, community help, reach out, open source support, SRMIST GitHub, GitHub Community support" />
                 <link

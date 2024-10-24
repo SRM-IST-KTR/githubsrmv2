@@ -124,7 +124,6 @@ const Teams = () => {
                 })(window,document,'script','dataLayer','GTM-TXXTQDRC');`
                 }}/>
                 {/* End Google Tag Manager */}
-                <title>Meet the Team | GitHub Community SRM | Technical, Corporate, Creative</title>
                 <meta name="description" content="Meet the GitHub Community SRM team, including President, Vice President, Leads, Associates, and Members from the Technical, Corporate, and Creative domains. Learn more about the talented individuals driving our open-source initiatives." />
                 <meta name="keywords" content={generateKeywords()} />
                 <meta property="og:title" content="Meet the Team | GitHub Community SRM | Technical, Corporate, Creative" />

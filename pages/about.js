@@ -71,16 +71,6 @@ function AboutUs() {
                             Story
                         </h2>
                         <div className="lg:text-2xl text-md sm:text-lg text-left font-dmSans">
-                            In the hidden corners of SRM, a ragtag group of
-                            coders gathered online. United by their passion for
-                            unconventional projects. They ditched the usual
-                            routines, delved in coding lingos, secret chat
-                            channels filled with cryptic clues and inside jokes.
-                            Their identities might be lost, but their creations
-                            tell a different story. Built with a blend of
-                            diverse skills and backgrounds, these quirky
-                            projects occasionally emerge from the shadows, like
-                            unexpected bursts of confetti in the GitHub world.
                             <br />
                             <br />
                             This underground community thrives on inclusivity
