@@ -82,10 +82,11 @@ function ContactForm() {
                 <div className="main1 py-6 lg:py-20 sm:py-10">
                     <div
                         className="Qform bg-bg_black text-white flex flex-col shadow-lg 
-             hover:shadow-[0_0_15px_5px_rgba(0,255,0,0.7)] border-[1px] border-bright_green mx-10 rounded-2xl p-4
+             hover:shadow-[0_0_30px_10px_rgba(13,255,78,1)] border-[1px] border-bright_green mx-10 rounded-2xl p-4
              lg:my-10 lg:mx-60 lg:border-2 lg:border-bright_green lg:rounded-2xl lg:p-8
              sm:mx-32 sm:border-[1px] sm:border-bright_green sm:rounded-2xl sm:p-6
-             mb-20"
+             mb-20 transition-shadow duration-300 ease-in-out"
+
                     >
                         <p
                             className="text-white text-2xl md:text-4xl font-bold text-center mt-3 font-poppins 
