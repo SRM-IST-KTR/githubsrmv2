@@ -104,7 +104,7 @@ function MyApp({ Component, pageProps }) {
                                 "https://github.com/SRM-IST-KTR",
                                 "https://www.linkedin.com/company/githubsrm"
                             ],
-                            "description": "GitHub Community SRM is a student-led open-source community at SRM Institute of Science and Technology, promoting open-source development and collaboration.",
+                            "description": "Janani Hema.",
                             "location": {
                                 "@type": "Place",
                                 "name": "SRM Institute of Science and Technology",

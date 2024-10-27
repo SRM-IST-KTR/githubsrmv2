@@ -8,11 +8,7 @@ function AboutUs() {
                     About Us
                 </h2>
                 <p className="font-dmSans lg:text-2xl text-md md:text-lg text-left">
-                    GitHub Community SRM is the official student-led community
-                    affiliated with GitHub, spearheading the open-source
-                    revolution at SRMIST. With the vision of revolutionising the
-                    technical world, we constantly strive to impart the best
-                    knowledge on emerging technologies.
+                    Janani Hema
                     <br />
                     <br />
                     At GitHub Community SRM, we believe in a friendly work
