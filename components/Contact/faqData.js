@@ -9,7 +9,7 @@ const faqData = [
     },
     {
         question: "What if I'm not all about tech. Can I still contribute?",
-        answer: "Ofcourse! No club can function with just tech. Domains like Creatives, Content and Corporate can be a great place for you to show off your creativity or blow away audiences with your extraordinary skills of expression. Maybe let out the literary fanatic within you and write mind-gripping scripts and blogs. There is always something or somewhere you can contribute."
+        answer: "Ofcourse! No club can function with just tech. Domains like Creatives and Corporate can be a great place for you to show off your creativity or blow away audiences with your extraordinary skills of expression. There is always something or somewhere you can contribute."
     },
     {
         question: "Why should I join?",

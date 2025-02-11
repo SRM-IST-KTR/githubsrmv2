@@ -1,0 +1,34 @@
+# Node modules directory
+node_modules
+
+# Yarn cache
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/patches
+.yarn/releases
+.yarn/plugins
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Build output
+.next
+out
+
+# Git files and directories
+.git
+.gitignore
+
+# IDE/editor directories
+.vscode
+.idea
+
+# OS-specific files
+.DS_Store
+Thumbs.db

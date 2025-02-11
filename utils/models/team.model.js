@@ -14,10 +14,10 @@ const teamSchema = new mongoose.Schema({
         website: String,
         linkedin: String,
         twitter: String,
-        instagram: String,
+        instagram: String
     }
 });
 
-const Team = mongoose.model.Team || mongoose.model("teams", teamSchema);
+const Team = mongoose.model.teams || mongoose.model("teams", teamSchema);
 
 export default Team;

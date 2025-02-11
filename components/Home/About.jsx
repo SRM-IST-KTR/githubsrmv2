@@ -1,17 +1,26 @@
+import React from "react";
+
 function AboutUs() {
     return (
+<<<<<<< HEAD
         <div className="AboutUsContainer mt-[150px]">
             <section className="about-us">
                 <h2 className="about-us-title text-4xl font-bold">About Us</h2>
                 <p className="about-us-description">
                     <br />
+=======
+        <div className="lg:mt-2 mt-14 lg:px-48 p-8 rounded-2xl"style={{ marginTop: '2.7cm' }}>
+            <section className="about-us lg:p-10 py-8 px-6 rounded-2xl">
+                <h2 className="lg:text-5xl text-3xl md:text-4xl font-bold font-poppins mb-6">
+                    About Us
+                </h2>
+                <p className="font-dmSans lg:text-2xl text-md md:text-lg text-left">
+>>>>>>> 5369fea20d9b4a91aefe1d253850f160c0521c73
                     GitHub Community SRM is the official student-led community
                     affiliated with GitHub, spearheading the open-source
                     revolution at SRMIST. With the vision of revolutionising the
                     technical world, we constantly strive to impart the best
-                    knowledge on emerging technologies. We have reached 1k+
-                    followers on Instagram, and nearly 500 followers on LinkedIn
-                    within 6 months.
+                    knowledge on emerging technologies.
                     <br />
                     <br />
                     At GitHub Community SRM, we believe in a friendly work
@@ -24,33 +33,17 @@ function AboutUs() {
             </section>
 
             <style jsx>{`
-                .AboutUsContainer {
-                    display: flex;
-                    justify-content: center;
-                    padding: 10px;
-                }
                 .about-us {
-                    border-radius: 10px;
                     border: 1px solid rgba(0, 0, 0, 0.2);
                     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
                     background: rgba(12, 16, 20, 0.7);
                     box-shadow: 0px 0px 10px 4px rgba(13, 255, 78, 0.5);
                     transition: box-shadow 0.3s ease;
-                    display: flex;
-                    flex-direction: column;
                     color: #fff;
-                    padding: 50px;
-                    max-width: 1200px;
-                    transition: box-shadow 0.3s ease;
-                    font-size: 24px;
                 }
 
                 .about-us:hover {
                     box-shadow: 0px 0px 30px 10px rgba(13, 255, 78, 1);
-                }
-                .about-us h1 {
-                    font-size: 48px;
-                    margin-bottom: 20px;
                 }
             `}</style>
         </div>
