@@ -83,14 +83,14 @@ const ServiceSlider = () => {
             //     slideShadows: false
             // }}
             pagination={{
-                dynamicBullets: true
+                clickable: true
             }}
             autoplay={{
                 delay: 2000,
                 disableOnInteraction: true
             }}
             modules={[Autoplay, Pagination]}
-            className="overflow-hidden"
+            className="overflow-hidden pb-12"
         >
             {serviceData.map((item, index) => (
                 <SwiperSlide key={index}>
@@ -110,6 +110,7 @@ const ServiceSlider = () => {
                 </SwiperSlide>
             ))}
         </Swiper>
+
         </>
         // <Swiper
         //     pagination={{
