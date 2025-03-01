@@ -26,7 +26,7 @@ const Index = () => {
             <Hero />
             <AboutUs />
             <Domains />
-            {/* <Sponsors /> */}
+            <Sponsors />
             <div className="overflow-hidden h-[500px]">
                 <Gallery />
             </div>
