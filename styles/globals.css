@@ -2,3 +2,34 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.swiper {
+    position: relative !important;
+}
+
+
+.swiper-pagination {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px 15px;
+    border-radius: 15px;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    width: fit-content !important;
+    margin: auto !important;
+    
+    position: absolute !important; /* Ensures correct placement */
+    bottom: 15px !important; /* Moves pagination UP from the bottom */
+    left: 50% !important;
+    transform: translateX(-50%) !important; /* Centers it horizontally */
+}
+
+.swiper-pagination-bullet {
+    background: white !important;
+    opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+    background: rgb(13 255 78) !important;
+    opacity: 1;
+}
