@@ -119,6 +119,15 @@ const eventSchema = new mongoose.Schema({
     }
 });
 
+// Add indexes for frequently queried fields
+eventSchema.index({ event_date: -1 }); // Index for sorting by date (descending)
+eventSchema.index({ is_active: 1 }); // Index for filtering active events
+eventSchema.index({ slug: 1 }); // Already unique, but explicit index
+eventSchema.index({ is_active: 1, event_date: -1 }); // Compound index for active events sorted by date
+
+// Disable buffering on this schema
+eventSchema.set('bufferCommands', false);
+
 const Event = mongoose.models.events || mongoose.model("events", eventSchema);
 
 export default Event;

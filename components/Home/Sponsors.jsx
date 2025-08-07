@@ -14,10 +14,24 @@ const Sponsors = () => {
         const fetchSponsors = async () => {
             try {
                 setLoading(true);
-                const response = await fetch("../api/v1/sponsers");
+
+                // Add timeout to fetch request
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
+                const response = await fetch("/api/v1/sponsers", {
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
                 const result = await response.json();
-                console.log("hello")
-                setSponsors(result.data);
+                console.log("Sponsors fetched successfully");
+                setSponsors(result.data || []);
             } catch (error) {
                 console.error("Error fetching sponsors:", error);
             } finally {

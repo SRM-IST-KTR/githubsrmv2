@@ -11,6 +11,9 @@ const sponsorSchema = new mongoose.Schema({
     }
 });
 
+// Disable buffering on this schema
+sponsorSchema.set('bufferCommands', false);
+
 const Sponsor = mongoose.models.sponsors || mongoose.model("sponsors", sponsorSchema);
 
 export default Sponsor;

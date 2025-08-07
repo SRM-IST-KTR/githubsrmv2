@@ -35,11 +35,24 @@ const Events = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("../api/v1/events");
+                setFetched(false);
+
+                // Add timeout to fetch request
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
+                const response = await fetch("/api/v1/events", {
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch data");
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+
                 const data = await response.json();
+                console.log("Events data fetched successfully");
 
                 // Sort events by date (most recent first)
                 const sortedEvents = data.data.sort((a, b) => {
@@ -51,7 +64,17 @@ const Events = () => {
                 setEventData(sortedEvents);
                 setFetched(true);
             } catch (error) {
-                console.error(error);
+                console.error("❌ Error fetching events data:", error);
+                setFetched(true); // Set to true to stop loading even on error
+
+                if (error.name === 'AbortError') {
+                    console.log('Events request timed out');
+                } else {
+                    console.log('Using empty events array due to error');
+                }
+
+                // Set empty array as fallback
+                setEventData([]);
             }
         };
 

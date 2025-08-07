@@ -7,8 +7,27 @@ import { set } from "mongoose";
 
 const ProfileSkeleton = () => {
     return (
-        <div className="animate-pulse w-60 rounded-3xl">
-            <div className="w-60 h-60 object-cover rounded-lg bg-gray-100" />
+        <div className="group relative block rounded-3xl h-60 w-60">
+            <div className="absolute inset-0 bg-black rounded-3xl filter drop-shadow-glow"></div>
+
+            <div className="relative z-10 outline-2 border-gradient bg-black rounded-3xl h-full w-full">
+                <div className="animate-pulse">
+                    <div className="absolute inset-0 h-full w-full bg-gray-600 opacity-60 rounded-3xl"></div>
+
+                    <div className="relative p-4 sm:p-6 lg:p-4">
+                        <div className="h-4 bg-gray-500 rounded-md w-24 mb-2"></div>
+
+                        <div className="mt-32">
+                            <div className="h-3 bg-gray-500 rounded-md w-32 mb-2"></div>
+                            <div className="flex justify-center space-x-2">
+                                <div className="h-6 w-6 bg-gray-500 rounded"></div>
+                                <div className="h-6 w-6 bg-gray-500 rounded"></div>
+                                <div className="h-6 w-6 bg-gray-500 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     );
 };
@@ -30,11 +49,24 @@ const Teams = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch("../api/v1/team");
+                setFetched(false);
+
+                // Add timeout to fetch request
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
+                const response = await fetch("/api/v1/team", {
+                    signal: controller.signal
+                });
+
+                clearTimeout(timeoutId);
+
                 if (!response.ok) {
-                    throw new Error("Failed to fetch data");
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+
                 const data = await response.json();
+                console.log("✅ Team data fetched successfully");
 
                 const convenorData = data.data.find(
                     (item) => item.position === "Convenor"
@@ -72,7 +104,13 @@ const Teams = () => {
                 setMembers(membersData);
                 setFetched(true);
             } catch (error) {
-                console.error(error);
+                console.error("❌ Error fetching team data:", error);
+                setFetched(true); // Set to true to stop loading even on error
+
+                // You could add fallback data here if needed
+                if (error.name === 'AbortError') {
+                    console.log('Team request timed out');
+                }
             }
         };
 
