@@ -56,6 +56,6 @@ const participantSchema = new mongoose.Schema({
     }
 });
 
-const ParticipantUser = mongoose.models.Recruitment24 || mongoose.model("Recruitment24", participantSchema);
+const ParticipantUser = mongoose.models.Recruitment25 || mongoose.model("Recruitment25", participantSchema);
 
 module.exports = ParticipantUser;
