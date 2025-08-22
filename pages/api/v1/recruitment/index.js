@@ -1,7 +1,7 @@
-import DBInstance from "@/utils/db";
+import RecruitmentDBInstance from "@/utils/db";
 import Participant from "@/utils/models/recruitment.model.js";
 
-DBInstance();
+RecruitmentDBInstance();
 
 export default async function handler(req, res) {
     if (req.method === "POST") {
