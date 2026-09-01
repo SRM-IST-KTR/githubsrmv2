@@ -32,6 +32,8 @@ const Navbar = () => {
         { id: 4, text: "Events", path: "/events" },
         { id: 5, text: "Verify", path: "/verify" },
         { id: 6, text: "Contact Us", path: "/contact" },
+        { id: 7, text: "Join Us", path: "https://recruitment.githubsrmist.in/" },
+
 
         // { id: 7, text: "Submission", path: "/submission" }
     ];
