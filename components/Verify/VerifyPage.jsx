@@ -1,7 +1,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { API_ENDPOINTS } from "@/utils/config";
+import { API_ENDPOINTS, publicAuthHeaders } from "@/utils/config";
 
 const STATE_IDLE = "idle";
 const STATE_LOADING = "loading";
@@ -118,9 +118,7 @@ const VerifyPage = ({ initialCertificateId = "" }) => {
                 API_ENDPOINTS.CERTIFICATES.VERIFY(encodeURIComponent(certificateId)),
                 {
                     method: "GET",
-                    headers: {
-                        Accept: "application/json",
-                    },
+                    headers: publicAuthHeaders({ Accept: "application/json" }),
                 }
             );
 
