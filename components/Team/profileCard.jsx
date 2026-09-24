@@ -30,7 +30,7 @@ const profileCard = ({ photo, name, caption, socials }) => {
                     className="absolute inset-0 h-full w-full object-cover opacity-90 transition-opacity group-hover:opacity-50 rounded-3xl"
                 />
 
-                <div className="relative p-4 sm:p-6 lg:p-4">
+                <div className="relative flex flex-col justify-between h-full p-4 sm:p-6 lg:p-4">
                     <p
                         className="font-medium font-poppins text-white sm:text-lg"
                         style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.5)" }}
@@ -38,11 +38,9 @@ const profileCard = ({ photo, name, caption, socials }) => {
                         {name}
                     </p>
 
-                    <div className=" mt-32 font-dmSans">
+                    <div className="font-dmSans">
                         <div className="translate-y-2 transform opacity-0 transition-all group-hover:translate-y-0 group-hover:opacity-100 flex flex-col items-center">
-                            <p className="text-center text-white">{caption}</p>
                             <div className="flex justify-between mb-2 space-x-2">
-                                {/* Conditionally render only if the social link exists */}
                                 {linkedin && (
                                     <a href={linkedin} target="_blank" rel="noopener noreferrer">
                                         <Image
@@ -77,6 +75,7 @@ const profileCard = ({ photo, name, caption, socials }) => {
                                     </a>
                                 )}
                             </div>
+                            <p className="text-center text-white">{caption}</p>
                         </div>
                     </div>
                 </div>
