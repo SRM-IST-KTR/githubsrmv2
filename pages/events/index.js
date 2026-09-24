@@ -7,7 +7,7 @@ import RegisterDialogue from "@/components/Events/Register_dialogue/Registerdial
 import Hero from "@/components/Events/LiveEvents/Hero";
 import heroimg_events from "@/public/heroimg_events.png";
 import Head from "next/head";
-import { API_ENDPOINTS } from "@/utils/config";
+import { API_ENDPOINTS, publicAuthHeaders } from "@/utils/config";
 
 const Events = () => {
     const [eventData, setEventData] = useState(null);
@@ -36,7 +36,9 @@ const Events = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(API_ENDPOINTS.EVENTS.GET_ALL);
+                const response = await fetch(API_ENDPOINTS.EVENTS.GET_ALL, {
+                    headers: publicAuthHeaders(),
+                });
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }

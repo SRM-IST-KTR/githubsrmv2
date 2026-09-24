@@ -4,7 +4,7 @@ import ProfileCard from "@/components/Team/profileCard";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Head from "next/head";
 import { set } from "mongoose";
-import { API_ENDPOINTS } from '@/utils/config';
+import { API_ENDPOINTS, publicAuthHeaders } from '@/utils/config';
 
 const ProfileSkeleton = () => {
     return (
@@ -31,7 +31,9 @@ const Teams = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch(API_ENDPOINTS.TEAM.GET_ALL);
+                const response = await fetch(API_ENDPOINTS.TEAM.GET_ALL, {
+                    headers: publicAuthHeaders(),
+                });
                 if (!response.ok) {
                     throw new Error("Failed to fetch data");
                 }

@@ -7,6 +7,27 @@
 
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "https://octacore.githubsrmist.in";
 
+// Read-only key for public display endpoints (team, sponsors, events, certificate verify).
+// Safe to be present in the client bundle — the backend restricts it to non-PII reads.
+export const PUBLIC_API_KEY = process.env.NEXT_PUBLIC_PUBLIC_API_KEY || "";
+
+/**
+ * Build the headers required by the backend's public read guard.
+ * Every read endpoint now expects `Authorization: Bearer <PUBLIC_API_KEY>`.
+ */
+export const publicAuthHeaders = (extraHeaders = {}) => {
+    if (!PUBLIC_API_KEY) {
+        throw new Error(
+            "NEXT_PUBLIC_PUBLIC_API_KEY is not configured. Set it in the deployment environment."
+        );
+    }
+
+    return {
+        Authorization: `Bearer ${PUBLIC_API_KEY}`,
+        ...extraHeaders,
+    };
+};
+
 export const API_ENDPOINTS = {
     CONTACT: {
         SEND_MESSAGE: `${API_BASE_URL}/api/contact`, // POST - Send a contact message
@@ -24,7 +45,9 @@ export const API_ENDPOINTS = {
         GET_ALL: `${API_BASE_URL}/api/team`, // GET - Retrieve all team members
     },
     CERTIFICATES: {
-        GENERATE: `${API_BASE_URL}/api/certificate/generate`, // POST - Generate a certificate for an event participant
+        // POST - Generate a certificate. The backend now requires the admin key for this,
+        // so it is proxied through our own server route which holds the key server-side.
+        GENERATE: "/api/certificate/generate",
         DOWNLOAD: (certificateId) => `${API_BASE_URL}/api/certificate/download/${certificateId}?format=pdf`, // GET - Download a verified certificate (External)
         VERIFY: (certificateId) => `${API_BASE_URL}/api/certificate/verify/${certificateId}`, // GET - Verify certificate authenticity
     },
@@ -43,6 +66,8 @@ export const CONTACT_INFO = {
 
 export default {
     API_BASE_URL,
+    PUBLIC_API_KEY,
+    publicAuthHeaders,
     API_ENDPOINTS,
     API_CONFIG,
     CONTACT_INFO,

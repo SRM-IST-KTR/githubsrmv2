@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEffect, useState } from "react";
-import { API_ENDPOINTS } from '@/utils/config';
+import { API_ENDPOINTS, publicAuthHeaders } from '@/utils/config';
 
 const Sponsors = () => {
     const [sponsors, setSponsors] = useState([]);
@@ -10,7 +10,9 @@ const Sponsors = () => {
         const fetchSponsors = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(API_ENDPOINTS.SPONSORS.GET_ALL);
+                const response = await fetch(API_ENDPOINTS.SPONSORS.GET_ALL, {
+                    headers: publicAuthHeaders(),
+                });
                 const result = await response.json();
 
                 // Handle different response structures
